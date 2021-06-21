@@ -1,6 +1,7 @@
-import React from 'react'
+import {React, useState } from 'react'
 const PetPage = (props) => {
-  const { newComment } = props
+  const { postComments } = props
+  const [newComment, setNewComment] = useState({})
   const editPost = () => {
     // on click to open new form page to edit post
       }
