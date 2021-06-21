@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     location: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     bio: {
       type: DataTypes.STRING,

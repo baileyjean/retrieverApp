@@ -20,9 +20,6 @@ module.exports = {
       species: {
         type: Sequelize.ENUM
       },
-      breed: {
-        type: Sequelize.ENUM
-      },
       age: {
         type: Sequelize.INTEGER
       },
