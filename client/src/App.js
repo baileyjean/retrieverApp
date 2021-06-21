@@ -1,14 +1,12 @@
-import './App.css'
+import './styles/App.css'
 import { Switch, Route } from 'react-router-dom'
-import {
-  HomePage,
-  LoginPage,
-  NewPetPage,
-  PetPage,
-  ProfilePage,
-  SearchResultsPage,
-  SignupPage
-} from './pages'
+import HomePage from './pages/HomePage'
+import LoginPage from './pages/LoginPage'
+import NewPetPage from './pages/NewPetPage'
+import PetPage from './pages/PetPage'
+import ProfilePage from './pages/ProfilePage'
+import SearchResultsPage from './pages/SearchResultsPage'
+import SignupPage from './pages/SignupPage'
 
 function App() {
   return (
