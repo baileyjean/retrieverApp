@@ -1,12 +1,12 @@
 # Retriever App
-![Retriever App Logo](./retrieverLogo.png)
+![Retriever App Logo](./assets/images/retrieverLogo.png)
 ## June 2021
 
 
 ## Created & Coded By:
 [ZEe moss](https://www.linkedin.com/in/lindsey-zee-moss/) | [BRAdy roscher](https://www.linkedin.com/in/brady-roscher-291521212/) | [Bailey Leavitt](https://www.linkedin.com/in/baileyleavitt/) | [Alex ZErra](https://www.linkedin.com/in/alexander-zerra-a2737788/)
 
-![Zebra Blaze Team Logo](./TeamZebraBlaze_smol.png)
+![Zebra Blaze Team Logo](./assets/images/TeamZebraBlaze_smol.png)
 
 [Trello Board for Project](https://trello.com/b/47z1in78/retriever-app)
 ***
@@ -27,8 +27,8 @@ This is where we will add the user story for our app.
 ***
 
 ## Game Design
-![Retriever App Component Hierarchy Diagram](./retriever_CHD.png)
-![Retriever App Entity Relationship Diagram](./Retriever_ERD.png)
+![Retriever App Component Hierarchy Diagram](./assets/images/retriever_CHD.png)
+![Retriever App Entity Relationship Diagram](./assets/images/Retriever_ERD.png)
 
 ***
 
