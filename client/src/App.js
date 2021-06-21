@@ -7,10 +7,11 @@ import PetPage from './pages/PetPage'
 import ProfilePage from './pages/ProfilePage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import SignupPage from './pages/SignupPage'
-
+import NavBar from './components/NavBar'
 function App() {
   return (
     <div className="App">
+      <NavBar/>
       <Switch>
         <Route exact path="/" component={(props) => <LoginPage {...props} />} />
         <Route
@@ -41,5 +42,4 @@ function App() {
     </div>
   )
 }
-
 export default App
