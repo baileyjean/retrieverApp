@@ -27,7 +27,7 @@ This is where we will add the user story for our app.
 ***
 
 ## Game Design
-![Retriever App Component Hierarchy Diagram](./Retriever_CHD.png)
+![Retriever App Component Hierarchy Diagram](./retriever_CHD.png)
 ![Retriever App Entity Relationship Diagram](./Retriever_ERD.png)
 
 ***
