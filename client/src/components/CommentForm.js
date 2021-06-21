@@ -5,11 +5,21 @@ const CommentForm = (props) => {
   const [petId, setPetId] = useState('')
   const [comment, setComment] = useState('')
 
-  useEffect(
+  useEffect(() => {
     setPetId(props.match.params.pet_id)
     setUserId(props.user_id)
-    )
-  return <div></div>
+  })
+
+  handleChange(setComment(e.target.value))
+
+  return (
+    <div>
+      <form>
+        <textarea value={comment} onChange={handleChange} />
+        <button>submit</button>
+      </form>
+    </div>
+  )
 }
 
 export default CommentForm
