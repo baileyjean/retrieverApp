@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+'use strict'
+const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
@@ -18,38 +16,44 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'cascade'
       })
     }
-  };
-  User.init({
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
+  }
+  User.init(
+    {
+      name: {
+        type: DataTypes.VARCHAR(255),
+        allowNull: false
+      },
+      username: {
+        type: DataTypes.VARCHAR(255),
+        allowNull: false
+      },
+      email: {
+        type: DataTypes.VARCHAR(255),
+        allowNull: false,
+        validate: { isEmail: true }
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      location: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+      },
+      bio: {
+        type: DataTypes.VARCHAR(255),
+        allowNull: true
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: true
+      }
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: { isEmail: true }
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    location: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    bio: {
-      type: DataTypes.STRING,
-      allowNull: true
-    },
-    image: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'User',
-    tableName: 'users'
-  });
-  return User;
-};
+    {
+      sequelize,
+      modelName: 'User',
+      tableName: 'users'
+    }
+  )
+  return User
+}
