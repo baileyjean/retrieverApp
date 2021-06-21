@@ -1,0 +1,7 @@
+sequelize model:generate --name <Your Model Name Goes Here> --attributes <someattribute>:<somedatatype>,<other stuff...>
+
+sequelize model:generate --name User --attributes name:string,username:string,email:string,password:string,location:integer,bio:string,image:string
+
+sequelize model:generate --name Pet --attributes name:string,owner_id:integer,location:integer,species:enum,breed:enum,age:integer,gender:enum,adopt_fee:integer,description:string,kid_friendly:boolean,pet_friendly:boolean,image:string
+
+sequelize model:generate --name Comments --attributes user_id:integer,pet_id:integer,post:string
