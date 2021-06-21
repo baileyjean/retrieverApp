@@ -1,5 +1,5 @@
 import './styles/App.css'
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
@@ -9,6 +9,11 @@ import ProfilePage from './pages/ProfilePage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
+// import axios from 'axios'
+// import { BASE_URL } from './globals'
+
+
+
 function App() {
   const [loggedIn, setLogIn] = useState(false)
   const [newPost, setNewPost] = useState({ name: '', owner: '', location: '', species: '', age: '', gender: '', adoption_fee: '', description: '', kid_friendly: '', pet_friendly: '', image: '' })
@@ -22,23 +27,42 @@ function App() {
     localStorage.clear()
   }
 
-  // const getToken = () => {
-  //   let token = localStorage.getItem('token')
-  //   if (token) {
-  //     return setLogIn(true)
-  //   }
-  // }
+  const getToken = () => {
+    let token = localStorage.getItem('token')
+    if (token) {
+      return setLogIn(true)
+    }
+  }
 
 //// AXIOS CALL(S)
 
-  // const getPosts = async () => {
-  //   try {
-  //     const res = await axios.get(`${BASE_URL}/posts`)
-  //     setPosts(res.data)
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
+  const getPosts = async () => {
+    // try {
+    //   const res = await axios.get(`${BASE_URL}/posts`)
+    //   setPosts(res.data)
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  }
+
+  const createPost = async (e) => {
+    e.preventDefault()
+    // try {
+    //   let token = localStorage.getItem('token')
+    //   const res = await axios.post(`${BASE_URL}/posts`, newPost)
+    //   setPosts([...posts, res.data])
+    //   setNewPost({ name: '', owner: '', location: '', species: '', age: '', gender: '', adoption_fee: '', description: '', kid_friendly: '', pet_friendly: '', image: '' })
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  }
+
+  //// ON LOAD
+
+  useEffect(() => {
+    getToken()
+    getPosts()
+  }, [])
 
   return (
     <div className="App">
@@ -78,7 +102,7 @@ function App() {
           path="/new-pet/:user_id"
           component={(props) => <NewPetPage {...props} 
           loggedIn={loggedIn}
-          newPost={newPost}
+          createPost={createPost}
           />}
         />
         <Route
