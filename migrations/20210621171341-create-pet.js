@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Pets', {
+    await queryInterface.createTable('pets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -9,49 +9,91 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: DataTypes.VARCHAR(255),
+        allowNull: false
       },
       owner_id: {
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'owner_id',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       location: {
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        field: 'location',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       species: {
-        type: Sequelize.ENUM
+        type: DataTypes.ENUM,
+        values: [
+          'reptile',
+          'amphibian',
+          'bird',
+          'insect',
+          'arachnid',
+          'rodent',
+          'weasel',
+          'canine',
+          'feline',
+          'fish'
+        ],
+        allowNull: false
       },
       age: {
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: true
       },
       gender: {
-        type: Sequelize.ENUM
+        type: DataTypes.ENUM,
+        values: ['female', 'male', 'unknown', 'other'],
+        allowNull: true
       },
       adopt_fee: {
-        type: Sequelize.INTEGER
+        type: DataTypes.INTEGER,
+        allowNull: false
       },
       description: {
-        type: Sequelize.STRING
+        type: DataTypes.VARCHAR(255),
+        allowNull: false
       },
       kid_friendly: {
-        type: Sequelize.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: true
       },
       pet_friendly: {
-        type: Sequelize.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+        allowNull: true
       },
       image: {
-        type: Sequelize.STRING
+        type: DataTypes.STRING,
+        allowNull: true
       },
       createdAt: {
+        field: 'created_at',
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
+        field: 'updated_at',
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
-    });
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Pets');
+    await queryInterface.dropTable('pets')
   }
-};
+}
