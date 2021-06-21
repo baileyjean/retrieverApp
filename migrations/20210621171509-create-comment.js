@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         field: 'owner_id',
         onDelete: 'CASCADE',
@@ -19,7 +19,7 @@ module.exports = {
         }
       },
       pet_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         field: 'pet_id',
         onDelete: 'CASCADE',
@@ -29,7 +29,7 @@ module.exports = {
         }
       },
       post: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       createdAt: {

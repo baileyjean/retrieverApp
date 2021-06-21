@@ -9,32 +9,32 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       username: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       email: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false,
         validate: { isEmail: true }
       },
       password: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false
       },
       location: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       bio: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: true
       },
       image: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true
       },
       createdAt: {

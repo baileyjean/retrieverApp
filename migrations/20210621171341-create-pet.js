@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       owner_id: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         field: 'owner_id',
         onDelete: 'CASCADE',
@@ -23,7 +23,7 @@ module.exports = {
         }
       },
       location: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false,
         field: 'location',
         onDelete: 'CASCADE',
@@ -33,7 +33,7 @@ module.exports = {
         }
       },
       species: {
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: [
           'reptile',
           'amphibian',
@@ -49,34 +49,34 @@ module.exports = {
         allowNull: false
       },
       age: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: true
       },
       gender: {
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['female', 'male', 'unknown', 'other'],
         allowNull: true
       },
       adopt_fee: {
-        type: DataTypes.INTEGER,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       description: {
-        type: DataTypes.VARCHAR(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       kid_friendly: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         defaultValue: false,
         allowNull: true
       },
       pet_friendly: {
-        type: DataTypes.BOOLEAN,
+        type: Sequelize.BOOLEAN,
         defaultValue: false,
         allowNull: true
       },
       image: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: true
       },
       createdAt: {
