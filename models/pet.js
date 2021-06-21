@@ -11,6 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Pet.belongsTo(models.User, {
+        foreignKey: 'owner_id',
+        as: 'owner',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
+      Pet.hasMany(models.Comment, {
+        foreignKey: 'pet_id',
+        as: 'comments',
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE'
+      })
     }
   };
   Pet.init({
@@ -29,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Pet',
+    tableName: 'pets'
   });
   return Pet;
 };
