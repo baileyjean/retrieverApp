@@ -78,7 +78,8 @@ This is where we will add the user story for our app.
 ***
 
 ## Credits
-- `DRAW.IO`: [ERD & CHD](https://app.diagrams.net/)
+- `DRAW.IO`: [ERD](https://app.diagrams.net/)
+- `LucidChart`: [CHD](https://lucid.app/)
 - `Canva`: [Graphic Design for Logos](https://www.canva.com/)
 - `Fiverr`: [Cute bird drawing](https://www.fiverr.com/emabrumercek/)
 - `Reddit`: [Cute reptile drawings](https://www.reddit.com/r/SnakesWithHats/)
