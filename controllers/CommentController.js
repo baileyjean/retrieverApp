@@ -1,9 +1,5 @@
 const { Comment } = require('../models')
-const middleware = require('../middleware')
-
-//
-//Add Comment
-//
+// const middleware = require('../middleware')
 
 // const AddComment = async (req, res) => {
 //   try {
@@ -14,11 +10,7 @@ const middleware = require('../middleware')
 //   }
 // }
 
-//
-// Get all comments
-//
-
-// const GetComments = async (req, res) => {
+// const GetAllComments = async (req, res) => {
 //   try {
 //     const comments = await Comment.findAll()
 //     res.send(comments)
@@ -28,15 +20,10 @@ const middleware = require('../middleware')
 // }
 
 module.exports = {
-  // AddComent
-  // GetComments
-
-
-
-  
+  // AddComment,
+  // GetAllComments
   //DeleteComment
   //EditComment
   //GetCommentByUserId
   //GetCommentByPetId
-
 }
