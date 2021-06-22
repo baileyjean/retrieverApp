@@ -3,5 +3,7 @@ const controller = require('../controllers/PetController')
 
 // routes here
 
+Router.post('/', controller.AddPet)
+//
 
-module.exports = Router;
+module.exports = Router

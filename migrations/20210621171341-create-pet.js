@@ -24,13 +24,7 @@ module.exports = {
       },
       location: {
         type: Sequelize.INTEGER,
-        allowNull: false,
-        field: 'location',
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+        allowNull: false
       },
       species: {
         type: Sequelize.ENUM,
@@ -80,16 +74,12 @@ module.exports = {
         allowNull: true
       },
       createdAt: {
-        field: 'created_at',
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: new Date()
+        type: Sequelize.DATE
       },
       updatedAt: {
-        field: 'updated_at',
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: new Date()
+        type: Sequelize.DATE
       }
     })
   },
