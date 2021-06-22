@@ -15,7 +15,6 @@ import BrowsePage from './pages/BrowsePage'
 
 function App() {
   const [loggedIn, setLogIn] = useState(true)
-  const [petPosts, setPosts] = useState([])
 
   //// AUTHENTICATION
 
@@ -33,46 +32,34 @@ function App() {
 
   //// AXIOS CALL(S)
 
-  const getPosts = async () => {
-    // try {
-    //   const res = await axios.get(`${BASE_URL}/posts`)
-    //   setPosts(res.data)
-    // } catch (error) {
-    //   console.log(error)
-    // }
-  }
-
-  const createPost = async (e) => {
-    e.preventDefault()
-    // try {
-    //   let token = localStorage.getItem('token')
-    //   const res = await axios.post(`${BASE_URL}/posts`, newPost)
-    //   setPosts([...posts, res.data])
-    //   setNewPost({ name: '', owner: '', location: '', species: '', age: '', gender: '', adoption_fee: '', description: '', kid_friendly: '', pet_friendly: '', image: '' })
-    // } catch (error) {
-    //   console.log(error)
-    // }
-  }
 
   //// ON LOAD
 
   useEffect(() => {
     getToken()
-    getPosts()
   }, [])
 
   return (
     <div className="App">
-      <NavBar loggedIn={loggedIn} logOut={logOut} />
+      <NavBar 
+        loggedIn={loggedIn} 
+        logOut={logOut} />
       <Switch>
         <Route
           exact
           path="/"
-          component={(props) => <LoginPage {...props} loggedIn={loggedIn} />}
+          component={(props) => 
+            <LoginPage 
+              {...props} 
+              loggedIn={loggedIn} 
+            />}
         />
         <Route
           path="/sign-up"
-          component={(props) => <SignupPage {...props} />}
+          component={(props) => 
+            <SignupPage 
+              {...props} 
+            />}
         />
         <Route
           path="/home/:user_id"
@@ -80,8 +67,6 @@ function App() {
             <HomePage
               {...props}
               loggedIn={loggedIn}
-              petPosts={petPosts}
-              postComments={postComments}
             />
           )}
         />
@@ -91,9 +76,6 @@ function App() {
             <ProfilePage
               {...props}
               loggedIn={loggedIn}
-              petPosts={petPosts}
-              postComments={postComments}
-              petPosts={petPosts}
             />
           )}
         />
@@ -103,7 +85,6 @@ function App() {
             <NewPetPage
               {...props}
               loggedIn={loggedIn}
-              createPost={createPost}
             />
           )}
         />
@@ -113,7 +94,6 @@ function App() {
             <PetPage
               {...props}
               loggedIn={loggedIn}
-              postComments={postComments}
             />
           )}
         />
@@ -123,8 +103,6 @@ function App() {
             <SearchResultsPage
               {...props}
               loggedIn={loggedIn}
-              petPosts={petPosts}
-              postComments={postComments}
             />
           )}
         />

@@ -7,8 +7,11 @@ body {
 .App {
   text-align: center;
 }
+
 /* ----- COMPONENTS ----- */
+
 /* NAVBAR */
+
 header {
   height: 80px;
   width: 100%;
@@ -19,7 +22,10 @@ header {
   align-items: center;
   background-color: navy;
   color: aliceblue;
-  font-size: 1.5em;
+  font-size: 1.3em;
+}
+header img {
+  vertical-align: middle;
 }
 nav {
   width: 80%;
