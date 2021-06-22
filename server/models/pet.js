@@ -26,7 +26,6 @@ module.exports = (sequelize, DataTypes) => {
       owner_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'owner_id',
         onDelete: 'CASCADE',
         references: {
           model: 'users',
@@ -35,13 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       location: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        field: 'location',
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+        allowNull: false
       },
       species: {
         type: DataTypes.ENUM,
