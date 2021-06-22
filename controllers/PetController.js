@@ -76,17 +76,6 @@ const GetPetBySpecies = async (req, res) => {
   }
 }
 
-// const GetPetByLocation = async (req, res) => {
-//   try {
-//     const pets = await Pet.findAll({
-//       attributes:  ['location']
-//     })
-//     res.send(pets)
-//   } catch (error) {
-//     throw error
-//   }
-// }
-
 module.exports = {
   AddPet,
   GetAllPets,
