@@ -18,15 +18,15 @@ module.exports = (sequelize, DataTypes) => {
   User.init(
     {
       name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
       },
       username: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
       },
       email: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false,
         validate: { isEmail: true }
       },
@@ -39,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       bio: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: true
       },
       image: {

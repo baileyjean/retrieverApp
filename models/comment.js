@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       post: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
       }
     },
