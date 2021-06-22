@@ -11,19 +11,22 @@ import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
 import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
+import { useHistory } from 'react-router-dom'
 // import axios from 'axios'
 // import { BASE_URL } from './globals'
 
 function App() {
   const [loggedIn, setLogIn] = useState(true)
-
+  const [userID, setUserID] = useState('')
   // const [specie, setSpecie] = useState([])
+  const history = useHistory()
 
   //// AUTHENTICATION
 
   const logOut = () => {
     setLogIn(false)
     localStorage.clear()
+    history.push('/')
   }
 
   const getToken = () => {
@@ -34,6 +37,7 @@ function App() {
   }
 
   //// AXIOS CALL(S)
+
   //// ON LOAD
 
   useEffect(() => {
@@ -42,12 +46,20 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar loggedIn={loggedIn} logOut={logOut} />
+      <NavBar loggedIn={loggedIn} logOut={logOut} userID={userID} />
       <Switch>
         <Route
           exact
           path="/"
-          component={(props) => <LoginPage {...props} loggedIn={loggedIn} />}
+          component={(props) => (
+            <LoginPage
+              {...props}
+              setLogIn={setLogIn}
+              history={history}
+              userID={userID}
+              setUserID={setUserID}
+            />
+          )}
         />
         <Route
           path="/sign-up"
@@ -64,11 +76,6 @@ function App() {
         <Route
           path="/new-pet/:user_id"
           component={(props) => <NewPetPage {...props} loggedIn={loggedIn} />}
-        />
-        <Route
-          path="/pet-profile/:pet_id"
-          component={(props) => <PetPage {...props} loggedIn={loggedIn} />}
-          component={(props) => <HomePage {...props} loggedIn={loggedIn} />}
         />
         <Route
           path="/user-profile/:user_id"

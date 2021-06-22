@@ -4,8 +4,7 @@ import { HiSearchCircle } from 'react-icons/hi'
 import logo from '../styles/images/logo-white.png'
 
 const NavBar = (props) => {
-
-  const { loggedIn, logOut } = props
+  const { loggedIn, logOut, userID } = props
 
 // search bar should expand on hover, hide off hover
 // show search results page on click of "mag".
@@ -17,7 +16,7 @@ const NavBar = (props) => {
       display: `${(loggedIn ? 'flex' : 'none')}`}}
   >
     <NavLink 
-      to="/home/:user_id">
+      to={`/home/${userID}`}>
         <img src={logo} alt="logo" height="80"/>
     </NavLink>
     <nav>
@@ -39,7 +38,7 @@ const NavBar = (props) => {
       to="/user-profile/:user_id">
         Profile
     </NavLink>
-    <button onClick={logOut}>Logout</button>
+    <button id="logout" onClick={logOut}>Logout</button>
   </nav>
   </header>
   )}
