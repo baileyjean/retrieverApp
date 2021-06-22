@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Pet.init(
     {
       name: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
       },
       owner_id: {
@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       },
       description: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING,
         allowNull: false
       },
       kid_friendly: {
