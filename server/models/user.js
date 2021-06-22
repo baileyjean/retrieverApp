@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasMany(models.Pet, {
         foreignKey: 'owner_id',
-        as: 'pets',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
