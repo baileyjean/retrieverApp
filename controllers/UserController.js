@@ -15,7 +15,7 @@ const GetAllUsers = async (req, res) => {
 const UpdateUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    let updatedUser = await Users.update(req.body, {
+    let updatedUser = await User.update(req.body, {
       where: { id: userId },
       returning: true
     })
