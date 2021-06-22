@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { HiSearchCircle } from 'react-icons/hi'
+import logo from '../styles/images/logo-white.png'
 
 const NavBar = (props) => {
 
@@ -17,7 +18,7 @@ const NavBar = (props) => {
   >
     <NavLink 
       to="/home/:user_id">
-        <img src='#' alt="logo"/>
+        <img src={logo} alt="logo" height="80"/>
     </NavLink>
     <nav>
       <div className="searchbar">
@@ -26,6 +27,10 @@ const NavBar = (props) => {
         placeholder="Search Pets"/>
       <HiSearchCircle id="mag" />
     </div>
+    <NavLink 
+      to="/browse">
+        Browse Pets
+    </NavLink>
     <NavLink 
       to="/new-pet/:user_id">
         Post a Pet
