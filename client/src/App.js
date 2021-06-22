@@ -115,8 +115,6 @@ function App() {
         <Route
           path="/results"
           component={(props) => (
-
-            <SearchResultsPage {...props} loggedIn={loggedIn} />
             <SearchResultsPage
               {...props}
               loggedIn={loggedIn}
