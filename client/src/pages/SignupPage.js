@@ -1,4 +1,13 @@
 import React, { useReducer, useState } from 'react'
+import { Textarea, Button, StrongPasswordInput } from 'react-rainbow-components'
+
+const containerStyles = {
+  width: 400
+}
+
+const bioStyles = {
+  width: 500
+}
 
 const SignupPage = (props) => {
   const [email, setEmail] = useState('')
@@ -41,62 +50,80 @@ const SignupPage = (props) => {
   }
   console.log(location)
 
+  function getStrength() {
+    const { length } = password
+    if (length === 0) {
+      return undefined
+    }
+    if (length <= 3) {
+      return 'weak'
+    }
+    if (length > 3 && length < 8) {
+      return 'average'
+    }
+    return 'strong'
+  }
+
+  const passwordState = getStrength()
+
   return (
     <div>
       <form>
-        <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
+        <Textarea
+          label="Email"
+          rows={1}
           value={email}
           onChange={handleEmailChange}
-          required
+          maxLength={255}
+          placeholder="Email"
+          style={containerStyles}
         />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
+        <StrongPasswordInput
+          label="Password"
           placeholder="Password"
+          bottomHelpText="Your password must be at least 8 characters long."
+          style={containerStyles}
           value={password}
+          passwordState={passwordState}
           onChange={handlePasswordChange}
-          required
         />
-        <label>Profile Picture</label>
-        <input
-          type="text"
-          name="img"
-          placeholder="Image Link"
+        <Textarea
+          label="Profile Pictur"
+          rows={1}
           value={img}
           onChange={handleImgChange}
-          required
+          maxLength={255}
+          placeholder="Image Link"
+          style={containerStyles}
         />
-        <label>Name</label>
-        <input
-          type="text"
-          name="name"
-          placeholder="Name"
+        <Textarea
+          label="Name"
+          rows={1}
           value={name}
           onChange={handleNameChange}
-          required
+          maxLength={255}
+          placeholder="Name"
+          style={containerStyles}
         />
-        <label>Zip Code</label>
-        <input
-          name="location"
-          placeholder="Zip Code"
+        <Textarea
+          label="Zip Code"
+          rows={1}
           value={location}
           onChange={handleLocationChange}
-          maxLength={5}
-          required
+          maxLength={255}
+          placeholder="Zip Code"
+          style={containerStyles}
         />
-        <label>Bio</label>
-        <textarea
-          name="name"
-          placeholder="Tell us about yourself..."
+        <Textarea
+          label="Bio"
+          rows={4}
           value={bio}
           onChange={handleBioChange}
-          required
+          maxLength={255}
+          placeholder="Email"
+          style={bioStyles}
         />
+        <Button label="Submit" variant="border" />
       </form>
     </div>
   )

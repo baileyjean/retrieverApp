@@ -1,4 +1,9 @@
 import React, { useState } from 'react'
+import { Textarea, Button, StrongPasswordInput } from 'react-rainbow-components'
+
+const containerStyles = {
+  width: 350
+}
 
 const LoginPage = (props) => {
   const { history, setLogIn, userID, setUserID } = props
@@ -16,21 +21,25 @@ const LoginPage = (props) => {
   console.log(password)
 
   const handleLogin = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       // await auth
       // let userID = /* whatever needs to go here to get the id from backend */
-      setLogIn(true);
-      history.push(`/home/${userID}`);
+      setLogIn(true)
+      history.push(`/home/${userID}`)
     } catch (e) {
-      alert(e.message);
+      alert(e.message)
     }
+  }
+
+  const handleSignUp = () => {
+    history.push('/sign-up')
   }
 
   return (
     <div>
       <form>
-        <label>Email</label>
+        {/* <label>Email</label>
         <input
           type="email"
           name="email"
@@ -38,17 +47,27 @@ const LoginPage = (props) => {
           value={email}
           onChange={handleEmailChange}
           required
+        /> */}
+        <Textarea
+          label="Email"
+          rows={1}
+          value={email}
+          onChange={handleEmailChange}
+          maxLength={255}
+          placeholder="Email"
+          style={containerStyles}
         />
-        <label>Password</label>
-        <input
+        <StrongPasswordInput
+          label="Password"
           type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
           onChange={handlePasswordChange}
-          required
+          placeholder="Password"
+          style={containerStyles}
         />
-        <button onClick={handleLogin}>Log In</button>
+        <div>
+          <Button label="Sign Up" variant="border" onClick={handleSignUp} />
+          <Button label="Log In" variant="border" onClick={handleLogin} />
+        </div>
       </form>
     </div>
   )
