@@ -39,7 +39,7 @@ const NavBar = (props) => {
       to="/user-profile/:user_id">
         Profile
     </NavLink>
-    <button onClick={logOut}>Logout</button>
+    <button id="logout" onClick={logOut}>Logout</button>
   </nav>
   </header>
   )}
