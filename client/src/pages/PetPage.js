@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import axios from 'axios'
 import CommentCard from '../components/CommentCard'
+import CommentForm from '../components/CommentForm'
 
 const PetPage = (props) => {
   const { postComments } = props
@@ -25,9 +26,14 @@ const PetPage = (props) => {
   return (
     <div className="comment-section">
       {comments.map((comment, index) => (
-        <CommentCard key={index} />
+        <CommentCard
+          key={index}
+          text={comment.post}
+          user_id={comment.user_id}
+          pet_id={comment.pet_id}
+        />
       ))}
-      HI
+      <CommentForm />
     </div>
   )
 }

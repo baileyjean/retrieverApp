@@ -121,12 +121,14 @@ const NewPetPage = (props) => {
           placeholder="Description"
           onChange={handleDescriptionChange}
         />
+        <label>Picture</label>
         <input
           type="text"
           value={img}
           placeholder="Image Link"
           onChange={handleImgChange}
         />
+        <button>Submit</button>
       </form>
     </div>
   )
