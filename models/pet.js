@@ -48,7 +48,8 @@ module.exports = (sequelize, DataTypes) => {
           'weasel',
           'canine',
           'feline',
-          'fish'
+          'fish',
+          'other'
         ],
         allowNull: false
       },

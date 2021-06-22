@@ -1,20 +1,12 @@
 const { User } = require('../models')
 const middleware = require('../middleware')
 
-const CreateUser = async (req, res) => {
-  try {
-    const user = await User.create(req.body)
-    res.send(user)
-  } catch (error) {
-    throw error
-  }
-}
+// CreateUser is handled in AuthController by the "Register" function
 
-const DeleteUser = async (req, res) => {
+const GetAllUsers = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
-    await Users.destroy({ where: { id: userId } })
-    res.send({ message: `Furrrr Well${userId}` })
+    let userlist = await User.findAll()
+    res.send(userlist)
   } catch (error) {
     throw error
   }
@@ -22,7 +14,7 @@ const DeleteUser = async (req, res) => {
 
 const UpdateUser = async (req, res) => {
   try {
-    let userId = parseInt(req.params.pet_id)
+    let userId = parseInt(req.params.user_id)
     let updatedUser = await Users.update(req.body, {
       where: { id: userId },
       returning: true
@@ -33,9 +25,29 @@ const UpdateUser = async (req, res) => {
   }
 }
 
+const GetUserById = async (req,res) => {
+  try {
+    let userId = parseInt(req.params.user_id)
+    let userFound = await User.findById(userId)
+    res.send(userFound)
+  } catch (error) {
+    throw error
+  }
+}
+
+const DeleteUser = async (req, res) => {
+  try {
+    let userId = parseInt(req.params.user_id)
+    await Users.destroy({ where: { id: userId } })
+    res.send({ message: `Furrrr Well, User` })
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
-  CreateUser,
-  //GetUserById
+  GetAllUsers,
   UpdateUser,
+  GetUserById,
   DeleteUser
 }
