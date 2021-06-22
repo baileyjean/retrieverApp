@@ -28,7 +28,8 @@ const UpdateUser = async (req, res) => {
 const GetUserById = async (req,res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    let userFound = await User.findById(userId)
+    console.log(userId)
+    let userFound = await User.findByPk(userId)
     res.send(userFound)
   } catch (error) {
     throw error
@@ -38,7 +39,7 @@ const GetUserById = async (req,res) => {
 const DeleteUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    await Users.destroy({ where: { id: userId } })
+    await User.destroy({ where: { id: userId } })
     res.send({ message: `Furrrr Well, User` })
   } catch (error) {
     throw error
