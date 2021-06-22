@@ -1,36 +1,30 @@
 import React, { useState } from 'react'
-
+import reptiles from '../styles/images/reptiles.png'
+import amphibians from '../styles/images/amphibians.png'
+import birds from '../styles/images/birds.png'
 const BrowsePage = (props) => {
-  const [species, setSpecies] = useState([
-    { name: 'Reptile', img: '' },
-    { name: 'Amphibian', img: '' },
-    { name: 'Bird', img: '' },
-    { name: 'Insect', img: '' },
-    { name: 'Arachnid', img: '' },
-    { name: 'Rodent', img: '' },
-    { name: 'Weasel', img: '' },
-    { name: 'Canine', img: '' },
-    { name: 'Feline', img: '' },
-    { name: 'Fish', img: '' }
-  ])
-
+  const species = [
+    { name: 'Reptile', img: `${reptiles}` },
+    { name: 'Amphibian', img: `${amphibians}` },
+    { name: 'Bird', img: `${birds}` },
+    { name: 'Insect', img: `${reptiles}` },
+    { name: 'Arachnid', img: `${reptiles}` },
+    { name: 'Rodent', img: `${reptiles}` },
+    { name: 'Weasel', img: `${reptiles}` },
+    { name: 'Canine', img: `${reptiles}` },
+    { name: 'Feline', img: `${reptiles}` },
+    { name: 'Fish', img: `${reptiles}` }
+  ]
   return (
-    <div>
-      <div>
+      <div className="browse-results">
         {species.map((specie) => (
-          <div
-            onClick={() =>
+            <div className="species" id={specie.name} onClick={() =>
               props.history.push(`/browse-result/${specie.name.toLowerCase()}`)
-            }
-          >
-            <div>
-              {specie.name} <img src={specie.img} alt="species" />{' '}
-            </div>
+            }>
+              <h2>{specie.name}</h2> <img src={specie.img} alt={specie.name}/>
           </div>
         ))}
       </div>
-    </div>
   )
 }
-
 export default BrowsePage

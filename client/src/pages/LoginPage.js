@@ -21,7 +21,7 @@ const LoginPage = (props) => {
       // await auth
       // let userID = /* whatever needs to go here to get the id from backend */
       setLogIn(true);
-      // history.push(`/home/${userID}`);
+      history.push(`/home/${userID}`);
     } catch (e) {
       alert(e.message);
     }
