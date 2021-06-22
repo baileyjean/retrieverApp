@@ -1,10 +1,9 @@
 const Router = require('express').Router()
 const controller = require('../controllers/CommentController')
 
-// routes here
-//Router.get('/comment, controller.GetComments)
+// Router.post('/', controller.AddComment)
 
-//Router.post('/comment, controller.AddComment)
+// Router.get('/comment', controller.GetAllComments)
 
 module.exports = Router
 
