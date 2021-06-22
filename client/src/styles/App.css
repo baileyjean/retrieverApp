@@ -15,7 +15,6 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: navy;
@@ -36,14 +35,26 @@ nav a {
 nav button {
   cursor: pointer;
   margin: 1em;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
 }
 .searchbar{
   display: flex;
   align-items: center;
+  transition: ease-in-out 0.3;
 }
 .searchbar input {
   padding: 6px;
   background-color: aliceblue;
+  width: 0em;
+  opacity: 0;
+  transition: ease-in-out 0.3s;
+  border: none;
+}
+.searchbar:hover input {
+  opacity: 100;
+  width: 13em;
 }
 #mag {
   cursor: pointer;

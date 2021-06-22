@@ -13,7 +13,7 @@ import NavBar from './components/NavBar'
 // import { BASE_URL } from './globals'
 
 function App() {
-  const [loggedIn, setLogIn] = useState(false)
+  const [loggedIn, setLogIn] = useState(true)
   const [newPost, setNewPost] = useState({
     name: '',
     owner: '',
@@ -38,10 +38,10 @@ function App() {
   }
 
   const getToken = () => {
-    let token = localStorage.getItem('token')
-    if (token) {
-      return setLogIn(true)
-    }
+    // let token = localStorage.getItem('token')
+    // if (token) {
+    //   return setLogIn(true)
+    // }
   }
 
   //// AXIOS CALL(S)
@@ -106,6 +106,7 @@ function App() {
               loggedIn={loggedIn}
               petPosts={petPosts}
               postComments={postComments}
+              petPosts={petPosts}
             />
           )}
         />
