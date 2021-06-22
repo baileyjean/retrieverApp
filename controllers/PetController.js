@@ -51,12 +51,36 @@ const GetPetByUserId = async (req, res) => {
   }
 }
 
+const GetPetByLocation = async (req, res) => {
+  try {
+    let petLocation = parseInt(req.params.location)
+    let petsByLocation = await Pet.findAll({
+      where: { location: petLocation }
+      // returning: true
+    })
+    res.send(petsByLocation)
+  } catch (error) {
+    throw error
+  }
+}
+
+// const GetPetByLocation = async (req, res) => {
+//   try {
+//     const pets = await Pet.findAll({
+//       attributes:  ['location']
+//     })
+//     res.send(pets)
+//   } catch (error) {
+//     throw error
+//   }
+// }
+
 module.exports = {
   AddPet,
   GetAllPets,
   DeletePet,
   UpdatePets,
-  GetPetByUserId
-  // GetPetByLocation
+  GetPetByUserId,
+  GetPetByLocation
   //GetPetBySpecies
 }
