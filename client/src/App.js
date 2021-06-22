@@ -9,26 +9,13 @@ import ProfilePage from './pages/ProfilePage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
+import BrowsePage from './pages/BrowsePage'
 // import axios from 'axios'
 // import { BASE_URL } from './globals'
 
 function App() {
   const [loggedIn, setLogIn] = useState(true)
-  const [newPost, setNewPost] = useState({
-    name: '',
-    owner: '',
-    location: '',
-    species: '',
-    age: '',
-    gender: '',
-    adoption_fee: '',
-    description: '',
-    kid_friendly: '',
-    pet_friendly: '',
-    image: ''
-  })
   const [petPosts, setPosts] = useState([])
-  const [postComments, setComments] = useState([])
 
   //// AUTHENTICATION
 
@@ -140,6 +127,10 @@ function App() {
               postComments={postComments}
             />
           )}
+        />
+        <Route
+          path="/browse"
+          component={(props) => <BrowsePage {...props} />}
         />
       </Switch>
     </div>
