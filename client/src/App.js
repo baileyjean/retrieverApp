@@ -12,15 +12,25 @@ import NavBar from './components/NavBar'
 // import axios from 'axios'
 // import { BASE_URL } from './globals'
 
-
-
 function App() {
   const [loggedIn, setLogIn] = useState(true)
-  const [newPost, setNewPost] = useState({ name: '', owner: '', location: '', species: '', age: '', gender: '', adoption_fee: '', description: '', kid_friendly: '', pet_friendly: '', image: '' })
+  const [newPost, setNewPost] = useState({
+    name: '',
+    owner: '',
+    location: '',
+    species: '',
+    age: '',
+    gender: '',
+    adoption_fee: '',
+    description: '',
+    kid_friendly: '',
+    pet_friendly: '',
+    image: ''
+  })
   const [petPosts, setPosts] = useState([])
   const [postComments, setComments] = useState([])
 
-//// AUTHENTICATION
+  //// AUTHENTICATION
 
   const logOut = () => {
     setLogIn(false)
@@ -34,7 +44,7 @@ function App() {
     // }
   }
 
-//// AXIOS CALL(S)
+  //// AXIOS CALL(S)
 
   const getPosts = async () => {
     // try {
@@ -66,59 +76,70 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar
-        loggedIn={loggedIn}
-        logOut={logOut}
-      />
+      <NavBar loggedIn={loggedIn} logOut={logOut} />
       <Switch>
-        <Route 
-          exact path="/" 
-          component={(props) => <LoginPage {...props} 
-          loggedIn={loggedIn}
-          />} 
+        <Route
+          exact
+          path="/"
+          component={(props) => <LoginPage {...props} loggedIn={loggedIn} />}
         />
         <Route
           path="/sign-up"
-          component={(props) => <SignupPage {...props} 
-          />}
+          component={(props) => <SignupPage {...props} />}
         />
         <Route
           path="/home/:user_id"
-          component={(props) => <HomePage {...props} 
-          loggedIn={loggedIn}
-          petPosts={petPosts}
-          postComments={postComments}
-          />}
+          component={(props) => (
+            <HomePage
+              {...props}
+              loggedIn={loggedIn}
+              petPosts={petPosts}
+              postComments={postComments}
+            />
+          )}
         />
         <Route
           path="/user-profile/:user_id"
-          component={(props) => <ProfilePage {...props} 
-          loggedIn={loggedIn}
-          petPosts={petPosts}
-          postComments={postComments}
-          />}
+          component={(props) => (
+            <ProfilePage
+              {...props}
+              loggedIn={loggedIn}
+              petPosts={petPosts}
+              postComments={postComments}
+              petPosts={petPosts}
+            />
+          )}
         />
         <Route
           path="/new-pet/:user_id"
-          component={(props) => <NewPetPage {...props} 
-          loggedIn={loggedIn}
-          createPost={createPost}
-          />}
+          component={(props) => (
+            <NewPetPage
+              {...props}
+              loggedIn={loggedIn}
+              createPost={createPost}
+            />
+          )}
         />
         <Route
           path="/pet-profile/:pet_id"
-          component={(props) => <PetPage {...props} 
-          loggedIn={loggedIn}
-          postComments={postComments}
-          />}
+          component={(props) => (
+            <PetPage
+              {...props}
+              loggedIn={loggedIn}
+              postComments={postComments}
+            />
+          )}
         />
         <Route
           path="/results"
-          component={(props) => <SearchResultsPage {...props} 
-          loggedIn={loggedIn}
-          petPosts={petPosts}
-          postComments={postComments}
-          />}
+          component={(props) => (
+            <SearchResultsPage
+              {...props}
+              loggedIn={loggedIn}
+              petPosts={petPosts}
+              postComments={postComments}
+            />
+          )}
         />
       </Switch>
     </div>

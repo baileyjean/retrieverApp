@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import CurrencyInput from 'react-currency-input-field'
 
 const NewPetPage = (props) => {
   const [name, setName] = useState('')
@@ -28,6 +29,11 @@ const NewPetPage = (props) => {
   }
   console.log(age)
 
+  const handleGenderChange = (e) => {
+    setGender(e.target.value)
+  }
+  console.log(gender)
+
   const togglePetFriendly = () => {
     if (petFriendly === false) {
       setPetFriendly(true)
@@ -45,6 +51,18 @@ const NewPetPage = (props) => {
     }
   }
   console.log(kidFriendly)
+
+  console.log(fee)
+
+  const handleDescriptionChange = (e) => {
+    setDescription(e.target.value)
+  }
+  console.log(description)
+
+  const handleImgChange = (e) => {
+    setImg(e.target.value)
+  }
+  console.log(img)
 
   return (
     <div>
@@ -76,15 +94,39 @@ const NewPetPage = (props) => {
           placeholder={0}
           onChange={handleAgeChange}
         />
+        <label>What's their gender?</label>
+        <select onChange={handleGenderChange}>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="unknown">Unknown</option>
+        </select>
         <label>Are they pet friendly?</label>
         <input type="checkbox" onClick={togglePetFriendly} />
         <label>Are they kid friendly?</label>
         <input type="checkbox" onClick={toggleKidFriendly} />
-        <label>What's their gender?</label>
-        <select>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+        <label>Adoption Fee</label>
+        <CurrencyInput
+          decimalsLimit={2}
+          decimalScale={2}
+          allowNegativeValue={false}
+          onValueChange={(value) => setFee(value)}
+          value={fee}
+          prefix={'$'}
+          placeholder="Fee"
+        />
+        <label>What's the pet's name?</label>
+        <textarea
+          type="text"
+          value={description}
+          placeholder="Description"
+          onChange={handleDescriptionChange}
+        />
+        <input
+          type="text"
+          value={img}
+          placeholder="Image Link"
+          onChange={handleImgChange}
+        />
       </form>
     </div>
   )
