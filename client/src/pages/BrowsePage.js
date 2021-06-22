@@ -2,6 +2,9 @@ import React from 'react'
 import reptiles from '../styles/images/reptiles.png'
 import amphibians from '../styles/images/amphibians.png'
 import birds from '../styles/images/birds.png'
+import felines from '../styles/images/felines.png'
+import canines from '../styles/images/canines.png'
+
 const BrowsePage = (props) => {
   const species = [
     { name: 'Reptile', img: `${reptiles}` },
@@ -11,8 +14,8 @@ const BrowsePage = (props) => {
     { name: 'Arachnid', img: `${reptiles}` },
     { name: 'Rodent', img: `${reptiles}` },
     { name: 'Weasel', img: `${reptiles}` },
-    { name: 'Canine', img: `${reptiles}` },
-    { name: 'Feline', img: `${reptiles}` },
+    { name: 'Dog', img: `${canines}` },
+    { name: 'Cat', img: `${felines}` },
     { name: 'Fish', img: `${reptiles}` }
   ]
   return (

@@ -147,7 +147,27 @@ nav a.active {
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
 
+@media screen and (min-width: 1000px) {
+  .species {
+    width: 28%;
+    margin: 2%;
+    font-size: 1.8em;
+  }
+  .species:hover {
+    width: 30%;
+    font-size: 1.9em;
+  }
+}
+
 /* ----- MOBILE OPTIMIZATION ----- */
+
+/* need to optimize browsepage images and font size! */
+
+@media screen and (max-width: 800px) {
+  nav a {
+    padding: 1em 0.5em;
+  }
+}
 
 @media screen and (max-width: 750px) {
   nav {
