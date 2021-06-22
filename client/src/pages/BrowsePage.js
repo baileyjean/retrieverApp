@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import reptiles from '../styles/images/reptiles.png'
 
 const BrowsePage = (props) => {
-  const species = [
-    { name: 'Reptile', img: `${reptiles}` },
+  const [species, setSpecies] = useState([
+    { name: 'Reptile', img: '' },
     { name: 'Amphibian', img: '' },
     { name: 'Bird', img: '' },
     { name: 'Insect', img: '' },
@@ -13,11 +12,11 @@ const BrowsePage = (props) => {
     { name: 'Canine', img: '' },
     { name: 'Feline', img: '' },
     { name: 'Fish', img: '' }
-  ]
+  ])
 
   return (
     <div>
-      <div style={{marginTop:'100px'}}>
+      <div>
         {species.map((specie) => (
           <div
             onClick={() =>
@@ -25,7 +24,7 @@ const BrowsePage = (props) => {
             }
           >
             <div>
-              {specie.name} <img src={specie.img} alt={specie.name} />{' '}
+              {specie.name} <img src={specie.img} alt="species" />{' '}
             </div>
           </div>
         ))}
