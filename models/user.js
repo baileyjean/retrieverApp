@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       location: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       bio: {
         type: DataTypes.STRING,

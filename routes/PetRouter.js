@@ -5,11 +5,10 @@ Router.post('/', controller.AddPet)
 
 Router.get('/findallpets', controller.GetAllPets)
 Router.get('/:user_id', controller.GetPetByUserId)
+Router.get('/petsbylocation/:location', controller.GetPetByLocation)
+Router.get('/species/:species', controller.GetPetBySpecies)
+
 Router.put('/:pet_id', controller.UpdatePets)
 Router.delete('/:pet_id', controller.DeletePet)
-
-Router.get('/petsbylocation/:location', controller.GetPetByLocation)
-//GetPetByLocation
-//GetPetBySpecies
 
 module.exports = Router
