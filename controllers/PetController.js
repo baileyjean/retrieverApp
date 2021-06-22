@@ -42,12 +42,21 @@ const DeletePet = async (req, res) => {
   }
 }
 
+const GetPetByUserId = async (req, res) => {
+  try {
+    const pet = await Pet.findByPk(req.params.user_id)
+    res.send(pet)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   AddPet,
   GetAllPets,
   DeletePet,
-  UpdatePets
-  //GetPetByLocation
+  UpdatePets,
+  GetPetByUserId
+  // GetPetByLocation
   //GetPetBySpecies
-  //GetPetByUserId
 }

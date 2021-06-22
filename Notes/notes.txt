@@ -18,9 +18,9 @@ Routes Tested
   -GetAllPets - Completed
   -DeletePet - Completed
   -UpdatePets - Completed
+  -GetPetByUserId - Completed
   -GetPetByLocation 
   -GetPetBySpecies
-  -GetPetByUserId
 
 
 
