@@ -1,6 +1,7 @@
 import { React, useState } from 'react'
 import axios from 'axios'
 import CommentCard from '../components/CommentCard'
+import CommentForm from '../components/CommentForm'
 
 const PetPage = (props) => {
   const { postComments } = props
@@ -32,7 +33,7 @@ const PetPage = (props) => {
           pet_id={comment.pet_id}
         />
       ))}
-      HI
+      <CommentForm />
     </div>
   )
 }
