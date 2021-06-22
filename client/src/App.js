@@ -15,7 +15,7 @@ import NavBar from './components/NavBar'
 
 
 function App() {
-  const [loggedIn, setLogIn] = useState(false)
+  const [loggedIn, setLogIn] = useState(true)
   const [newPost, setNewPost] = useState({ name: '', owner: '', location: '', species: '', age: '', gender: '', adoption_fee: '', description: '', kid_friendly: '', pet_friendly: '', image: '' })
   const [petPosts, setPosts] = useState([])
   const [postComments, setComments] = useState([])
@@ -28,10 +28,10 @@ function App() {
   }
 
   const getToken = () => {
-    let token = localStorage.getItem('token')
-    if (token) {
-      return setLogIn(true)
-    }
+    // let token = localStorage.getItem('token')
+    // if (token) {
+    //   return setLogIn(true)
+    // }
   }
 
 //// AXIOS CALL(S)
