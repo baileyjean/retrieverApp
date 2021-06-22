@@ -81,7 +81,6 @@ function App() {
               {...props}
               loggedIn={loggedIn}
               petPosts={petPosts}
-              postComments={postComments}
             />
           )}
         />
@@ -92,7 +91,6 @@ function App() {
               {...props}
               loggedIn={loggedIn}
               petPosts={petPosts}
-              postComments={postComments}
               petPosts={petPosts}
             />
           )}
@@ -113,7 +111,6 @@ function App() {
             <PetPage
               {...props}
               loggedIn={loggedIn}
-              postComments={postComments}
             />
           )}
         />
@@ -124,7 +121,6 @@ function App() {
               {...props}
               loggedIn={loggedIn}
               petPosts={petPosts}
-              postComments={postComments}
             />
           )}
         />
