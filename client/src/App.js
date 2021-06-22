@@ -11,19 +11,21 @@ import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
 import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
+import { useHistory } from "react-router-dom";
 // import axios from 'axios'
 // import { BASE_URL } from './globals'
 
 function App() {
   const [loggedIn, setLogIn] = useState(true)
-
   // const [specie, setSpecie] = useState([])
+  const history = useHistory();
 
   //// AUTHENTICATION
 
   const logOut = () => {
     setLogIn(false)
     localStorage.clear()
+    history.push("/");
   }
 
   const getToken = () => {
@@ -34,11 +36,13 @@ function App() {
   }
 
   //// AXIOS CALL(S)
+  
   //// ON LOAD
 
   useEffect(() => {
     getToken()
   }, [])
+
 
   return (
     <div className="App">
@@ -52,7 +56,8 @@ function App() {
           component={(props) => 
             <LoginPage 
               {...props} 
-              loggedIn={loggedIn} 
+              setLogIn={setLogIn}
+              history={history}
             />}
         />
         <Route
@@ -64,20 +69,30 @@ function App() {
         />
         <Route
           path="/home/:user_id"
-
-          component={(props) => <HomePage {...props} loggedIn={loggedIn} />}
+          component={(props) => 
+            <HomePage 
+              {...props} 
+              loggedIn={loggedIn} 
+            />}
         />
         <Route
           path="/user-profile/:user_id"
-          component={(props) => <ProfilePage {...props} loggedIn={loggedIn} />}
+          component={(props) => 
+            <ProfilePage 
+              {...props} 
+              loggedIn={loggedIn} 
+            />}
         />
         <Route
           path="/new-pet/:user_id"
-          component={(props) => <NewPetPage {...props} loggedIn={loggedIn} />}
+          component={(props) => 
+            <NewPetPage 
+              {...props} 
+              loggedIn={loggedIn} 
+            />}
         />
         <Route
           path="/pet-profile/:pet_id"
-          component={(props) => <PetPage {...props} loggedIn={loggedIn} />}
           component={(props) => (
             <HomePage
               {...props}
@@ -123,11 +138,17 @@ function App() {
         />
         <Route
           path="/browse"
-          component={(props) => <BrowsePage {...props} />}
+          component={(props) => 
+            <BrowsePage 
+              {...props} 
+          />}
         />
         <Route
           path="/browse-result/:specie"
-          component={(props) => <BrowseResultsPage {...props} />}
+          component={(props) => 
+            <BrowseResultsPage 
+              {...props} 
+            />}
         />
       </Switch>
     </div>
