@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import reptiles from '../styles/images/reptiles.png'
 import amphibians from '../styles/images/amphibians.png'
 import birds from '../styles/images/birds.png'
