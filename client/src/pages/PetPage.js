@@ -24,7 +24,7 @@ const PetPage = (props) => {
 
   return (
     <div className="comment-section">
-      {props.comments.map((comment, index) => (
+      {comments.map((comment, index) => (
         <CommentCard key={index} />
       ))}
     </div>
