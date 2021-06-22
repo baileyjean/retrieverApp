@@ -34,6 +34,7 @@ header {
   background-color: navy;
   color: aliceblue;
   font-size: 1.2em;
+  z-index:50;
 }
 header img {
   vertical-align: middle;
@@ -47,25 +48,40 @@ nav {
 nav a {
   text-decoration: none;
   color: aliceblue;
-  margin: 1em;
+  margin: 5px;
+  padding: 1em;
+  transition: ease-in-out 0.3s;
+}
+nav a:hover {
+  background-color: gold;
+  color: black;
 }
 #logout {
   cursor: pointer;
-  margin: 1em;
-  padding: 8px 12px;
-  border-radius: 20px;
+  margin: 5px;
+  padding: 10px 14px;
+  transition: ease-in-out 0.2s;
+  border-radius: 25px;
   border: none;
   background-color: gold;
-  font-size: 0.7em;
+  font-size: 0.8em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+#logout:hover {
+  border-radius: 0px;
+  margin: 3px;
+  padding: 20px 16px;
+}
+#logout:focus {
+  background-color: whitesmoke;
+}
 .searchbar{
   display: flex;
   align-items: center;
-  transition: ease-in-out 0.3;
+  transition: ease-in-out 0.2s;
 }
 .searchbar input {
   padding: 6px;
@@ -92,19 +108,39 @@ nav a {
 .browse-results {
   height: 100%;
   width: 99%;
-  margin-top: 100px;
+  margin-top: 80px;
+  padding-bottom: 80px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  background-color: whitesmoke;
 }
 .species {
-  width: 40%;
+  width: 45%;
   margin: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255,255,255,0.7);
+  transition: ease-in-out 0.1s;
+  font-size: 2.3em;
+}
+.species:hover{
+  background-color: rgba(255,255,255,1);
+  width: 48%;
+  margin: 1%;
+  font-size: 2.4em;
+  box-shadow: 0px 0px 20px rgba(37, 37, 48,0.2);
 }
 
 .species img {
   width: 100%;
+}
+.species h2 {
+  position: absolute;  
+  color: white;
+  text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
 
 /* ----- MOBILE OPTIMIZATION ----- */
