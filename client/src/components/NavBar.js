@@ -6,9 +6,7 @@ import logo from '../styles/images/logo-white.png'
 const NavBar = (props) => {
   const { loggedIn, logOut, userID } = props
 
-// search bar should expand on hover, hide off hover
 // show search results page on click of "mag".
-// Actual logout functionality.
 
   return (
   <header 
