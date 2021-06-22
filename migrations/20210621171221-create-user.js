@@ -27,7 +27,7 @@ module.exports = {
       },
       location: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
       },
       bio: {
         type: Sequelize.STRING,
