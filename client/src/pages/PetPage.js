@@ -27,6 +27,7 @@ const PetPage = (props) => {
       {comments.map((comment, index) => (
         <CommentCard key={index} />
       ))}
+      HI
     </div>
   )
 }

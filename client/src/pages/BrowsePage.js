@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import reptiles from '../styles/images/reptiles.png'
 import amphibians from '../styles/images/amphibians.png'
 import birds from '../styles/images/birds.png'
-
 const BrowsePage = (props) => {
   const species = [
     { name: 'Reptile', img: `${reptiles}` },
@@ -16,7 +15,6 @@ const BrowsePage = (props) => {
     { name: 'Feline', img: `${reptiles}` },
     { name: 'Fish', img: `${reptiles}` }
   ]
-
   return (
       <div className="browse-results">
         {species.map((specie) => (
@@ -29,5 +27,4 @@ const BrowsePage = (props) => {
       </div>
   )
 }
-
 export default BrowsePage
