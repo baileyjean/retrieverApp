@@ -28,6 +28,10 @@ const NavBar = (props) => {
       <HiSearchCircle id="mag" />
     </div>
     <NavLink 
+      to="/browse">
+        Browse Pets
+    </NavLink>
+    <NavLink 
       to="/new-pet/:user_id">
         Post a Pet
     </NavLink>
