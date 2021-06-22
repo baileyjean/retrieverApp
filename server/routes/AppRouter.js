@@ -1,9 +1,11 @@
 const Router = require('express').Router()
 
-// require 
 const AuthRouter = require('./AuthRouter')
+const PetRouter = require('./PetRouter')
+const CommentRouter = require('./CommentRouter')
 
-// establish base routes for all the subroutes - EX: pet router uses /pets
 Router.use('/auth', AuthRouter)
+Router.use('/pets', PetRouter)
+Router.use('/comments', CommentRouter)
 
 module.exports = Router
