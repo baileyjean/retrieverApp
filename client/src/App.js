@@ -17,6 +17,7 @@ import { useHistory } from "react-router-dom";
 
 function App() {
   const [loggedIn, setLogIn] = useState(true)
+  const [userID, setUserID] = useState('')
   // const [specie, setSpecie] = useState([])
   const history = useHistory();
 
@@ -48,7 +49,9 @@ function App() {
     <div className="App">
       <NavBar 
         loggedIn={loggedIn} 
-        logOut={logOut} />
+        logOut={logOut} 
+        userID={userID}
+      />
       <Switch>
         <Route
           exact
@@ -58,6 +61,8 @@ function App() {
               {...props} 
               setLogIn={setLogIn}
               history={history}
+              userID={userID}
+              setUserID={setUserID}
             />}
         />
         <Route

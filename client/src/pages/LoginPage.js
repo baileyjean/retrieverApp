@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const LoginPage = (props) => {
-  const { history, setLogIn } = props
+  const { history, setLogIn, userID, setUserID } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
