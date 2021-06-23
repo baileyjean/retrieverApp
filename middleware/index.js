@@ -18,7 +18,6 @@ const comparePassword = async (password, hashedPassword) => {
 
 const createToken = (payload) => {
   let token = jwt.sign(payload, APP_SECRET)
-  console.log(token)    // REMOVE LATER
   return token
 }
 
@@ -28,9 +27,7 @@ const createToken = (payload) => {
 const verifyToken = (req, res, next) => {
   const { token } = res.locals
   try {
-    console.log(token)    // REMOVE LATER
     let payload = jwt.verify(token, APP_SECRET)
-    console.log(payload)    // REMOVE LATER
     if (payload) {
       return next()
     }
