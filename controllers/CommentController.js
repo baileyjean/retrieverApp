@@ -1,5 +1,4 @@
 const { Comment, User } = require('../models')
-// const middleware = require('../middleware')
 
 const AddComment = async (req, res) => {
   try {
@@ -23,7 +22,7 @@ const DeleteComment = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
     await Comment.destroy({ where: { id: userId } })
-    res.send({ message: `Furrrr Well ${userId} ` })
+    res.send({ message: `Furrrr Well, Opinions ` })
   } catch (error) {
     throw error
   }
