@@ -2,7 +2,6 @@ const Router = require('express').Router()
 const controller = require('../controllers/PetController')
 
 Router.post('/', controller.AddPet)
-
 Router.get('/', controller.GetAllPets)
 Router.get('/petowner/:user_id', controller.GetPetByUserId)
 Router.get('/location/:location', controller.GetPetByLocation)

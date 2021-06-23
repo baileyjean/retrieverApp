@@ -18,6 +18,7 @@ import { useHistory } from 'react-router-dom'
 function App() {
   const [loggedIn, setLogIn] = useState(true)
   const [userID, setUserID] = useState('')
+  const [userLocation, setUserLocation] = useState('')
   // const [specie, setSpecie] = useState([])
   const history = useHistory()
 
@@ -58,6 +59,7 @@ function App() {
               history={history}
               userID={userID}
               setUserID={setUserID}
+              setUserLocation={setUserLocation}
             />
           )}
         />
@@ -67,7 +69,16 @@ function App() {
         />
         <Route
           path="/home/:user_id"
-          component={(props) => <HomePage {...props} loggedIn={loggedIn} />}
+          component={(props) => (
+            <HomePage
+              {...props}
+              loggedIn={loggedIn}
+              userID={userID}
+              userLocation={userLocation}
+              setUserID={setUserID}
+              setUserLocation={setUserLocation}
+            />
+          )}
         />
         <Route
           path="/user-profile/:user_id"
@@ -75,7 +86,14 @@ function App() {
         />
         <Route
           path="/new-pet/:user_id"
-          component={(props) => <NewPetPage {...props} loggedIn={loggedIn} />}
+          component={(props) => (
+            <NewPetPage
+              {...props}
+              loggedIn={loggedIn}
+              userID={userID}
+              userLocation={userLocation}
+            />
+          )}
         />
         <Route
           path="/user-profile/:user_id"
@@ -83,7 +101,14 @@ function App() {
         />
         <Route
           path="/new-pet/:user_id"
-          component={(props) => <NewPetPage {...props} loggedIn={loggedIn} />}
+          component={(props) => (
+            <NewPetPage
+              {...props}
+              loggedIn={loggedIn}
+              userID={userID}
+              userLocation={userLocation}
+            />
+          )}
         />
         <Route
           path="/pet-profile/:pet_id"

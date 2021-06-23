@@ -33,10 +33,11 @@ const genderOptions = [
 ]
 
 const NewPetPage = (props) => {
+  const { userID, userLocation } = props
   const [name, setName] = useState('')
   const [userId, setUserId] = useState('')
   const [location, setLocation] = useState('')
-  const [species, setSpecies] = useState('species')
+  const [species, setSpecies] = useState('reptile')
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
   const [fee, setFee] = useState('')
@@ -49,6 +50,8 @@ const NewPetPage = (props) => {
     setName(e.target.value)
   }
   console.log(name)
+
+  console.log(props)
 
   const handleSpeciesChange = (e) => {
     setSpecies(e.target.value)
@@ -98,6 +101,36 @@ const NewPetPage = (props) => {
     setImg(e.target.value)
   }
   console.log(img)
+
+  const handleSubmit = async () => {
+    // res = await axios.post(`${BASE_URL}/pets`, {
+    //   name: name,
+    //   owner_id: userID,
+    //   location: userLocation,
+    //   species: species,
+    //   age: age,
+    //   gender: gender,
+    //   adopt_fee: fee,
+    //   description: description,
+    //   kid_friendly: kidFriendly,
+    //   pet_friendly: petFriendly,
+    //   image: img
+    // })
+    // this.props.history.push(`/home/${ownerID}`)
+    console.log({
+      name: name,
+      owner_id: userID,
+      location: userLocation,
+      species: species,
+      age: age,
+      gender: gender,
+      adopt_fee: fee,
+      description: description,
+      kid_friendly: kidFriendly,
+      pet_friendly: petFriendly,
+      image: img
+    })
+  }
 
   return (
     <div>
@@ -171,7 +204,7 @@ const NewPetPage = (props) => {
           placeholder="Image Link"
           style={containerStyles}
         />
-        <Button label="Submit" />
+        <Button label="Submit" onClick={handleSubmit} />
       </form>
     </div>
   )
