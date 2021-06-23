@@ -1,7 +1,4 @@
 const { User } = require('../models')
-const middleware = require('../middleware')
-
-// CreateUser is handled in AuthController by the "Register" function
 
 const GetAllUsers = async (req, res) => {
   try {
