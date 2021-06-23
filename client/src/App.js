@@ -65,7 +65,10 @@ function App() {
         />
         <Route
           path="/sign-up"
-          component={(props) => <SignupPage {...props} />}
+          component={(props) => 
+            <SignupPage 
+              {...props} 
+            />}
         />
         <Route
           path="/home/:user_id"
