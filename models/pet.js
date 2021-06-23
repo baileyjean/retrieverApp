@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
       })
       Pet.hasMany(models.Comment, {
         foreignKey: 'pet_id',
-        // as: 'comments',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })

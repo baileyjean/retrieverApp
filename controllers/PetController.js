@@ -34,8 +34,13 @@ const UpdatePets = async (req, res) => {
 
 const DeletePet = async (req, res) => {
   try {
-    let petId = parseInt(req.params.pet_id)
-    await Pet.destroy({ where: { id: petId } })
+    // BAILEY UPDATE: Changing to delete by owner_id
+    // Not sure if this is the best way to handle this, but
+    // I think we can grab the logged-in user's id and
+    // check it before deletion to make sure random peeps
+    // can't come and delete whatever they want
+    let ownerId = parseInt(req.params.owner_id)
+    await Pet.destroy({ where: { owner_id: ownerId } })
     res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
   } catch (error) {
     throw error
