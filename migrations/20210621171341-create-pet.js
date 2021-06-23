@@ -32,12 +32,13 @@ module.exports = {
           'reptile',
           'amphibian',
           'bird',
-          'insect/arachnid',
+          'arachnid',
           'rodent',
           'weasel',
           'canine',
           'feline',
-          'fish'
+          'fish',
+          'other'
         ],
         allowNull: false
       },

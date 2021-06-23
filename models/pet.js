@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
           'reptile',
           'amphibian',
           'bird',
-          'insect/arachnid',
+          'arachnid',
           'rodent',
           'weasel',
           'canine',
