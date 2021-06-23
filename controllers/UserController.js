@@ -12,6 +12,17 @@ const GetAllUsers = async (req, res) => {
   }
 }
 
+const GetUserById = async (req,res) => {
+  try {
+    let userId = parseInt(req.params.user_id)
+    console.log(userId)
+    let userFound = await User.findByPk(userId)
+    res.send(userFound)
+  } catch (error) {
+    throw error
+  }
+}
+
 const UpdateUser = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
@@ -20,17 +31,6 @@ const UpdateUser = async (req, res) => {
       returning: true
     })
     res.send(updatedUser)
-  } catch (error) {
-    throw error
-  }
-}
-
-const GetUserById = async (req,res) => {
-  try {
-    let userId = parseInt(req.params.user_id)
-    console.log(userId)
-    let userFound = await User.findByPk(userId)
-    res.send(userFound)
   } catch (error) {
     throw error
   }
@@ -48,7 +48,7 @@ const DeleteUser = async (req, res) => {
 
 module.exports = {
   GetAllUsers,
-  UpdateUser,
   GetUserById,
+  UpdateUser,
   DeleteUser
 }
