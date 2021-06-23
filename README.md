@@ -38,29 +38,29 @@ This is where we will add the user story for our app.
 
 ## Frontend Requirements
 - [] Home/Landing Page
-- [] Sign up form
-- [] Login form
+- [X] Sign up form
+- [X] Login form
 - [] Pet posts
 - [] Pet card component
 - [] Comments on single pet component
 - [] User profile
-- [] Nav bar
+- [X] Nav bar
 
 ## Backend Requirements
-- [] User Authentication
-- [] POST - 'Create' pet profile
-- [] POST - 'Create' user profile
-- [] POST - 'Create' comment
-- [] GET - 'Read' all pets
-- [] GET - 'Read' searched pet profiles
-- [] GET - 'Read' user info on pet profile
-- [] GET - 'Read' comments on a pet profile
-- [] PUT - 'Update' pet profile
-- [] PUT - 'Update' user profile
-- [] PUT - 'Update' comment
-- [] DELETE - 'Delete' pet profile
-- [] DELETE - 'Delete' user profile
-- [] DELETE - 'Delete' comment
+- [X] User Authentication
+- [X] POST - 'Create' pet profile
+- [X] POST - 'Create' user profile
+- [X] POST - 'Create' comment
+- [X] GET - 'Read' all pets
+- [X] GET - 'Read' searched pet profiles
+- [X] GET - 'Read' user info on pet profile
+- [X] GET - 'Read' comments on a pet profile
+- [X] PUT - 'Update' pet profile
+- [X] PUT - 'Update' user profile
+- [X] PUT - 'Update' comment
+- [X] DELETE - 'Delete' pet profile
+- [X] DELETE - 'Delete' user profile
+- [X] DELETE - 'Delete' comment
 
 ***
 
