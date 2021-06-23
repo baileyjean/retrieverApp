@@ -33,7 +33,6 @@ const HomePage = (props) => {
         style={carouselContainerStyles}
         className="rainbow-align-content_center rainbow-m_auto"
         id="carousel-3"
-        disableAutoScroll
       >
         <CarouselImage
           src="https://i.imgur.com/pmBwzJ3.jpg"
@@ -62,7 +61,7 @@ const HomePage = (props) => {
             header={pet.name}
             description="Second card description."
             assistiveText="Second card accessible description."
-            href="/pet-profile/:pet_id"
+            href={`/pet-profile/{:pet_id}`}
           />
         ))}
       </CarouselCard>

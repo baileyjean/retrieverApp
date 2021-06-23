@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Textarea, Button, StrongPasswordInput } from 'react-rainbow-components'
+import { Input, Button, StrongPasswordInput } from 'react-rainbow-components'
 
 const containerStyles = {
   width: 350
@@ -48,8 +48,9 @@ const LoginPage = (props) => {
           onChange={handleEmailChange}
           required
         /> */}
-        <Textarea
+        <Input
           label="Email"
+          type="email"
           rows={1}
           value={email}
           onChange={handleEmailChange}
@@ -57,7 +58,8 @@ const LoginPage = (props) => {
           placeholder="Email"
           style={containerStyles}
         />
-        <StrongPasswordInput
+        <Input
+          type="password"
           label="Password"
           type="password"
           onChange={handlePasswordChange}
