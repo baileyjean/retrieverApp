@@ -2,24 +2,19 @@ import React, { useState } from 'react'
 import { Input, Button, StrongPasswordInput } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals.js'
-
 const containerStyles = {
   width: 350
 }
-
 const LoginPage = (props) => {
   const { history, setLogIn, userID, setUserID, setUserLocation } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
-
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-  
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
@@ -35,11 +30,9 @@ const LoginPage = (props) => {
       alert(e.message)
     }
   }
-
   const handleSignUp = () => {
     history.push('/sign-up')
   }
-
   return (
     <div>
       <form>
@@ -68,5 +61,4 @@ const LoginPage = (props) => {
     </div>
   )
 }
-
 export default LoginPage

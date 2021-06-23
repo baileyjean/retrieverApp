@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import { Textarea, Button } from 'react-rainbow-components'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 
 const containerStyles = {
   width: 700
 }
 
 const CommentForm = (props) => {
-  const [userId, setUserId] = useState('')
-  const [petId, setPetId] = useState('')
+  const { petID, userID } = props
+  const [userId, setUserId] = useState(userID)
+  const [petId, setPetId] = useState(petID)
   const [comment, setComment] = useState('')
   const [count, setCount] = useState(0)
 
-  // useEffect(() => {
-  //   setPetId(props.match.params.pet_id)
-  //   setUserId(props.user_id)
-  // })
+  const handleSubmit = async () => {
+    const res = await axios.post(`${BASE_URL}/comments`, {
+      user_id: userId,
+      pet_id: petId,
+      post: comment
+    })
+    console.log('fired')
+    // console.log({
+    //   user_id: userId,
+    //   pet_id: petId,
+    //   post: comment
+    // })
+    // console.log(props)
+  }
 
   const handleChange = (e) => {
     setComment(e.target.value)
@@ -37,13 +50,7 @@ const CommentForm = (props) => {
           placeholder="Comment"
           style={containerStyles}
         />
-        <Button
-          label="Submit"
-          variant="border"
-          onClick={() => {
-            console.log(comment)
-          }}
-        />
+        <Button label="Submit" variant="border" onClick={handleSubmit} />
       </form>
     </div>
   )

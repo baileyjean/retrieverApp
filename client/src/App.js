@@ -12,8 +12,8 @@ import NavBar from './components/NavBar'
 import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
 import { useHistory } from 'react-router-dom'
-// import axios from 'axios'
-// import { BASE_URL } from './globals'
+import axios from 'axios'
+import { BASE_URL } from './globals'
 
 function App() {
   const [loggedIn, setLogIn] = useState(false)
@@ -113,7 +113,9 @@ function App() {
         />
         <Route
           path="/pet-profile/:pet_id"
-          component={(props) => <PetPage {...props} loggedIn={loggedIn} />}
+          component={(props) => (
+            <PetPage {...props} loggedIn={loggedIn} userID={userID} />
+          )}
         />
         <Route
           path="/results"
