@@ -33,10 +33,10 @@ const UpdatePets = async (req, res) => {
 
 const DeletePet = async (req, res) => {
   try {
-    let ownerId = parseInt(req.params.owner_id)
+    let petId = parseInt(req.params.pet_id)
     await Pet.destroy({ 
-      where: { owner_id: ownerId },
-      returning: true 
+      where: { id: petId },
+      returning: true
     })
     res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
   } catch (error) {
