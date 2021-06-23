@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         onUpdate: 'cascade'
       })
       User.hasMany(models.Comment, {
-        foreignKey: 'owner_id',
+        foreignKey: 'user_id',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       })
