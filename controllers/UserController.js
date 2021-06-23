@@ -12,12 +12,25 @@ const GetAllUsers = async (req, res) => {
   }
 }
 
-const GetUserById = async (req,res) => {
+const GetUserById = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
     console.log(userId)
     let userFound = await User.findByPk(userId)
     res.send(userFound)
+  } catch (error) {
+    throw error
+  }
+}
+
+const GetUserByEmail = async (req, res) => {
+  try {
+    let userEmail = req.params.email
+    let userByEmail = await User.findAll({
+      where: { email: userEmail },
+      returning: true
+    })
+    res.send(userByEmail)
   } catch (error) {
     throw error
   }
@@ -49,6 +62,7 @@ const DeleteUser = async (req, res) => {
 module.exports = {
   GetAllUsers,
   GetUserById,
+  GetUserByEmail,
   UpdateUser,
   DeleteUser
 }
