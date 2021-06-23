@@ -19,7 +19,7 @@ const LoginPage = (props) => {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-
+  
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
@@ -28,15 +28,13 @@ const LoginPage = (props) => {
         password: password
       })
       setUserID(res.data.user.id)
-      setUserLocation(res.data.user.location)
       localStorage.setItem('token', res.data.token)
       setLogIn(true)
-      history.push(`/home/${userID}`)
+      history.push(`/home/${res.data.user.id}`)
     } catch (e) {
       alert(e.message)
     }
   }
-  console.log(userID)
 
   const handleSignUp = () => {
     history.push('/sign-up')
