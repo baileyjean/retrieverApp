@@ -16,7 +16,7 @@ import { useHistory } from 'react-router-dom'
 // import { BASE_URL } from './globals'
 
 function App() {
-  const [loggedIn, setLogIn] = useState(true)
+  const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const [userLocation, setUserLocation] = useState('')
   // const [specie, setSpecie] = useState([])
@@ -77,6 +77,7 @@ function App() {
               userLocation={userLocation}
               setUserID={setUserID}
               setUserLocation={setUserLocation}
+              history={history}
             />
           )}
         />

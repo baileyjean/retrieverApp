@@ -168,6 +168,21 @@ nav a.active {
   }
 }
 
+/* LOADING SCREEN */
+.loading {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  width: 100%;
+  margin-top: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading h1{
+  font-size: 3em;
+}
+
 /* ----- MOBILE OPTIMIZATION ----- */
 
 /* need to optimize browsepage images and font size! */

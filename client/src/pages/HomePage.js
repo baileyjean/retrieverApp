@@ -1,11 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { CarouselImage, CarouselCard } from 'react-rainbow-components'
-import PetCard from '../components/PetCard'
 import { BASE_URL } from '../globals'
 
 const HomePage = (props) => {
-  const { userID, userLocation, setUserLocation } = props
+  const { userID, userLocation, setUserLocation, history } = props
   const [localPets, setLocalPets] = useState([])
 
   const carouselContainerStyles = {
@@ -26,20 +25,19 @@ const HomePage = (props) => {
     console.log(`${BASE_URL}/pets/location/${userLocation}`)
     const res = await axios.get(`${BASE_URL}/pets/location/${userLocation}`)
     setLocalPets(res.data)
-    console.log(res.data[0].image)
   }
+
+  const redirect = () => {
+    userID ? history.push(`/home/${userID}`) : history.push(`/`)
+}
 
   useEffect(async () => {
     getUserLocation()
     getLocalPets()
-    console.log(userLocation)
   }, [])
 
   return (
-    <div>
-      <div onClick={() => props.history.push(`/new-pet/fwofla`)}>
-        List a pet!
-      </div>
+    (userID) ? (<div>
       {localPets.map((pet, index) => (
         <div key={index}>
           <div>
@@ -88,6 +86,7 @@ const HomePage = (props) => {
         </CarouselCard>
       </div>
     </div>
+    ) : (<div className="loading"><h1>Loading...</h1><h4>If you are not redirected in 5 seconds, click <span style={{cursor:'pointer',color:'blue',fontWeight:'bolder',textDecoration:'underline'}}onClick={()=>redirect()}>here</span>.</h4></div>)
   )
 }
 
