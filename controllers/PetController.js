@@ -1,5 +1,4 @@
 const { Pet } = require('../models')
-// const middleware = require('../middleware')
 
 const AddPet = async (req, res) => {
   try {
@@ -34,13 +33,11 @@ const UpdatePets = async (req, res) => {
 
 const DeletePet = async (req, res) => {
   try {
-    // BAILEY UPDATE: Changing to delete by owner_id
-    // Not sure if this is the best way to handle this, but
-    // I think we can grab the logged-in user's id and
-    // check it before deletion to make sure random peeps
-    // can't come and delete whatever they want
     let ownerId = parseInt(req.params.owner_id)
-    await Pet.destroy({ where: { owner_id: ownerId } })
+    await Pet.destroy({ 
+      where: { owner_id: ownerId },
+      returning: true 
+    })
     res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
   } catch (error) {
     throw error
@@ -60,8 +57,8 @@ const GetPetByLocation = async (req, res) => {
   try {
     let petLocation = parseInt(req.params.location)
     let petsByLocation = await Pet.findAll({
-      where: { location: petLocation }
-      // returning: true
+      where: { location: petLocation },
+      returning: true
     })
     res.send(petsByLocation)
   } catch (error) {
@@ -71,11 +68,12 @@ const GetPetByLocation = async (req, res) => {
 
 const GetPetBySpecies = async (req, res) => {
   try {
-    let petSpecie = req.params.species
-    let petBySpecie = await Pet.findAll({
-      where: { species: petSpecie }
+    let petSpecies = req.params.species
+    let petBySpecies = await Pet.findAll({
+      where: { species: petSpecies },
+      returning: true
     })
-    res.send(petBySpecie)
+    res.send(petBySpecies)
   } catch (error) {
     throw error
   }
