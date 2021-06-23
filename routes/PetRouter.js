@@ -7,6 +7,6 @@ Router.get('/petowner/:user_id', controller.GetPetByUserId)
 Router.get('/location/:location', controller.GetPetByLocation)
 Router.get('/species/:species', controller.GetPetBySpecies)
 Router.put('/:pet_id', controller.UpdatePets)
-Router.delete('/:owner_id', controller.DeletePet)
+Router.delete('/:pet_id', controller.DeletePet)
 
 module.exports = Router

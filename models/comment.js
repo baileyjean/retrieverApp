@@ -5,13 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Comment.belongsTo(models.User, {
         foreignKey: 'user_id',
-        // as: 'owner',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       Comment.belongsTo(models.Pet, {
         foreignKey: 'pet_id',
-        // as: 'comments',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
