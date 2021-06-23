@@ -4,7 +4,7 @@ import CommentCard from '../components/CommentCard'
 import CommentForm from '../components/CommentForm'
 
 const PetPage = (props) => {
-  const { postComments } = props
+  const { userID } = props
   const [newComment, setNewComment] = useState({})
   const [comments, setComments] = useState([])
 
@@ -23,6 +23,8 @@ const PetPage = (props) => {
     setComments(res.data)
   }
 
+  console.log(userID)
+
   return (
     <div className="comment-section">
       {comments.map((comment, index) => (
@@ -33,7 +35,7 @@ const PetPage = (props) => {
           pet_id={comment.pet_id}
         />
       ))}
-      <CommentForm />
+      <CommentForm userID={userID} petID={props.match.params.pet_id} />
     </div>
   )
 }

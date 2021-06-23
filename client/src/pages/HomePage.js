@@ -13,24 +13,23 @@ const HomePage = (props) => {
     height: '75vh'
   }
 
-  const getUserLocation = async () => {
-    const res = await axios.get(
-      `${BASE_URL}/users/${props.match.params.user_id}`
-    )
-    await setUserLocation(res.data.location)
-    console.log(`${BASE_URL}/users/${props.match.params.user_id}`)
-    console.log(res.data.location)
-  }
+  // const getUserLocation = async () => {
+  //   const res = await axios.get(
+  //     `${BASE_URL}/users/${props.match.params.user_id}`
+  //   )
+  //   setUserLocation(res.data.location)
+  //   console.log(`${BASE_URL}/users/${props.match.params.user_id}`)
+  //   console.log(res.data.location)
+  // }
 
   const getLocalPets = async () => {
     console.log(`${BASE_URL}/pets/location/${userLocation}`)
     const res = await axios.get(`${BASE_URL}/pets/location/${userLocation}`)
     setLocalPets(res.data)
-    console.log(res.data[0].image)
   }
 
-  useEffect(async () => {
-    getUserLocation()
+  useEffect(() => {
+    // getUserLocation()
     getLocalPets()
     console.log(userLocation)
   }, [])
@@ -40,14 +39,6 @@ const HomePage = (props) => {
       <div onClick={() => props.history.push(`/new-pet/fwofla`)}>
         List a pet!
       </div>
-      {localPets.map((pet, index) => (
-        <div key={index}>
-          <div>
-            {pet.name} | {pet.age}years old
-          </div>
-          <img src={pet.image} alt="pet" />
-        </div>
-      ))}
       <div className="carousel">
         <CarouselCard
           style={carouselContainerStyles}
@@ -60,30 +51,33 @@ const HomePage = (props) => {
             header="First Card"
             description="First card description."
             assistiveText="First card accessible description."
-            href="/pet-profile/:pet_id"
+            // href="/pet-profile/:pet_id"
           />
           <CarouselImage
             src="https://i.imgur.com/pmBwzJ3.jpg"
             header="Second Card"
             description="Second card description."
             assistiveText="Second card accessible description."
-            href="/pet-profile/:pet_id"
+            // href="/pet-profile/:pet_id"
           />
           <CarouselImage
             src="https://i.imgur.com/pmBwzJ3.jpg"
             header="Third Card"
             description="Third card description."
             assistiveText="Third card accessible description."
-            href="/pet-profile/:pet_id"
+            // href="/pet-profile/:pet_id"
           />
           {localPets.map((pet) => (
+            // <div onClick={props.history.push(`/pet-profile/${pet.id}`)}>
             <CarouselImage
               src={pet.image}
               header={pet.name}
               description="Second card description."
               assistiveText="Second card accessible description."
-              href={`/pet-profile/${pet.id}`}
+              // href={`/pet-profile/${pet.id}`}
+              onClick={props.history.push(`/pet-profile/${pet.id}`)}
             />
+            // </div>
           ))}
         </CarouselCard>
       </div>

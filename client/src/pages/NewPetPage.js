@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import CurrencyInput from 'react-currency-input-field'
+import axios from 'axios'
+import { BASE_URL } from '../globals'
 import {
   Input,
   Button,
@@ -35,8 +36,8 @@ const genderOptions = [
 const NewPetPage = (props) => {
   const { userID, userLocation } = props
   const [name, setName] = useState('')
-  const [userId, setUserId] = useState('')
-  const [location, setLocation] = useState('')
+  const [userId, setUserID] = useState(userID)
+  const [location, setLocation] = useState(userLocation)
   const [species, setSpecies] = useState('reptile')
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
@@ -103,24 +104,10 @@ const NewPetPage = (props) => {
   console.log(img)
 
   const handleSubmit = async () => {
-    // res = await axios.post(`${BASE_URL}/pets`, {
-    //   name: name,
-    //   owner_id: userID,
-    //   location: userLocation,
-    //   species: species,
-    //   age: age,
-    //   gender: gender,
-    //   adopt_fee: fee,
-    //   description: description,
-    //   kid_friendly: kidFriendly,
-    //   pet_friendly: petFriendly,
-    //   image: img
-    // })
-    // this.props.history.push(`/home/${ownerID}`)
-    console.log({
+    const res = await axios.post(`${BASE_URL}/pets`, {
       name: name,
-      owner_id: userID,
-      location: userLocation,
+      owner_id: userId,
+      location: location,
       species: species,
       age: age,
       gender: gender,
@@ -130,6 +117,20 @@ const NewPetPage = (props) => {
       pet_friendly: petFriendly,
       image: img
     })
+    props.history.push(`/home/${userID}`)
+    // console.log({
+    //   name: name,
+    //   owner_id: userId,
+    //   location: location,
+    //   species: species,
+    //   age: age,
+    //   gender: gender,
+    //   adopt_fee: fee,
+    //   description: description,
+    //   kid_friendly: kidFriendly,
+    //   pet_friendly: petFriendly,
+    //   image: img
+    // })
   }
 
   return (

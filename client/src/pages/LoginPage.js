@@ -31,6 +31,9 @@ const LoginPage = (props) => {
       setUserLocation(res.data.user.location)
       localStorage.setItem('token', res.data.token)
       setLogIn(true)
+      console.log(userID)
+      const locationRes = await axios.get(`${BASE_URL}/users/${userID}`)
+      setUserLocation(locationRes.data.location)
       history.push(`/home/${userID}`)
     } catch (e) {
       alert(e.message)
