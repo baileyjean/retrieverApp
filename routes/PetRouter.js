@@ -4,7 +4,7 @@ const controller = require('../controllers/PetController')
 Router.post('/', controller.AddPet)
 
 Router.get('/', controller.GetAllPets)
-Router.get('/:user_id', controller.GetPetByUserId)
+// Router.get('/:user_id', controller.GetPetByUserId)
 Router.get('/location/:location', controller.GetPetByLocation)
 Router.get('/species/:species', controller.GetPetBySpecies)
 

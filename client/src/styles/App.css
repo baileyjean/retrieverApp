@@ -4,7 +4,8 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 .App {
   text-align: center;
@@ -34,7 +35,7 @@ header {
   background-color: navy;
   color: aliceblue;
   font-size: 1.2em;
-  z-index:50;
+  z-index: 50;
 }
 header img {
   vertical-align: middle;
@@ -68,7 +69,8 @@ nav a.active {
   border: none;
   background-color: gold;
   font-size: 0.8em;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,7 +83,7 @@ nav a.active {
 #logout:focus {
   background-color: whitesmoke;
 }
-.searchbar{
+.searchbar {
   display: flex;
   align-items: center;
   transition: ease-in-out 0.2s;
@@ -93,7 +95,8 @@ nav a.active {
   opacity: 0;
   transition: ease-in-out 0.3s;
   border: none;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 .searchbar:hover input {
   opacity: 100;
@@ -105,6 +108,12 @@ nav a.active {
 }
 
 /* ----- PAGES ----- */
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
 
 /* BROWSE RESULTS */
 
@@ -125,24 +134,24 @@ nav a.active {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   transition: ease-in-out 0.1s;
   font-size: 2.3em;
   cursor: pointer;
 }
-.species:hover{
-  background-color: rgba(255,255,255,1);
+.species:hover {
+  background-color: rgba(255, 255, 255, 1);
   width: 48%;
   margin: 1%;
   font-size: 2.4em;
-  box-shadow: 0px 0px 20px rgba(37, 37, 48,0.2);
+  box-shadow: 0px 0px 20px rgba(37, 37, 48, 0.2);
 }
 
 .species img {
   width: 100%;
 }
 .species h2 {
-  position: absolute;  
+  position: absolute;
   color: white;
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }

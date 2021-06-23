@@ -1,36 +1,42 @@
 import React, { useState } from 'react'
 import { Input, Button, StrongPasswordInput } from 'react-rainbow-components'
+import axios from 'axios'
+import { BASE_URL } from '../globals.js'
 
 const containerStyles = {
   width: 350
 }
 
 const LoginPage = (props) => {
-  const { history, setLogIn, userID, setUserID } = props
+  const { history, setLogIn, userID, setUserID, setUserLocation } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
-  console.log(email)
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-  console.log(password)
 
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      // await auth
-      // let userID = /* whatever needs to go here to get the id from backend */
+      const res = await axios.post(`${BASE_URL}/auth/login`, {
+        email: email,
+        password: password
+      })
+      setUserID(res.data.user.id)
+      setUserLocation(res.data.user.location)
+      localStorage.setItem('token', res.data.token)
       setLogIn(true)
       history.push(`/home/${userID}`)
     } catch (e) {
       alert(e.message)
     }
   }
+  console.log(userID)
 
   const handleSignUp = () => {
     history.push('/sign-up')
@@ -39,15 +45,6 @@ const LoginPage = (props) => {
   return (
     <div>
       <form>
-        {/* <label>Email</label>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmailChange}
-          required
-        /> */}
         <Input
           label="Email"
           type="email"
@@ -55,7 +52,6 @@ const LoginPage = (props) => {
           value={email}
           onChange={handleEmailChange}
           maxLength={255}
-          placeholder="Email"
           style={containerStyles}
         />
         <Input

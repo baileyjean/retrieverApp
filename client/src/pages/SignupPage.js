@@ -1,4 +1,6 @@
 import React, { useReducer, useState } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../globals.js'
 import {
   Input,
   Button,
@@ -16,6 +18,7 @@ const bioStyles = {
 
 const SignupPage = (props) => {
   const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [name, setName] = useState('')
   const [bio, setBio] = useState('')
@@ -36,6 +39,10 @@ const SignupPage = (props) => {
     setName(e.target.value)
   }
   console.log(name)
+
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value)
+  }
 
   const handleBioChange = (e) => {
     setBio(e.target.value)
@@ -71,17 +78,43 @@ const SignupPage = (props) => {
 
   const passwordState = getStrength()
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post(`${BASE_URL}/auth/register`, {
+        name: name,
+        username: username,
+        email: email,
+        password: password,
+        location: location,
+        bio: bio,
+        image: img
+      })
+    } catch (error) {
+      console.log(error)
+    }
+    props.history.push(`/`)
+  }
+
   return (
     <div>
       <form>
         <Input
           label="Email"
           type="email"
-          rows={1}
           value={email}
           onChange={handleEmailChange}
           maxLength={255}
           placeholder="Email"
+          style={containerStyles}
+        />
+        <Input
+          label="Username"
+          type="text"
+          value={username}
+          onChange={handleUsernameChange}
+          maxLength={255}
+          placeholder="Username"
           style={containerStyles}
         />
         <StrongPasswordInput
@@ -130,7 +163,7 @@ const SignupPage = (props) => {
           placeholder="Email"
           style={bioStyles}
         />
-        <Button label="Submit" variant="border" />
+        <Button label="Submit" variant="border" onClick={handleSubmit} />
       </form>
     </div>
   )

@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from 'axios'
 
 axios.interceptors.request.use(
   (config) => {
@@ -11,5 +11,4 @@ axios.interceptors.request.use(
   (error) => Promise.reject(error)
 )
 
-
-export const BASE_URL = 'http://localhost:3001'
+export const BASE_URL = 'http://localhost:3001/api'
