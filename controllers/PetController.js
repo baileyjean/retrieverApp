@@ -36,7 +36,7 @@ const DeletePet = async (req, res) => {
   try {
     let petId = parseInt(req.params.pet_id)
     await Pet.destroy({ where: { id: petId } })
-    res.send({ message: `Furrrr Well pet #${petId} Furrrmely known as Prince` })
+    res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
   } catch (error) {
     throw error
   }
