@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
   class Comment extends Model {
     static associate(models) {
       Comment.belongsTo(models.User, {
-        foreignKey: 'owner_id',
-        as: 'owner',
+        foreignKey: 'user_id',
+        // as: 'owner',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       Comment.belongsTo(models.Pet, {
         foreignKey: 'pet_id',
-        as: 'comments',
+        // as: 'comments',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })

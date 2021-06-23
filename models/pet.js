@@ -5,13 +5,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Pet.belongsTo(models.User, {
         foreignKey: 'owner_id',
-        as: 'owner',
+
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
       Pet.hasMany(models.Comment, {
         foreignKey: 'pet_id',
-        as: 'comments',
+        // as: 'comments',
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       })
