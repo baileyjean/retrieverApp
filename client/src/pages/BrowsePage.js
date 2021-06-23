@@ -5,6 +5,7 @@ import birds from '../styles/images/birds.png'
 import felines from '../styles/images/felines.png'
 import canines from '../styles/images/canines.png'
 import bugs from '../styles/images/bugs.png'
+import rodents from '../styles/images/rodents.png'
 import tbd from '../styles/images/tbd.png'
 
 const BrowsePage = (props) => {
@@ -13,7 +14,7 @@ const BrowsePage = (props) => {
     { name: 'Amphibian', img: `${amphibians}` },
     { name: 'Bird', img: `${birds}` },
     { name: 'Insect', img: `${bugs}` },
-    { name: 'Rodent', img: `${tbd}` },
+    { name: 'Rodent', img: `${rodents}` },
     { name: 'Weasel', img: `${tbd}` },
     { name: 'Dog', img: `${canines}` },
     { name: 'Cat', img: `${felines}` },
