@@ -1,5 +1,10 @@
 import React, { useReducer, useState } from 'react'
-import { Textarea, Button, StrongPasswordInput } from 'react-rainbow-components'
+import {
+  Input,
+  Button,
+  StrongPasswordInput,
+  Textarea
+} from 'react-rainbow-components'
 
 const containerStyles = {
   width: 400
@@ -69,8 +74,9 @@ const SignupPage = (props) => {
   return (
     <div>
       <form>
-        <Textarea
+        <Input
           label="Email"
+          type="email"
           rows={1}
           value={email}
           onChange={handleEmailChange}
@@ -87,8 +93,9 @@ const SignupPage = (props) => {
           passwordState={passwordState}
           onChange={handlePasswordChange}
         />
-        <Textarea
-          label="Profile Pictur"
+        <Input
+          type="url"
+          label="Profile Picture"
           rows={1}
           value={img}
           onChange={handleImgChange}
@@ -96,7 +103,7 @@ const SignupPage = (props) => {
           placeholder="Image Link"
           style={containerStyles}
         />
-        <Textarea
+        <Input
           label="Name"
           rows={1}
           value={name}
@@ -105,9 +112,9 @@ const SignupPage = (props) => {
           placeholder="Name"
           style={containerStyles}
         />
-        <Textarea
+        <Input
           label="Zip Code"
-          rows={1}
+          maxLength={5}
           value={location}
           onChange={handleLocationChange}
           maxLength={255}
