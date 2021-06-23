@@ -1,5 +1,11 @@
-const { User } = require('../models')
+const { User, Pet } = require('../models')
 const middleware = require('../middleware')
+
+// BAILEY'S LATE NIGHT THOUGHTS: Can we create some Boolean data field in our USER model
+// ... that will get switched 'on' when the user logs in? 
+// ... Then we can build a helper function to say: 
+// ... "Hey, is this user logged in" --> IF YES --> Check user_id against owner_id before updating or deleting
+
 
 const Register = async (req, res) => {
   try {
@@ -35,8 +41,32 @@ const Login = async (req, res) => {
   }
 }
 
+// const DeleteMyPet = async (req, res) => {
+//   try {
+//     const pet = await Pet.findOne({
+//       where: { owner_id: req.params.owner_id },
+//       raw: true
+//     })
+//     if (
+//       pet &&
+//       (await middleware.comparePassword(req.body.password, user.password))
+//     ) {
+//       let payload = {
+//         id: user.id,
+//         email: user.email
+//       }
+//       let token = middleware.createToken(payload)
+//       return res.send({ user: payload, token })
+//     }
+//     res.status(401).send({ status: 'Error', msg: 'UnPAWthorized' })
+//   } catch (error) {
+//     throw error
+//   }
+// }
+
 
 module.exports = {
   Register,
-  Login
+  Login,
+  // DeleteMyPet
 }
