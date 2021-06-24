@@ -4,9 +4,12 @@ import { HiSearchCircle } from 'react-icons/hi'
 import logo from '../styles/images/logo-white.png'
 
 const NavBar = (props) => {
-  const { loggedIn, logOut, userID } = props
+  const { loggedIn, logOut, userID, history } = props
 
-  // show search results page on click of "mag".
+  // const handleSearch = () => {
+  //   // show search results page on click of "mag".
+  //   history.push('/')
+  // }
 
   return (
     <header
@@ -19,8 +22,11 @@ const NavBar = (props) => {
       </NavLink>
       <nav>
         <div className="searchbar">
-          <input type="search" placeholder="Search Pets" />
-          <HiSearchCircle id="mag" />
+          <input type="search" placeholder="Search Pets"></input>
+          <HiSearchCircle 
+            id="mag" 
+            /* onClick={handleSearch} */
+          />
         </div>
         <NavLink to="/browse">Browse Pets</NavLink>
         <NavLink to={`/new-pet/${userID}`}>Post a Pet</NavLink>
