@@ -20,8 +20,20 @@ const PetPage = (props) => {
   }, [])
 
   console.log(comments)
-
   console.log(userID)
+
+  const handleDelete = async (id) => {
+    await axios.delete(`${BASE_URL}/comments/${id}`)
+    let currentComments = [...comments].filter((comment) => comment.id !== id)
+    setComments(currentComments)
+  }
+
+  const handleChange = (e, index) => {
+    let currentComments = [...comments]
+    let target = currentComments[index]
+    target.post = e.target.value
+    setComments(currentComments)
+  }
 
   return (
     <div className="comment-section">
@@ -29,12 +41,15 @@ const PetPage = (props) => {
         <div className="comment-center">
           <CommentCard
             key={index}
+            index={index}
             text={comment.post}
             user_id={comment.user_id}
             pet_id={comment.pet_id}
             userID={userID}
             id={comment.id}
             getComments={getComments}
+            handleDelete={handleDelete}
+            handleChange={handleChange}
           />
         </div>
       ))}

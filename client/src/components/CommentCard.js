@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 import { Textarea } from 'react-rainbow-components'
-
 const containerStyles = {
   width: 500
 }
-
 const CommentCard = (props) => {
-  const [commentText, setCommentText] = useState('')
   const [editing, setEditing] = useState(false)
 
   const editComment = () => {
@@ -19,29 +16,14 @@ const CommentCard = (props) => {
     }
   }
 
-  const handleChange = (e) => {
-    setCommentText(e.target.value)
-  }
-
-  useEffect(() => {
-    setCommentText(props.text)
-  }, [])
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.put(`${BASE_URL}/comments/${props.id}`, {
       user_id: props.user_id,
       pet_id: props.pet_id,
-      post: commentText
+      post: props.text
     })
     editComment()
-  }
-
-  const handleDelete = async () => {
-    await axios.delete(`${BASE_URL}/comments/${props.id}`)
-    console.log(`${BASE_URL}/comments/${props.id}`)
-    console.log(props.id)
-    props.getComments()
   }
 
   if (editing) {
@@ -51,8 +33,8 @@ const CommentCard = (props) => {
           <form onSubmit={handleSubmit}>
             <Textarea
               type="text"
-              value={commentText}
-              onChange={handleChange}
+              value={props.text}
+              onChange={(e) => props.handleChange(e, props.index)}
               rows={3}
               style={containerStyles}
               className="no-margain"
@@ -63,12 +45,11 @@ const CommentCard = (props) => {
       </div>
     )
   }
-
   return (
     <div>
       <Textarea
         type="text"
-        value={commentText}
+        value={props.text}
         rows={3}
         readOnly={true}
         className="comment"
@@ -81,10 +62,9 @@ const CommentCard = (props) => {
         }}
       >
         <button onClick={editComment}>Edit</button>
-        <button onClick={handleDelete}>delete</button>
+        <button onClick={() => props.handleDelete(props.id)}>delete</button>
       </div>
     </div>
   )
 }
-
 export default CommentCard

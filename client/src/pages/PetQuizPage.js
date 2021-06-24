@@ -135,17 +135,17 @@ const PetQuizPage = () => {
 
        */}
       <div>
-        Do you need to be able to cuddle your pet?
+        Do you value a quiet home?
         <div
           onClick={() => {
-            setAnswers({ ...answers, wantCuddly: false })
+            setAnswers({ ...answers, wantQuiet: false })
           }}
         >
           no
         </div>
         <div
           onClick={() => {
-            setAnswers({ ...answers, wantCuddly: true })
+            setAnswers({ ...answers, wantQuiet: true })
           }}
         >
           yes
