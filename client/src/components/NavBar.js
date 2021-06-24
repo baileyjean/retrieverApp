@@ -1,7 +1,9 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { HiSearchCircle } from 'react-icons/hi'
 import logo from '../styles/images/logo-white.png'
+import { BASE_URL } from '../globals'
+import axios from 'axios'
 
 const NavBar = (props) => {
   const { loggedIn, logOut, userID, history } = props
@@ -15,7 +17,6 @@ const NavBar = (props) => {
   const searchByKeyword = async () => {
     /* double check that this is the correct axios call route */
     const res = await axios.get(`${BASE_URL}/pets/keyword/${keyword}`)
-    setLocalPets(res.data)
   }
 
   return (
