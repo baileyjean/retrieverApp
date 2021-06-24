@@ -5,11 +5,18 @@ import logo from '../styles/images/logo-white.png'
 
 const NavBar = (props) => {
   const { loggedIn, logOut, userID, history } = props
+  const [keyword,setKeyword] = useState('')
 
-  // const handleSearch = () => {
-  //   // show search results page on click of "mag".
-  //   history.push('/')
-  // }
+  const handleSearch = () => {
+    // show search results page on click of "mag".
+    history.push('/')
+  }
+
+  const searchByKeyword = async () => {
+    /* double check that this is the correct axios call route */
+    const res = await axios.get(`${BASE_URL}/pets/keyword/${keyword}`)
+    setLocalPets(res.data)
+  }
 
   return (
     <header
