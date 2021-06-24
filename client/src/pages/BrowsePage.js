@@ -8,7 +8,7 @@ import bugs from '../styles/images/bugs.png'
 import rodents from '../styles/images/rodents.png'
 import weasels from '../styles/images/weasels.png'
 import fish from '../styles/images/fish.png'
-import tbd from '../styles/images/tbd.png'
+import other from '../styles/images/other.png'
 
 const BrowsePage = (props) => {
   const species = [
@@ -21,7 +21,7 @@ const BrowsePage = (props) => {
     { name: 'Dog', img: `${canines}` },
     { name: 'Cat', img: `${felines}` },
     { name: 'Fish', img: `${fish}` },
-    { name: 'Other', img: `${tbd}` }
+    { name: 'Other', img: `${other}` }
   ]
   return (
       <div className="browse-results">
