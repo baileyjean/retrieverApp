@@ -139,12 +139,17 @@ nav a.active {
 }
 /* ----- PAGES ----- */
 /* HOME */
+.homepage {
+  text-align: center;
+}
 .carousel {
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
+
 /* BROWSE RESULTS */
+
 .browse-results {
   margin-top: 80px;
   padding-top: 20px;

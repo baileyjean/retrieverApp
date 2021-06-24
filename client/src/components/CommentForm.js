@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import { Textarea, Button } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
@@ -7,24 +7,20 @@ const containerStyles = {
 }
 const CommentForm = (props) => {
   const { petID, userID, getComments } = props
-  const [userId, setUserId] = useState(userID)
-  const [petId, setPetId] = useState(petID)
   const [comment, setComment] = useState('')
 
   const handleSubmit = async () => {
-    const res = await axios.post(`${BASE_URL}/comments`, {
-      user_id: userId,
-      pet_id: petId,
+    await axios.post(`${BASE_URL}/comments`, {
+      user_id: {userID},
+      pet_id: petID,
       post: comment
     })
-    console.log('fired')
     getComments()
   }
   const handleChange = (e) => {
     setComment(e.target.value)
   }
 
-  console.log(comment)
 
   return (
     <div>

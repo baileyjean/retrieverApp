@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import { React, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals.js'
 import {
@@ -28,17 +28,14 @@ const SignupPage = (props) => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value)
   }
-  console.log(email)
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value)
   }
-  console.log(password)
 
   const handleNameChange = (e) => {
     setName(e.target.value)
   }
-  console.log(name)
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value)
@@ -47,12 +44,10 @@ const SignupPage = (props) => {
   const handleBioChange = (e) => {
     setBio(e.target.value)
   }
-  console.log(bio)
 
   const handleImgChange = (e) => {
     setImg(e.target.value)
   }
-  console.log(img)
 
   const handleLocationChange = (e) => {
     const re = /^[0-9\b]+$/
@@ -60,7 +55,6 @@ const SignupPage = (props) => {
       setLocation(e.target.value)
     }
   }
-  console.log(location)
 
   function getStrength() {
     const { length } = password
@@ -81,7 +75,7 @@ const SignupPage = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(`${BASE_URL}/auth/register`, {
+      await axios.post(`${BASE_URL}/auth/register`, {
         name: name,
         username: username,
         email: email,

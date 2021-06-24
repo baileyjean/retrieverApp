@@ -13,7 +13,6 @@ const BrowseResultsPage = (props) => {
   useEffect(() => {
     getPets()
   }, [])
-  console.log(pets)
   return (
     <div>
       <div>
