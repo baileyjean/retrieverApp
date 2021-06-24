@@ -6,7 +6,7 @@ const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
   const [localPets, setLocalPets] = useState([])
   const carouselContainerStyles = {
-    width: '80vw',
+    width: '60vw',
     height: '75vh'
   }
   const getUserLocation = async () => {
@@ -65,6 +65,7 @@ const HomePage = (props) => {
               onClick={() => {
                 history.push(`/pet-profile/${pet.id}`)
               }}
+              style={{ width: '100vw', cursor: 'pointer' }}
             >
               <CarouselImage
                 src={pet.image}
@@ -72,6 +73,7 @@ const HomePage = (props) => {
                 description="Second card description."
                 assistiveText="Second card accessible description."
                 // href={`/pet-profile/${pet.id}`}
+                style={{ width: '60vw' }}
               />
             </span>
           ))}
