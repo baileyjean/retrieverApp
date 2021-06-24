@@ -31,7 +31,6 @@ function App() {
     // const res = await axios.get(`${BASE_URL}/pets/${keyword}`)
     history.push(`/results/${keyword}`)
     setKeyword('')
-    toggleMenu()
   }
 
   // How do reset searchbar text to empty

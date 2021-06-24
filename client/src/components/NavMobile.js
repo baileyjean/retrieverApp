@@ -32,7 +32,7 @@ function NavMobile(props) {
           />
           <HiSearchCircle 
             id="magmobile" 
-            onClick={handleSearch}
+            onClick={()=>{handleSearch();closeMenu()}}
           />
         </div>
       <div className="mobilemenu">
