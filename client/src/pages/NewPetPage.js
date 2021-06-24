@@ -7,7 +7,9 @@ import {
   Textarea,
   CheckboxToggle,
   Select,
-  RadioGroup
+  RadioGroup,
+  Notification,
+  RenderIf
 } from 'react-rainbow-components'
 
 const containerStyles = {
@@ -46,6 +48,7 @@ const NewPetPage = (props) => {
   const [kidFriendly, setKidFriendly] = useState(false)
   const [petFriendly, setPetFriendly] = useState(false)
   const [img, setImg] = useState('')
+  const [posted, setPosted] = useState(false)
 
   const handleNameChange = (e) => {
     setName(e.target.value)
@@ -117,8 +120,7 @@ const NewPetPage = (props) => {
       pet_friendly: petFriendly,
       image: img
     })
-    props.history.push(`/home/${userID}`)
-    
+    setPosted(true)
   }
 
   return (
@@ -194,6 +196,19 @@ const NewPetPage = (props) => {
           style={containerStyles}
         />
         <Button label="Submit" onClick={handleSubmit} />
+        <RenderIf isTrue={posted}>
+          <div>
+            <Notification
+              title="Pet succesfully posted!"
+              description="Click here to return to the home screen."
+              // hideCloseButton={true}
+              onRequestClose={() => {
+                props.history.push(`/home/${userID}`)
+              }}
+              icon="success"
+            />
+          </div>
+        </RenderIf>
       </form>
     </div>
   )
