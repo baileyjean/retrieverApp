@@ -1,7 +1,7 @@
 body {
   width: 100vw;
   overflow-x: hidden;
-  height: 90vh;
+  height: 89vh;
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
@@ -12,7 +12,6 @@ body {
   text-align: center;
   margin: 0;
 }
-
 form {
   padding-top: 100px;
   display: flex;
@@ -20,30 +19,21 @@ form {
   justify-content: center;
   align-items: center;
 }
-
 /* ----- COMPONENTS ----- */
-
 .comment {
   border: 1px solid lightblue;
   border-radius: 15px;
   padding: 12px;
 }
-
 .comment-center {
   display: flex;
   justify-content: center;
   margin: 50px;
 }
-
 .no-margain {
   margin: 0;
 }
-
-.capitalize {
-  text-transform: capitalize;
-}
 /* NAVBAR */
-
 header {
   height: 80px;
   width: 100%;
@@ -106,9 +96,10 @@ nav a.active {
 .searchbar {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .searchbar input {
-  padding: 6px;
+  padding: 0.5em;
   background-color: aliceblue;
   width: 0em;
   opacity: 0;
@@ -116,6 +107,7 @@ nav a.active {
   border: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  font-size: 0.7em;
 }
 .searchbar:hover input {
   opacity: 100;
@@ -123,33 +115,30 @@ nav a.active {
 }
 #mag {
   cursor: pointer;
-  padding: 5px;
-  margin-right: 12px;
+  margin-right: 1em;
+  margin-left: 0.4em;
   transition: ease-in-out 0.3s;
+  font-size: 1.4em;
 }
 #mag:hover {
-  color: gold;
-  font-size: 1.5em;
-  padding: 0;
+  color:gold;
+  font-size:1.6em;
+  margin-left: 0.3em;
+  margin-right: 0.8em;
 }
 .mobilebtn {
   display: none;
 }
-
 /* ----- PAGES ----- */
-
 /* HOME */
-
 .carousel {
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
-
 /* BROWSE RESULTS */
-
 .browse-results {
-  margin-top: 80px;
+  margin-top:80px;
   padding-top: 20px;
   padding-bottom: 80px;
   display: flex;
@@ -176,7 +165,6 @@ nav a.active {
   font-size: 2.4em;
   box-shadow: 0px 0px 20px rgba(37, 37, 48, 0.2);
 }
-
 .species img {
   width: 100%;
 }
@@ -186,9 +174,7 @@ nav a.active {
   color: white;
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
-
 /* LOADING SCREEN */
-
 .loading {
   display: flex;
   flex-flow: column wrap;
@@ -198,31 +184,22 @@ nav a.active {
   justify-content: center;
   align-items: center;
 }
-
 .loading h1 {
   font-size: 3em;
 }
-
 /* ----- MOBILE OPTIMIZATION ----- */
-
-.mobilemenu {
-  display: flex;
-  flex-flow: column wrap;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 .mobilenav {
-  position: fixed;
   width: 100%;
   height: 100%;
-  background-color: navy;
-  display: grid;
-  z-index: -999;
-  align-items: center;
+  position: fixed;
   top: 0;
   left: 0;
-  transition: ease-in-out 0.3s;
+  background-color: navy;
+  display: grid;
+  grid-template-rows: 20% 80%;
+  align-items: center;
+  z-index: -999;
+  transition: ease-in-out 0.4s;
 }
 .navclose {
   color: white;
@@ -234,10 +211,48 @@ nav a.active {
   cursor: pointer;
   outline: none;
 }
-.navclose:hover,
-.mobilebtn:hover {
+.navclose:hover, .mobilebtn:hover {
   color: gold;
   transition: ease-in-out 0.2s;
+}
+.mobile-search {
+  margin-top: 6em;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+.mobile-search input {
+  padding: 6px;
+  margin: 0 10px 0 20px;
+  background-color: aliceblue;
+  width: 18em;
+  transition: ease-in-out 0.3s;
+  border: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+  'Lucida Sans', Arial, sans-serif;
+  font-size: 1em;
+}
+#magmobile {
+  margin: 0;
+  cursor: pointer;
+  padding: 5px;
+  font-size:2em;
+  transition: ease-in-out 0.3s;
+  color: whitesmoke
+}
+#magmobile:hover{
+  color:gold;
+  font-size:3em;
+  padding:0;
+  margin: -0.07em;
+}
+.mobilemenu {
+  margin-top: -6em;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
 .mobilemenu a {
   margin: 1em 0;
@@ -248,7 +263,6 @@ nav a.active {
   transition: ease-in-out 0.2s;
   cursor: pointer;
 }
-
 .mobilemenu a:hover {
   color: gold;
   transition: ease-in-out 0.2s;
@@ -272,16 +286,14 @@ nav a.active {
 #logout-mobile:focus {
   background-color: whitesmoke;
 }
-
 @media screen and (max-width: 800px) {
   nav a {
     padding: 1em 0.5em;
   }
   #mag {
-    margin-right: 10px;
+    margin-right:10px;
   }
 }
-
 @media screen and (max-width: 750px) {
   nav {
     display: none;
@@ -291,7 +303,7 @@ nav a.active {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-120%, 70%);
+    transform: translate(-120%,70%);
     font-size: 3vh;
     cursor: pointer;
     color: white;
@@ -306,7 +318,6 @@ nav a.active {
     font-size: 1.6em;
   }
 }
-
 /**/
 @media screen and (min-width: 751px) {
   .browse-results {
@@ -316,13 +327,13 @@ nav a.active {
   .species {
     width: 29%;
     margin: 2%;
-    margin-bottom: 3.5%;
+    margin-bottom:3.5%;
     font-size: 1.7em;
   }
   .species:hover {
     width: 31%;
     margin: 1%;
-    margin-bottom: 2.5%;
+    margin-bottom:2.5%;
     font-size: 1.8em;
   }
 }
@@ -337,13 +348,13 @@ nav a.active {
   .species {
     width: 23%;
     margin: 1%;
-    margin-bottom: 5%;
+    margin-bottom:5%;
     font-size: 1.5em;
   }
   .species:hover {
     width: 24.5%;
     margin: 0.25%;
-    margin-bottom: 4.25%;
+    margin-bottom:4.25%;
     font-size: 1.6em;
   }
 }
@@ -353,7 +364,7 @@ nav a.active {
     padding: 1em 1.5em;
   }
   .browse-results {
-    padding: 8vh 0 40vh 0;
+    padding:8vh 0 40vh 0;
   }
   .species {
     width: 18%;
