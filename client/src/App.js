@@ -11,6 +11,7 @@ import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
 import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
+import PetQuizPage from './pages/PetQuizPage'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { BASE_URL } from './globals'
@@ -134,6 +135,7 @@ function App() {
           path="/browse-result/:specie"
           component={(props) => <BrowseResultsPage {...props} />}
         />
+        <Route path="/quiz" component={(props) => <PetQuizPage {...props} />} />
       </Switch>
     </div>
   )

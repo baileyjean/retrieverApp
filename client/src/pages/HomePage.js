@@ -11,10 +11,11 @@ const HomePage = (props) => {
   }
   const getUserLocation = async () => {
     const res = await axios.get(
-      `${BASE_URL}/users/${props.match.params.user_id}`
+      `${BASE_URL}/users/id/${props.match.params.user_id}`
     )
-    await setUserLocation(res.data.location)
-    console.log(`${BASE_URL}/users/${props.match.params.user_id}`)
+    console.log(res)
+    setUserLocation(res.data.location)
+    console.log(`${BASE_URL}/users/id/${props.match.params.user_id}`)
     console.log(res.data.location)
   }
   const getLocalPets = async () => {
@@ -24,21 +25,13 @@ const HomePage = (props) => {
   }
   const redirect = () => {
     userID ? history.push(`/home/${userID}`) : history.push(`/`)
-}
+  }
   useEffect(async () => {
     getUserLocation()
     getLocalPets()
   }, [])
-  return (
-    (userID) ? (<div>
-      {localPets.map((pet, index) => (
-        <div key={index}>
-          <div>
-            {pet.name} | {pet.age}years old
-          </div>
-          <img src={pet.image} alt="pet" />
-        </div>
-      ))}
+  return userID ? (
+    <div>
       <div className="carousel">
         <CarouselCard
           style={carouselContainerStyles}
@@ -68,18 +61,42 @@ const HomePage = (props) => {
             href="/pet-profile/:pet_id"
           />
           {localPets.map((pet) => (
-            <CarouselImage
-              src={pet.image}
-              header={pet.name}
-              description="Second card description."
-              assistiveText="Second card accessible description."
-              href={`/pet-profile/${pet.id}`}
-            />
+            <span
+              onClick={() => {
+                history.push(`/pet-profile/${pet.id}`)
+              }}
+            >
+              <CarouselImage
+                src={pet.image}
+                header={pet.name}
+                description="Second card description."
+                assistiveText="Second card accessible description."
+                // href={`/pet-profile/${pet.id}`}
+              />
+            </span>
           ))}
         </CarouselCard>
       </div>
     </div>
-    ) : (<div className="loading"><h1>Loading...</h1><h4>If you are not redirected in 5 seconds, click <span style={{cursor:'pointer',color:'blue',fontWeight:'bolder',textDecoration:'underline'}}onClick={()=>redirect()}>here</span>.</h4></div>)
+  ) : (
+    <div className="loading">
+      <h1>Loading...</h1>
+      <h4>
+        If you are not redirected in 5 seconds, click{' '}
+        <span
+          style={{
+            cursor: 'pointer',
+            color: 'blue',
+            fontWeight: 'bolder',
+            textDecoration: 'underline'
+          }}
+          onClick={() => redirect()}
+        >
+          here
+        </span>
+        .
+      </h4>
+    </div>
   )
 }
 export default HomePage
