@@ -9,6 +9,7 @@ body {
 }
 .App {
   text-align: center;
+  margin: 0;
 }
 
 form {
@@ -119,7 +120,7 @@ nav a.active {
 
 .browse-results {
   height: 100%;
-  width: 99%;
+  width: 100%;
   margin-top: 80px;
   padding-bottom: 80px;
   display: flex;
@@ -152,6 +153,7 @@ nav a.active {
 }
 .species h2 {
   position: absolute;
+  margin:0;
   color: white;
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
@@ -185,7 +187,6 @@ nav a.active {
 
 /* ----- MOBILE OPTIMIZATION ----- */
 
-/* need to optimize browsepage images and font size! */
 
 @media screen and (max-width: 800px) {
   nav a {
