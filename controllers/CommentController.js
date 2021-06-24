@@ -20,9 +20,9 @@ const GetAllComments = async (req, res) => {
 
 const DeleteComment = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
-    await Comment.destroy({ where: { id: userId } })
-    res.send({ message: `Furrrr Well, Opinions ` })
+    let commentId = parseInt(req.params.comment_id)
+    await Comment.destroy({ where: { id: commentId } })
+    res.send({ message: `Furrrr Well, Opinions` })
   } catch (error) {
     throw error
   }
@@ -30,9 +30,9 @@ const DeleteComment = async (req, res) => {
 
 const UpdateComment = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
+    let commentId = parseInt(req.params.comment_id)
     let updatedComment = await Comment.update(req.body, {
-      where: { id: userId },
+      where: { id: commentId },
       returning: true
     })
     res.send(updatedComment)
