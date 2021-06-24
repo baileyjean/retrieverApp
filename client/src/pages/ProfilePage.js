@@ -46,6 +46,8 @@ const ProfilePage = (props) => {
   return(
     <div style={{marginTop:'100px'}}>
       <h1>{user.name}'s Profile</h1>
+      <div><img style={{ width: '20vw' }} src={user.image} alt={user.name} /></div>
+      <p>{user.bio}</p>
 
       {/* -------- FOR MAPPING THE OWNER'S PETS ON THE PAGE
       MAY WANT TO HAVE CONDITIONAL RENDERING SO IT HAS A DEFAULT, PLAIN PAGE WHEN THE USER DOESN'T HAVE PETS */ }
