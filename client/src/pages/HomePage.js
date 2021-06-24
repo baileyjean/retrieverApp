@@ -32,6 +32,9 @@ const HomePage = (props) => {
   }, [])
   return userID ? (
     <div>
+      <div style={{ marginTop: '15vh' }}>
+        rad little welcome/intro message, info about the app above carousel
+      </div>
       <div className="carousel">
         <CarouselCard
           style={carouselContainerStyles}
@@ -70,7 +73,8 @@ const HomePage = (props) => {
               <CarouselImage
                 src={pet.image}
                 header={pet.name}
-                description="Second card description."
+                className="capitalize"
+                description={`${pet.species} |  ${pet.age} years old | ${pet.gender}`}
                 assistiveText="Second card accessible description."
                 // href={`/pet-profile/${pet.id}`}
                 style={{ width: '60vw' }}
