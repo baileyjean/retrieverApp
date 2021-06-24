@@ -118,19 +118,7 @@ const NewPetPage = (props) => {
       image: img
     })
     props.history.push(`/home/${userID}`)
-    // console.log({
-    //   name: name,
-    //   owner_id: userId,
-    //   location: location,
-    //   species: species,
-    //   age: age,
-    //   gender: gender,
-    //   adopt_fee: fee,
-    //   description: description,
-    //   kid_friendly: kidFriendly,
-    //   pet_friendly: petFriendly,
-    //   image: img
-    // })
+    
   }
 
   return (
