@@ -1,9 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { AiFillCloseSquare } from 'react-icons/ai'
+import { HiSearchCircle } from 'react-icons/hi'
+
 
 function NavMobile(props) {
-  const { closeMenu, opened, logOut, userID } = props
+  const { 
+          closeMenu, 
+          opened, 
+          logOut, 
+          userID,
+          handleChange, 
+          handleSearch  
+        } = props
 
   return (
     <div className='mobilenav' style={{
@@ -11,19 +20,38 @@ function NavMobile(props) {
       opacity: `${opened ? '100' : '0'}`,
       top: `${opened ? '0' : '-100%'}`
     }}
-      onClick={closeMenu}
     >
       <div className='navclose' onClick={closeMenu}>
         <AiFillCloseSquare />
       </div>
+      <div className="mobile-search">
+          <input 
+            type="search" 
+            placeholder="Search Pets"
+            onChange={handleChange}
+          />
+          <HiSearchCircle 
+            id="magmobile" 
+            onClick={handleSearch}
+          />
+        </div>
       <div className="mobilemenu">
         <NavLink 
-          to="/browse">Browse Pets</NavLink>
+          to="/browse"
+          onClick={closeMenu}>
+            Browse Pets
+        </NavLink>
         <NavLink
-          to={`/new-pet/${userID}`}>Post a Pet</NavLink>
+          to={`/new-pet/${userID}`}
+          onClick={closeMenu}>
+            Post a Pet
+        </NavLink>
         <NavLink
-          to={`/user-profile/${userID}`}>Profile</NavLink>
-        <button id="logout-mobile" onClick={logOut}>
+          to={`/user-profile/${userID}`}
+          onClick={closeMenu}>
+            Profile
+        </NavLink>
+        <button id="logout-mobile" onClick={()=>{logOut(); closeMenu()}}>
           Logout
         </button>
       </div>
