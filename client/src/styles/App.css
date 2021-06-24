@@ -33,6 +33,10 @@ form {
 .no-margain {
   margin: 0;
 }
+
+.capitalize {
+  text-transform: capitalize;
+}
 /* NAVBAR */
 header {
   height: 80px;
@@ -121,8 +125,8 @@ nav a.active {
   font-size: 1.4em;
 }
 #mag:hover {
-  color:gold;
-  font-size:1.6em;
+  color: gold;
+  font-size: 1.6em;
   margin-left: 0.3em;
   margin-right: 0.8em;
 }
@@ -138,7 +142,7 @@ nav a.active {
 }
 /* BROWSE RESULTS */
 .browse-results {
-  margin-top:80px;
+  margin-top: 80px;
   padding-top: 20px;
   padding-bottom: 80px;
   display: flex;
@@ -211,7 +215,8 @@ nav a.active {
   cursor: pointer;
   outline: none;
 }
-.navclose:hover, .mobilebtn:hover {
+.navclose:hover,
+.mobilebtn:hover {
   color: gold;
   transition: ease-in-out 0.2s;
 }
@@ -229,21 +234,21 @@ nav a.active {
   transition: ease-in-out 0.3s;
   border: none;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-  'Lucida Sans', Arial, sans-serif;
+    'Lucida Sans', Arial, sans-serif;
   font-size: 1em;
 }
 #magmobile {
   margin: 0;
   cursor: pointer;
   padding: 5px;
-  font-size:2em;
+  font-size: 2em;
   transition: ease-in-out 0.3s;
-  color: whitesmoke
+  color: whitesmoke;
 }
-#magmobile:hover{
-  color:gold;
-  font-size:3em;
-  padding:0;
+#magmobile:hover {
+  color: gold;
+  font-size: 3em;
+  padding: 0;
   margin: -0.07em;
 }
 .mobilemenu {
@@ -291,7 +296,7 @@ nav a.active {
     padding: 1em 0.5em;
   }
   #mag {
-    margin-right:10px;
+    margin-right: 10px;
   }
 }
 @media screen and (max-width: 750px) {
@@ -303,7 +308,7 @@ nav a.active {
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-120%,70%);
+    transform: translate(-120%, 70%);
     font-size: 3vh;
     cursor: pointer;
     color: white;
@@ -327,13 +332,13 @@ nav a.active {
   .species {
     width: 29%;
     margin: 2%;
-    margin-bottom:3.5%;
+    margin-bottom: 3.5%;
     font-size: 1.7em;
   }
   .species:hover {
     width: 31%;
     margin: 1%;
-    margin-bottom:2.5%;
+    margin-bottom: 2.5%;
     font-size: 1.8em;
   }
 }
@@ -348,13 +353,13 @@ nav a.active {
   .species {
     width: 23%;
     margin: 1%;
-    margin-bottom:5%;
+    margin-bottom: 5%;
     font-size: 1.5em;
   }
   .species:hover {
     width: 24.5%;
     margin: 0.25%;
-    margin-bottom:4.25%;
+    margin-bottom: 4.25%;
     font-size: 1.6em;
   }
 }
@@ -364,7 +369,7 @@ nav a.active {
     padding: 1em 1.5em;
   }
   .browse-results {
-    padding:8vh 0 40vh 0;
+    padding: 8vh 0 40vh 0;
   }
   .species {
     width: 18%;
