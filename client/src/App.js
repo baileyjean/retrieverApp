@@ -9,18 +9,20 @@ import ProfilePage from './pages/ProfilePage'
 import SearchResultsPage from './pages/SearchResultsPage'
 import SignupPage from './pages/SignupPage'
 import NavBar from './components/NavBar'
+import NavMobile from './components/NavMobile'
 import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
 import PetQuizPage from './pages/PetQuizPage'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_URL } from './globals'
+// import axios from 'axios'
+// import { BASE_URL } from './globals'
 
 function App() {
+  const [opened, setOpen] = useState(false);
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const [userLocation, setUserLocation] = useState('')
-  const [specie, setSpecie] = useState([])
+  // const [specie, setSpecie] = useState([])
   const history = useHistory()
 
   //// AUTHENTICATION
@@ -38,7 +40,14 @@ function App() {
     // }
   }
 
-  //// AXIOS CALL(S)
+  //// FUNCTIONS
+
+  const toggleMenu = () => {
+    opened === true ?
+      setOpen(()=> (false))
+      :
+      setOpen(()=> (true))
+  }
 
   //// ON LOAD
 
@@ -48,7 +57,18 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar loggedIn={loggedIn} logOut={logOut} userID={userID} />
+      <NavBar 
+        loggedIn={loggedIn} 
+        logOut={logOut} 
+        userID={userID}
+        openMenu={toggleMenu} 
+      />
+      <NavMobile 
+        closeMenu={toggleMenu} 
+        opened={opened} 
+        userID={userID}
+        logOut={logOut}
+      />
       <Switch>
         <Route
           exact
