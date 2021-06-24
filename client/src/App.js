@@ -14,8 +14,8 @@ import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
 import PetQuizPage from './pages/PetQuizPage'
 import { useHistory } from 'react-router-dom'
-// import axios from 'axios'
-// import { BASE_URL } from './globals'
+import axios from 'axios'
+import { BASE_URL } from './globals'
 
 function App() {
   const [opened, setOpen] = useState(false);
@@ -24,6 +24,23 @@ function App() {
   const [userLocation, setUserLocation] = useState('')
   // const [specie, setSpecie] = useState([])
   const history = useHistory()
+  const [keyword,setKeyword] = useState('')
+
+  const handleSearch = async () => {
+    /* double check that this is the correct axios call route */
+    // const res = await axios.get(`${BASE_URL}/pets/${keyword}`)
+    history.push(`/results/${keyword}`)
+    setKeyword('')
+  }
+
+  // How do reset searchbar text to empty
+  // after submitting search??
+
+  const handleChangeSearch = (e) => {
+    let content = e.target.value
+    setKeyword(`${content}`)
+    console.log(keyword)
+  }
 
   //// AUTHENTICATION
 
@@ -62,12 +79,16 @@ function App() {
         logOut={logOut} 
         userID={userID}
         openMenu={toggleMenu} 
+        handleChange={handleChangeSearch}
+        handleSearch={handleSearch}
       />
       <NavMobile 
-        closeMenu={toggleMenu} 
-        opened={opened} 
-        userID={userID}
         logOut={logOut}
+        userID={userID}
+        opened={opened} 
+        closeMenu={toggleMenu} 
+        handleChange={handleChangeSearch}
+        handleSearch={handleSearch}
       />
       <Switch>
         <Route

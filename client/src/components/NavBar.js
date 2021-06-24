@@ -7,16 +7,15 @@ import { BASE_URL } from '../globals'
 import axios from 'axios'
 
 const NavBar = (props) => {
-  const { loggedIn, logOut, userID, history, openMenu } = props
-  const [keyword,setKeyword] = useState('')
-
-  const handleSearch = async () => {
-    /* double check that this is the correct axios call route */
-    const res = await axios.get(`${BASE_URL}/pets/keyword/${keyword}`)
-
-    // show search results page on click of "mag".
-    history.push(`/results/${keyword}`)
-  }
+  const { 
+          loggedIn, 
+          logOut, 
+          userID, 
+          openMenu, 
+          handleChange, 
+          handleSearch 
+        } = props
+  
 
   return (
     <header
@@ -32,10 +31,13 @@ const NavBar = (props) => {
       </div>
       <nav>
         <div className="searchbar">
-          <input type="search" placeholder="Search Pets"></input>
+          <input 
+            type="search" 
+            placeholder="Search Pets" 
+            onChange={handleChange}/>
           <HiSearchCircle 
             id="mag" 
-            /* onClick={handleSearch} */
+            onClick={handleSearch}
           />
         </div>
         <NavLink to="/browse">Browse Pets</NavLink>
