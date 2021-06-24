@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 
 const PetQuizPage = () => {
   const [submited, setSubmited] = useState(false)
+  const [suggestedPet, setSuggestedPet] = useState({
+    pet: '',
+    text: ''
+  })
   const [answers, setAnswers] = useState({
     travels: false,
     wantCuddly: false,
@@ -21,6 +25,8 @@ const PetQuizPage = () => {
   })
 
   console.log(answers)
+
+  const handleSubmit = () => {}
 
   return (
     <div>
@@ -47,9 +53,6 @@ const PetQuizPage = () => {
       {/*       
 
        */}
-      {/*       
-
-       */}
       <div>
         Do you travel often?
         <div
@@ -70,9 +73,6 @@ const PetQuizPage = () => {
       {/*       
 
        */}
-      {/*       
-
-       */}
       <div>
         Do you need to be able to cuddle your pet?
         <div
@@ -90,9 +90,6 @@ const PetQuizPage = () => {
           yes
         </div>
       </div>
-      {/*       
-
-       */}
       {/*       
 
        */}
