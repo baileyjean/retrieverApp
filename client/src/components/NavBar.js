@@ -1,10 +1,8 @@
-import { React, useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { HiSearchCircle } from 'react-icons/hi'
 import { FaBars } from 'react-icons/fa'
 import logo from '../styles/images/logo-white.png'
-import { BASE_URL } from '../globals'
-import axios from 'axios'
 
 const NavBar = (props) => {
   const { 

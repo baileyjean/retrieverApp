@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Input, Button, StrongPasswordInput } from 'react-rainbow-components'
+import { Input, Button } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals.js'
 const containerStyles = {
   width: 350
 }
 const LoginPage = (props) => {
-  const { history, setLogIn, userID, setUserID, setUserLocation } = props
+  const { history, setLogIn, setUserID } = props
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const handleEmailChange = (e) => {
@@ -46,7 +46,6 @@ const LoginPage = (props) => {
           style={containerStyles}
         />
         <Input
-          type="password"
           label="Password"
           type="password"
           onChange={handlePasswordChange}
