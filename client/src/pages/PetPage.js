@@ -32,6 +32,7 @@ const PetPage = (props) => {
             text={comment.post}
             user_id={comment.user_id}
             pet_id={comment.pet_id}
+            userID={userID}
             id={comment.id}
             getComments={getComments}
           />

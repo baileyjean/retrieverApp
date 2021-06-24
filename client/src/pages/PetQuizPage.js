@@ -94,17 +94,58 @@ const PetQuizPage = () => {
 
        */}
       <div>
-        Do you want a pet that is easy to care for?
+        Do you want your pet to have free roam of your house?
         <div
           onClick={() => {
-            setAnswers({ ...answers, easyToCare: false })
+            setAnswers({ ...answers, wantTankOrCage: false })
           }}
         >
           no
         </div>
         <div
           onClick={() => {
-            setAnswers({ ...answers, easyToCare: true })
+            setAnswers({ ...answers, wantTankOrCage: true })
+          }}
+        >
+          yes
+        </div>
+      </div>
+      {/*       
+
+
+       */}
+      <div>
+        Want to teach your pet tricks?
+        <div
+          onClick={() => {
+            setAnswers({ ...answers, intelligentPet: false })
+          }}
+        >
+          no
+        </div>
+        <div
+          onClick={() => {
+            setAnswers({ ...answers, intelligentPet: true })
+          }}
+        >
+          yes
+        </div>
+      </div>
+      {/*       
+
+       */}
+      <div>
+        Do you need to be able to cuddle your pet?
+        <div
+          onClick={() => {
+            setAnswers({ ...answers, wantCuddly: false })
+          }}
+        >
+          no
+        </div>
+        <div
+          onClick={() => {
+            setAnswers({ ...answers, wantCuddly: true })
           }}
         >
           yes
