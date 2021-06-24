@@ -8,6 +8,7 @@ const PetPage = (props) => {
   const { userID } = props
   const [comments, setComments] = useState([])
   const [pet, setPet] = useState({})
+  const [owner, setOwner] = useState('')
 
   const getComments = async () => {
     const res = await axios.get(
@@ -18,14 +19,22 @@ const PetPage = (props) => {
 
   const getPet = async () => {
     const res = await axios.get(
-      `${BASE_URL}/pet/pet_id/${props.match.params.pet_id}`
+      `${BASE_URL}/pets/pet/${props.match.params.pet_id}`
     )
+    console.log(pet)
     setPet(res.data)
+    let species = res.data.species
+    // setSpecies(species.charAt(0).toUpperCase())
   }
 
+  const getOwner = async () => {
+    const res = await axios.get(`${BASE_URL}/users/id/${userID}`)
+    setOwner(res.data.username)
+  }
   useEffect(() => {
     getComments()
     getPet()
+    getOwner()
   }, [])
 
   console.log(comments)
@@ -46,6 +55,13 @@ const PetPage = (props) => {
 
   return (
     <div className="comment-section">
+      <img src={pet.image} style={{ width: '50vw' }} />
+      <div>
+        {pet.name} | {pet.age} years old
+      </div>
+      <div className="capitalize">{pet.species}</div>
+      <div>{pet.description}</div>
+
       {comments.map((comment, index) => (
         <div className="comment-center">
           <CommentCard
