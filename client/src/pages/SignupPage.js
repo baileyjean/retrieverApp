@@ -9,7 +9,7 @@ import {
 } from 'react-rainbow-components'
 
 const containerStyles = {
-  width: 400
+  maxWidth: 500
 }
 
 const bioStyles = {
@@ -159,7 +159,7 @@ const SignupPage = (props) => {
           value={bio}
           onChange={handleBioChange}
           maxLength={255}
-          placeholder="Email"
+          placeholder="Tell us about yourself!"
           style={bioStyles}
         />
         <Button label="Submit" variant="border" onClick={handleSubmit} />
