@@ -42,33 +42,13 @@ const HomePage = (props) => {
           id="carousel-3"
           scrollDuration={4}
         >
-          <CarouselImage
-            src="https://i.imgur.com/pmBwzJ3.jpg"
-            header="First Card"
-            description="First card description."
-            assistiveText="First card accessible description."
-            href="/pet-profile/:pet_id"
-          />
-          <CarouselImage
-            src="https://i.imgur.com/pmBwzJ3.jpg"
-            header="Second Card"
-            description="Second card description."
-            assistiveText="Second card accessible description."
-            href="/pet-profile/:pet_id"
-          />
-          <CarouselImage
-            src="https://i.imgur.com/pmBwzJ3.jpg"
-            header="Third Card"
-            description="Third card description."
-            assistiveText="Third card accessible description."
-            href="/pet-profile/:pet_id"
-          />
-          {localPets.map((pet) => (
+          {localPets.map((pet, index) => (
             <span
               onClick={() => {
                 history.push(`/pet-profile/${pet.id}`)
               }}
               style={{ width: '100vw', cursor: 'pointer' }}
+              key={index}
             >
               <CarouselImage
                 src={pet.image}
