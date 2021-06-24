@@ -22,8 +22,6 @@ const PetPage = (props) => {
       `${BASE_URL}/pets/pet/${props.match.params.pet_id}`
     )
     setPet(res.data)
-    const owner = await axios.get(`${BASE_URL}/users/is/${pet.owner_id}`)
-    setOwner(owner.data.username)
   }
 
   console.log(pet)
