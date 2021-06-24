@@ -8,7 +8,7 @@ const containerStyles = {
 }
 
 const CommentForm = (props) => {
-  const { petID, userID } = props
+  const { petID, userID, getComments } = props
   const [userId, setUserId] = useState(userID)
   const [petId, setPetId] = useState(petID)
   const [comment, setComment] = useState('')
@@ -21,12 +21,7 @@ const CommentForm = (props) => {
       post: comment
     })
     console.log('fired')
-    // console.log({
-    //   user_id: userId,
-    //   pet_id: petId,
-    //   post: comment
-    // })
-    // console.log(props)
+    getComments()
   }
 
   const handleChange = (e) => {

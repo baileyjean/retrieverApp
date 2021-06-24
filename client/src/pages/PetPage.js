@@ -1,41 +1,47 @@
-import { React, useState } from 'react'
+import { React, useEffect, useState } from 'react'
 import axios from 'axios'
 import CommentCard from '../components/CommentCard'
 import CommentForm from '../components/CommentForm'
+import { BASE_URL } from '../globals'
 
 const PetPage = (props) => {
   const { userID } = props
-  const [newComment, setNewComment] = useState({})
   const [comments, setComments] = useState([])
 
-  const editPost = () => {
-    // on click to open new form page to edit post
-  }
-  const deletePost = () => {
-    // on click pop up confirm delete
-  }
-  const createComment = () => {
-    // post a new comment
-  }
-
   const getComments = async () => {
-    const res = await axios.get('')
+    const res = await axios.get(
+      `${BASE_URL}/comments/pet/${props.match.params.pet_id}`
+    )
     setComments(res.data)
   }
+
+  useEffect(() => {
+    getComments()
+  }, [])
+
+  console.log(comments)
 
   console.log(userID)
 
   return (
     <div className="comment-section">
       {comments.map((comment, index) => (
-        <CommentCard
-          key={index}
-          text={comment.post}
-          user_id={comment.user_id}
-          pet_id={comment.pet_id}
-        />
+        <div className="comment-center">
+          <CommentCard
+            key={index}
+            text={comment.post}
+            user_id={comment.user_id}
+            pet_id={comment.pet_id}
+            id={comment.id}
+            getComments={getComments}
+          />
+        </div>
       ))}
-      <CommentForm userID={userID} petID={props.match.params.pet_id} />
+      <CommentForm
+        userID={userID}
+        petID={props.match.params.pet_id}
+        getComments={getComments}
+      />
     </div>
   )
 }

@@ -8,10 +8,10 @@ const BrowseResultsPage = (props) => {
     const res = await axios.get('')
     setPets(res.data)
   }
-
   useEffect(() => {
     getPets()
   }, [])
+  console.log(pets)
 
   return (
     <div>
