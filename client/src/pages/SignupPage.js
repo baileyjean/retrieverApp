@@ -150,7 +150,6 @@ const SignupPage = (props) => {
           maxLength={5}
           value={location}
           onChange={handleLocationChange}
-          maxLength={255}
           placeholder="Zip Code"
           style={containerStyles}
         />

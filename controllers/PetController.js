@@ -18,27 +18,10 @@ const GetAllPets = async (req, res) => {
   }
 }
 
-const UpdatePets = async (req, res) => {
+const GetPetById = async (req, res) => {
   try {
-    let petId = parseInt(req.params.pet_id)
-    let updatedPet = await Pet.update(req.body, {
-      where: { id: petId },
-      returning: true
-    })
-    res.send(updatedPet)
-  } catch (error) {
-    throw error
-  }
-}
-
-const DeletePet = async (req, res) => {
-  try {
-    let petId = parseInt(req.params.pet_id)
-    await Pet.destroy({ 
-      where: { id: petId },
-      returning: true
-    })
-    res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
+    const pet = await Pet.findByPk(req.params.pet_id)
+    res.send(pet)
   } catch (error) {
     throw error
   }
@@ -78,13 +61,39 @@ const GetPetBySpecies = async (req, res) => {
     throw error
   }
 }
+const UpdatePets = async (req, res) => {
+  try {
+    let petId = parseInt(req.params.pet_id)
+    let updatedPet = await Pet.update(req.body, {
+      where: { id: petId },
+      returning: true
+    })
+    res.send(updatedPet)
+  } catch (error) {
+    throw error
+  }
+}
+
+const DeletePet = async (req, res) => {
+  try {
+    let petId = parseInt(req.params.pet_id)
+    await Pet.destroy({ 
+      where: { id: petId },
+      returning: true
+    })
+    res.send({ message: `Furrrr Well, Pet Furrrmely Known As Prince` })
+  } catch (error) {
+    throw error
+  }
+}
 
 module.exports = {
   AddPet,
   GetAllPets,
-  DeletePet,
-  UpdatePets,
   GetPetByUserId,
+  GetPetById,
   GetPetByLocation,
-  GetPetBySpecies
+  GetPetBySpecies,
+  UpdatePets,
+  DeletePet
 }
