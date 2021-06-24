@@ -1,37 +1,39 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { CarouselImage, CarouselCard } from 'react-rainbow-components'
 import Carousel from 'react-bootstrap/Carousel'
+=======
+>>>>>>> 8264c6b34beca549a06c60a77126586a6ff0e1e7
 import { BASE_URL } from '../globals'
+
+
+
 const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
   const [localPets, setLocalPets] = useState([])
-  const carouselContainerStyles = {
-    width: '60vw',
-    height: '75vh'
-  }
+
   const getUserLocation = async () => {
     const res = await axios.get(
       `${BASE_URL}/users/id/${props.match.params.user_id}`
     )
-    console.log(res)
     setUserLocation(res.data.location)
-    console.log(`${BASE_URL}/users/id/${props.match.params.user_id}`)
-    console.log(res.data.location)
   }
   const getLocalPets = async () => {
-    console.log(`${BASE_URL}/pets/location/${userLocation}`)
     const res = await axios.get(`${BASE_URL}/pets/location/${userLocation}`)
     setLocalPets(res.data)
   }
   const redirect = () => {
     userID ? history.push(`/home/${userID}`) : history.push(`/`)
   }
-  useEffect(async () => {
+  useEffect( () => {
     getUserLocation()
     getLocalPets()
   }, [])
+
+  
   return userID ? (
+<<<<<<< HEAD
     <div>
       <Carousel>
         <Carousel.Item>
@@ -104,6 +106,17 @@ const HomePage = (props) => {
           ))}
         </CarouselCard>
       </div>
+=======
+    <div className="homepage">
+      <div style={{ marginTop: '15vh' }}>
+        rad little welcome/intro message, info about the app above carousel
+      </div>
+     {localPets.map((pet) => {
+       <div>
+         <h1>pet.name</h1>
+       </div>
+     })}
+>>>>>>> 8264c6b34beca549a06c60a77126586a6ff0e1e7
     </div>
   ) : (
     <div className="loading">

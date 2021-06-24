@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
 const PetQuizPage = () => {
-  const [submited, setSubmited] = useState(false)
-  const [suggestedPet, setSuggestedPet] = useState({
-    pet: '',
-    text: ''
-  })
+  // const [submited, setSubmited] = useState(false)
+  // const [suggestedPet, setSuggestedPet] = useState({
+  //   pet: '',
+  //   text: ''
+  // })
   const [answers, setAnswers] = useState({
     travels: false,
     wantCuddly: false,
@@ -24,9 +24,7 @@ const PetQuizPage = () => {
     scaredOfBugs: false
   })
 
-  console.log(answers)
-
-  const handleSubmit = () => {}
+  // const handleSubmit = () => {}
 
   return (
     <div>

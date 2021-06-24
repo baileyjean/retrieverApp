@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react'
 import PetCard from '../components/PetCard'
 import { BASE_URL } from '../globals.js'
 import axios from 'axios'
-
 const BrowseResultsPage = (props) => {
   const [pets, setPets] = useState([])
-
   const getPets = async () => {
     const res = await axios.get(
       `${BASE_URL}/pets/species/${props.match.params.specie}`
@@ -15,8 +13,6 @@ const BrowseResultsPage = (props) => {
   useEffect(() => {
     getPets()
   }, [])
-  console.log(pets)
-
   return (
     <div>
       <div>
@@ -33,5 +29,4 @@ const BrowseResultsPage = (props) => {
     </div>
   )
 }
-
 export default BrowseResultsPage

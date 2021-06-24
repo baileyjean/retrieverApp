@@ -14,8 +14,8 @@ import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
 import PetQuizPage from './pages/PetQuizPage'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
-import { BASE_URL } from './globals'
+// import axios from 'axios'
+// import { BASE_URL } from './globals'
 
 function App() {
   const [opened, setOpen] = useState(false);
@@ -39,7 +39,6 @@ function App() {
   const handleChangeSearch = (e) => {
     let content = e.target.value
     setKeyword(`${content}`)
-    console.log(keyword)
   }
 
   //// AUTHENTICATION
@@ -72,6 +71,8 @@ function App() {
     getToken()
   }, [])
 
+  console.log(userID)
+
   return (
     <div className="App">
       <NavBar 
@@ -99,9 +100,7 @@ function App() {
               {...props}
               setLogIn={setLogIn}
               history={history}
-              userID={userID}
               setUserID={setUserID}
-              setUserLocation={setUserLocation}
             />
           )}
         />
@@ -132,6 +131,7 @@ function App() {
             <ProfilePage 
               {...props} 
               loggedIn={loggedIn} 
+              userID={userID}
             />}
         />
         <Route

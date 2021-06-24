@@ -8,7 +8,7 @@ const PetPage = (props) => {
   const { userID } = props
   const [comments, setComments] = useState([])
   const [pet, setPet] = useState({})
-  const [owner, setOwner] = useState('')
+  // const [owner, setOwner] = useState('')
 
   const getComments = async () => {
     const res = await axios.get(
@@ -24,15 +24,10 @@ const PetPage = (props) => {
     setPet(res.data)
   }
 
-  console.log(pet)
-
   useEffect(() => {
     getComments()
     getPet()
   }, [])
-
-  console.log(comments)
-  console.log(userID)
 
   const handleDelete = async (id) => {
     await axios.delete(`${BASE_URL}/comments/${id}`)
@@ -49,7 +44,7 @@ const PetPage = (props) => {
 
   return (
     <div className="comment-section">
-      <img src={pet.image} style={{ width: '50vw' }} />
+      <img src={pet.image} style={{ width: '50vw' }} alt={pet.name}/>
       {/* <div>listed by: {owner}</div> */}
       <div>
         {pet.name} | {pet.age} years old
@@ -77,7 +72,7 @@ const PetPage = (props) => {
       {comments.map((comment, index) => (
         <div className="comment-center">
           <CommentCard
-            key={index}
+            key={`${comment.user_id} ${index}`}
             index={index}
             text={comment.post}
             user_id={comment.user_id}
