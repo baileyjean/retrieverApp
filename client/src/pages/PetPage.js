@@ -7,6 +7,8 @@ import { BASE_URL } from '../globals'
 const PetPage = (props) => {
   const { userID } = props
   const [comments, setComments] = useState([])
+  const [pet, setPet] = useState({})
+  const [owner, setOwner] = useState('')
 
   const getComments = async () => {
     const res = await axios.get(
@@ -15,8 +17,20 @@ const PetPage = (props) => {
     setComments(res.data)
   }
 
+  const getPet = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/pets/pet/${props.match.params.pet_id}`
+    )
+    setPet(res.data)
+    const owner = await axios.get(`${BASE_URL}/users/is/${pet.owner_id}`)
+    setOwner(owner.data.username)
+  }
+
+  console.log(pet)
+
   useEffect(() => {
     getComments()
+    getPet()
   }, [])
 
   console.log(comments)
@@ -37,6 +51,31 @@ const PetPage = (props) => {
 
   return (
     <div className="comment-section">
+      <img src={pet.image} style={{ width: '50vw' }} />
+      {/* <div>listed by: {owner}</div> */}
+      <div>
+        {pet.name} | {pet.age} years old
+      </div>
+      <div className="capitalize">{pet.species}</div>
+      <div
+        style={{
+          justifyContent: 'center',
+          display: `${pet.kid_friendly ? 'flex' : 'none'}`
+        }}
+      >
+        Kid Friendly
+      </div>
+      <div
+        style={{
+          justifyContent: 'center',
+          display: `${pet.pet_friendly ? 'flex' : 'none'}`
+        }}
+      >
+        Pet Friendly
+      </div>
+      <div>{pet.description}</div>
+      <dic>Adoption Fee: ${pet.adopt_fee}</dic>
+
       {comments.map((comment, index) => (
         <div className="comment-center">
           <CommentCard
@@ -47,7 +86,6 @@ const PetPage = (props) => {
             pet_id={comment.pet_id}
             userID={userID}
             id={comment.id}
-            getComments={getComments}
             handleDelete={handleDelete}
             handleChange={handleChange}
           />

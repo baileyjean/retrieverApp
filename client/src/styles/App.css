@@ -12,7 +12,6 @@ body {
   text-align: center;
   margin: 0;
 }
-
 form {
   padding-top: 100px;
   display: flex;
@@ -20,27 +19,21 @@ form {
   justify-content: center;
   align-items: center;
 }
-
 /* ----- COMPONENTS ----- */
-
 .comment {
   border: 1px solid lightblue;
   border-radius: 15px;
   padding: 12px;
 }
-
 .comment-center {
   display: flex;
   justify-content: center;
   margin: 50px;
 }
-
 .no-margain {
   margin: 0;
 }
-
 /* NAVBAR */
-
 header {
   height: 80px;
   width: 100%;
@@ -136,19 +129,14 @@ nav a.active {
 .mobilebtn {
   display: none;
 }
-
 /* ----- PAGES ----- */
-
 /* HOME */
-
 .carousel {
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
-
 /* BROWSE RESULTS */
-
 .browse-results {
   margin-top:80px;
   padding-top: 20px;
@@ -177,7 +165,6 @@ nav a.active {
   font-size: 2.4em;
   box-shadow: 0px 0px 20px rgba(37, 37, 48, 0.2);
 }
-
 .species img {
   width: 100%;
 }
@@ -187,10 +174,7 @@ nav a.active {
   color: white;
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
-
-
 /* LOADING SCREEN */
-
 .loading {
   display: flex;
   flex-flow: column wrap;
@@ -200,13 +184,10 @@ nav a.active {
   justify-content: center;
   align-items: center;
 }
-
 .loading h1 {
   font-size: 3em;
 }
-
 /* ----- MOBILE OPTIMIZATION ----- */
-
 .mobilenav {
   width: 100%;
   height: 100%;
@@ -282,7 +263,6 @@ nav a.active {
   transition: ease-in-out 0.2s;
   cursor: pointer;
 }
-
 .mobilemenu a:hover {
   color: gold;
   transition: ease-in-out 0.2s;
@@ -306,7 +286,6 @@ nav a.active {
 #logout-mobile:focus {
   background-color: whitesmoke;
 }
-
 @media screen and (max-width: 800px) {
   nav a {
     padding: 1em 0.5em;
@@ -315,7 +294,6 @@ nav a.active {
     margin-right:10px;
   }
 }
-
 @media screen and (max-width: 750px) {
   nav {
     display: none;
@@ -340,7 +318,6 @@ nav a.active {
     font-size: 1.6em;
   }
 }
-
 /**/
 @media screen and (min-width: 751px) {
   .browse-results {
