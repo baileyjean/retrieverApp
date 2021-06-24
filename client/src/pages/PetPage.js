@@ -7,6 +7,7 @@ import { BASE_URL } from '../globals'
 const PetPage = (props) => {
   const { userID } = props
   const [comments, setComments] = useState([])
+  const [pet, setPet] = useState({})
 
   const getComments = async () => {
     const res = await axios.get(
@@ -15,8 +16,16 @@ const PetPage = (props) => {
     setComments(res.data)
   }
 
+  const getPet = async () => {
+    const res = await axios.get(
+      `${BASE_URL}/pet/pet_id/${props.match.params.pet_id}`
+    )
+    setPet(res.data)
+  }
+
   useEffect(() => {
     getComments()
+    getPet()
   }, [])
 
   console.log(comments)
@@ -47,7 +56,6 @@ const PetPage = (props) => {
             pet_id={comment.pet_id}
             userID={userID}
             id={comment.id}
-            getComments={getComments}
             handleDelete={handleDelete}
             handleChange={handleChange}
           />
