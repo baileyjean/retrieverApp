@@ -12,15 +12,15 @@ import other from '../styles/images/other.png'
 
 const BrowsePage = (props) => {
   const species = [
-    { name: 'Reptile', img: `${reptiles}` },
     { name: 'Amphibian', img: `${amphibians}` },
     { name: 'Bird', img: `${birds}` },
-    { name: 'Insect', img: `${bugs}` },
+    { name: 'Bug', img: `${bugs}` },
+    { name: 'Cat', img: `${felines}` },
+    { name: 'Dog', img: `${canines}` },
+    { name: 'Fish', img: `${fish}` },
+    { name: 'Reptile', img: `${reptiles}` },
     { name: 'Rodent', img: `${rodents}` },
     { name: 'Weasel', img: `${weasels}` },
-    { name: 'Dog', img: `${canines}` },
-    { name: 'Cat', img: `${felines}` },
-    { name: 'Fish', img: `${fish}` },
     { name: 'Other', img: `${other}` }
   ]
   return (
