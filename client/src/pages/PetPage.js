@@ -72,7 +72,7 @@ const PetPage = (props) => {
         Pet Friendly
       </div>
       <div>{pet.description}</div>
-      <dic>Adoption Fee: ${pet.adopt_fee}</dic>
+      <div>Adoption Fee: ${pet.adopt_fee}</div>
 
       {comments.map((comment, index) => (
         <div className="comment-center">

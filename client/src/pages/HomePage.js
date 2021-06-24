@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { CarouselImage, CarouselCard } from 'react-rainbow-components'
+import Carousel from 'react-bootstrap/Carousel'
 import { BASE_URL } from '../globals'
 const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
@@ -32,6 +33,45 @@ const HomePage = (props) => {
   }, [])
   return userID ? (
     <div>
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="holder.js/800x400?text=First slide&bg=373940"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="holder.js/800x400?text=Second slide&bg=282c34"
+            alt="Second slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="holder.js/800x400?text=Third slide&bg=20232a"
+            alt="Third slide"
+          />
+
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <div style={{ marginTop: '15vh' }}>
         rad little welcome/intro message, info about the app above carousel
       </div>
@@ -41,6 +81,7 @@ const HomePage = (props) => {
           className="rainbow-align-content_center rainbow-m_auto"
           id="carousel-3"
           scrollDuration={4}
+          disableAutoScroll={false}
         >
           {localPets.map((pet, index) => (
             <span
@@ -85,4 +126,5 @@ const HomePage = (props) => {
     </div>
   )
 }
+
 export default HomePage
