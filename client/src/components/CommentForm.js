@@ -3,7 +3,7 @@ import { Textarea, Button } from 'react-rainbow-components'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
 const containerStyles = {
-  width: 700
+  width: 500
 }
 const CommentForm = (props) => {
   const { petID, userID, getComments } = props

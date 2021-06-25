@@ -46,6 +46,8 @@ const PetPage = (props) => {
     setComments(currentComments)
   }
 
+  console.log(pet)
+
   return (
     <div className="pet-profile">
       <div className="petprofile-imgbox">
@@ -78,10 +80,27 @@ const PetPage = (props) => {
           </div>
         </div>
       <div className="petprofile-descrip">{pet.description}</div>
-      <h4>Adoption Fee:</h4><span className="profilefee">${pet.adopt_fee}</span>
+      <div className="petprofile-infobottom">
+        <div style={{display:'flex',alignItems:'center'}}>
+          <h4>Adoption Fee:</h4>{' '}
+          <span className="profilefee">${pet.adopt_fee}</span>
+        </div>
+        <div className="authcheck" style={{
+          display: `${pet.owner_id === userID ? 'flex' : 'none'}`
+        }}>
+          <button 
+            style={{backgroundColor:'gainsboro'}}>
+              Edit Pet
+          </button>
+          <button
+            style={{backgroundColor:'maroon', color:'floralwhite'}}>
+              Delete Pet
+          </button>
+        </div>
+      </div>
       
     </div>
-    <button className="backtoresultsbtn" onClick={()=>{window.history.back()}}>Back to Results</button>
+    <div className="comments">
       {comments.map((comment, index) => (
         <div className="comment-center">
           <CommentCard
@@ -102,6 +121,8 @@ const PetPage = (props) => {
         petID={props.match.params.pet_id}
         getComments={getComments}
       />
+      </div>
+      <button className="backtoresultsbtn" onClick={()=>{window.history.back()}}>Back to Results</button>
     </div>
   )
 }

@@ -246,6 +246,7 @@ nav a.active {
 /* PET PROFILE */
 
 .pet-profile {
+  height: 100%;
   padding-top:100px;
   display: grid;
   grid-template-columns: 35% 65%;
@@ -257,12 +258,14 @@ nav a.active {
   align-items: center;
   width: 30vw;
   height: 40vw;
+  max-height: 50vh;
   overflow: hidden;
   background-color: transparent;
   margin: 0 1em;
 }
 .petprofile-imgbox img {
   width: 100%;
+  height: 100%;
 }
 .petprofile-infobox {
   display: flex;
@@ -273,19 +276,24 @@ nav a.active {
 .petprofile-infobox h1, h2 {
   margin: 0;
 }
+.flagbox {
+  display: flex;
+  flex-flow: row nowrap;
+}
 .show-species, .show-friendly {
   color: aliceblue;
-  margin:0.5em 0;
+  margin:0.5em 0.25em;
   padding: 0.5em 1em;
   text-transform: uppercase;
   font-size: 0.75em;
   letter-spacing: 0.1em;
+  text-align: center;
 }
 .petprofile-descrip {
   border: 1px solid darkslategray;
   padding: 0.4em;
-  width: 90%;
-  height: 50%;
+  width: 95%;
+  height: 40%;
   margin-bottom: 1em;
   overflow-y: auto;
 }
@@ -295,6 +303,7 @@ nav a.active {
 }
 .profilefee {
   display: inline;
+  font-style: italic;
 }
 .backtoresultsbtn {
   position: absolute;
@@ -318,6 +327,33 @@ nav a.active {
 }
 .backtoresultsbtn:focus {
   background-color: whitesmoke;
+}
+.petprofile-infobottom {
+  height: 15%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 50%;
+}
+.authcheck {
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.authcheck button {
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: all ease 0.2s;
+  border-radius: 25px;
+  border: none;
+  font-size: 0.8em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.authcheck button:hover {
+  box-shadow: 0 0 10px gold;
 }
 
 /* LOADING SCREEN */

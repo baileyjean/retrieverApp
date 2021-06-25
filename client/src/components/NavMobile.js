@@ -28,6 +28,7 @@ function NavMobile(props) {
           <input 
             type="search" 
             placeholder="Search Pets"
+            value={keyword}
             onChange={handleChange}
           />
           <HiSearchCircle 
