@@ -5,14 +5,16 @@ import { FaBars } from 'react-icons/fa'
 import logo from '../styles/images/logo-white.png'
 
 const NavBar = (props) => {
-  const { 
-          loggedIn, 
-          logOut, 
-          userID, 
-          openMenu, 
-          handleChange, 
-          handleSearch 
-        } = props
+  const {
+    loggedIn,
+    logOut,
+    userID,
+    openMenu,
+    handleChange,
+    handleSearch,
+    setKeyword,
+    keyword
+  } = props
 
   return (
     <header
@@ -23,19 +25,18 @@ const NavBar = (props) => {
       <NavLink to={`/home/${userID}`}>
         <img src={logo} alt="logo" height="80" />
       </NavLink>
-      <div className='mobilebtn' onClick={openMenu}>
+      <div className="mobilebtn" onClick={openMenu}>
         <FaBars />
       </div>
       <nav>
         <div className="searchbar">
-          <input 
-            type="search" 
-            placeholder="Search Pets" 
-            onChange={handleChange}/>
-          <HiSearchCircle 
-            id="mag" 
-            onClick={handleSearch}
+          <input
+            type="search"
+            placeholder="Search Pets"
+            value={keyword}
+            onChange={handleChange}
           />
+          <HiSearchCircle id="mag" onClick={handleSearch} />
         </div>
         <NavLink to="/browse">Browse Pets</NavLink>
         <NavLink to={`/new-pet/${userID}`}>Post a Pet</NavLink>

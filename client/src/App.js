@@ -24,8 +24,8 @@ function App() {
   // const [specie, setSpecie] = useState([])
   const history = useHistory()
   const [keyword, setKeyword] = useState('')
-  const [petPosts, setPetPosts] = useState([]) 
-  
+  const [petPosts, setPetPosts] = useState([])
+
   const handleSearch = async () => {
     const res = await axios.get(`${BASE_URL}/pets/searchby/${keyword}`)
     setPetPosts(res.data)
@@ -67,6 +67,8 @@ function App() {
         openMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
+        keyword={keyword}
+        setKeyword={setKeyword}
       />
       <NavMobile
         logOut={logOut}
@@ -127,22 +129,16 @@ function App() {
         <Route
           path="/pet-profile/:pet_id"
           component={(props) => (
-            <PetPage
-              {...props}
-              loggedIn={loggedIn}
-              userID={userID}
-            />
+            <PetPage {...props} loggedIn={loggedIn} userID={userID} />
           )}
         />
         <Route
           path="/results"
           component={(props) => (
-
-            <SearchResultsPage 
-              {...props} 
-              loggedIn={loggedIn} 
+            <SearchResultsPage
+              {...props}
+              loggedIn={loggedIn}
               petPosts={petPosts}
-
             />
           )}
         />
