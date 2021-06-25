@@ -320,6 +320,12 @@ nav a.active {
 
 /* ----- PAGES ----- */
 
+/* HOME PAGE */
+footer {
+  padding: 2em;
+  text-align: center;
+  font-size: 1.5em;
+}
 
 /* BROWSE PAGE */
 .browse-species {

@@ -27,20 +27,10 @@ const HomePage = (props) => {
   }, [])
 
   return userID ? (
-    // <hero className="homepage">
-    //   <div style={{ marginTop: '15vh' }}>
-    //     rad little welcome/intro message, info about the app above carousel
-    //   </div>
-
-    //   {localPets.map((pet) => (
-    //     <div>
-    //       <h1>{pet.name}</h1>
-    //     </div>
-    //   ))}
-    // </hero>
+    <div style={{backgroundColor:'antiquewhite'}}>
     <Hero slides={Slides} history={history}/>
-
-
+    <footer>None of these quite right? <a href="/quiz">Take our quiz.</a></footer>
+    </div>
   ) : (
     <div className="loading">
       <h1>Loading...</h1>
