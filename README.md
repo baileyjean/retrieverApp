@@ -88,3 +88,4 @@ Looking for an exotic pet ? You have come to the right place. First you the user
 - `Pexels`: [Open-source images](https://www.pexels.com/)
 - `React Rainbow`: [Graphic Design and More](https://react-rainbow.io/)
 - `React Icons`
+- `React Framer Motion`: [Motion-Library](https://www.framer.com/motion/)
