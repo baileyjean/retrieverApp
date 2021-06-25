@@ -38,10 +38,58 @@ form {
   margin: 0;
 }
 
-.capitalize {
-  text-transform: capitalize;
+
+/* PET CARD */
+
+.pet-card {
+  margin: 1em;
+  height: 20vw;
+  width: 15vw;
+  overflow:hidden;
+  background-color: aliceblue;
+  cursor: pointer;
+  background-size:cover;
 }
+.petcard-info {
+  margin-top:20vw;
+  height: 6vw;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: white;
+  transition: ease-in-out 0.4s;
+}
+.pet-card:hover .petcard-info {
+  margin-top: 14vw;
+}
+.pet-card h2 {
+  margin-top:0;
+  margin-bottom: 1vw;
+  align-self: center;
+  font-size: 1.8vw;
+}
+.pet-card p {
+  margin: 0 0 1vw 0;
+  width: 100%;
+}
+.pet-card h4 {
+  margin: 0;
+  display: inline;
+  float: left;
+  font-size: 1vw;
+}
+.adopt-fee {
+  float: right;
+  display: inline;
+  font-style: italic;
+  font-size: 1vw;
+}
+
 /* NAVBAR */
+
 header {
   height: 80px;
   width: 100%;
@@ -123,7 +171,7 @@ nav a.active {
 }
 #mag {
   cursor: pointer;
-  margin-right: 1em;
+  margin-right: 10px;
   margin-left: 0.4em;
   transition: ease-in-out 0.3s;
   font-size: 1.4em;
@@ -132,27 +180,22 @@ nav a.active {
   color: gold;
   font-size: 1.6em;
   margin-left: 0.3em;
-  margin-right: 0.8em;
+  margin-right: 8px;
 }
 .mobilebtn {
   display: none;
 }
 /* ----- PAGES ----- */
+
+
 /* HOME */
 .homepage {
   text-align: center;
 }
-.carousel {
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
-}
 
-/* BROWSE RESULTS */
-
-.browse-results {
+/* BROWSE PAGE */
+.browse-species {
   margin-top: 80px;
-  padding-top: 20px;
   padding-bottom: 80px;
   display: flex;
   flex-flow: row wrap;
@@ -187,7 +230,98 @@ nav a.active {
   color: white;
   text-shadow: 0px 0px 8px rgb(37, 37, 48);
 }
+
+
+/* BROWSE & SEARCH RESULTS */
+
+.browse-results, .search-results {
+  padding-top: 100px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* PET PROFILE */
+
+.pet-profile {
+  padding-top:100px;
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+.petprofile-imgbox{
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 30vw;
+  height: 40vw;
+  overflow: hidden;
+  background-color: transparent;
+  margin: 0 1em;
+}
+.petprofile-imgbox img {
+  width: 100%;
+}
+.petprofile-infobox {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.petprofile-infobox h1, h2 {
+  margin: 0;
+}
+.show-species, .show-friendly {
+  color: aliceblue;
+  margin:0.5em 0;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.1em;
+}
+.petprofile-descrip {
+  border: 1px solid darkslategray;
+  padding: 0.4em;
+  width: 90%;
+  height: 50%;
+  margin-bottom: 1em;
+  overflow-y: auto;
+}
+.petprofile-infobox h4 {
+  display: inline;
+  margin: 0;
+}
+.profilefee {
+  display: inline;
+}
+.backtoresultsbtn {
+  position: absolute;
+  top: 90px;
+  left: 16px;
+  cursor: pointer;
+  padding: 10px 14px;
+  transition: all ease 0.2s;
+  border-radius: 25px;
+  border: none;
+  background-color: gold;
+  font-size: 0.8em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.backtoresultsbtn:hover {
+  border-radius: 0px;
+}
+.backtoresultsbtn:focus {
+  background-color: whitesmoke;
+}
+
 /* LOADING SCREEN */
+
 .loading {
   display: flex;
   flex-flow: column wrap;
@@ -200,7 +334,10 @@ nav a.active {
 .loading h1 {
   font-size: 3em;
 }
+
+
 /* ----- MOBILE OPTIMIZATION ----- */
+
 .mobilenav {
   width: 100%;
   height: 100%;
@@ -322,7 +459,7 @@ nav a.active {
     cursor: pointer;
     color: white;
   }
-  .browse-results {
+  .browse-species {
     padding-bottom: 50px;
   }
   .species {
@@ -334,7 +471,7 @@ nav a.active {
 }
 /**/
 @media screen and (min-width: 751px) {
-  .browse-results {
+  .browse-species {
     padding: 3vh 0 15vh 0;
     justify-content: flex-start;
   }
@@ -355,7 +492,7 @@ nav a.active {
   nav a {
     margin: 10px;
   }
-  .browse-results {
+  .browse-species {
     padding: 6vh 0 22vh 0;
     justify-content: flex-start;
   }
@@ -377,7 +514,7 @@ nav a.active {
     margin: 10px;
     padding: 1em 1.5em;
   }
-  .browse-results {
+  .browse-species {
     padding: 8vh 0 40vh 0;
   }
   .species {

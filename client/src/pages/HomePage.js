@@ -1,12 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../globals'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
-import { Carousel } from 'react-responsive-carousel'
 
 const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
   const [localPets, setLocalPets] = useState([])
+
   const getUserLocation = async () => {
     const res = await axios.get(
       `${BASE_URL}/users/id/${props.match.params.user_id}`
@@ -24,6 +23,8 @@ const HomePage = (props) => {
     getUserLocation()
     getLocalPets()
   }, [])
+
+ 
   return userID ? (
     <div className="homepage">
       <div style={{ marginTop: '15vh' }}>

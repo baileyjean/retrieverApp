@@ -109,8 +109,8 @@ const NewPetPage = (props) => {
   const handleSubmit = async () => {
     const res = await axios.post(`${BASE_URL}/pets`, {
       name: name,
-      owner_id: userId,
-      location: location,
+      owner_id: userID,
+      location: userLocation,
       species: species,
       age: age,
       gender: gender,

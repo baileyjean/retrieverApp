@@ -1,13 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-// import UserCard from '../components/UserCard'
+import {
+  Input,
+  Button,
+  Textarea
+} from 'react-rainbow-components'
 
+const containerStyles = {
+  maxWidth: 500
+}
+
+const bioStyles = {
+  width: 500
+}
 
 const ProfilePage = (props) => {
   const { userID } = props
-  // const [pets, setPets] = useState({})
   const [user, setUser] = useState({})
+  const [editing, setEditing] = useState(false)
+  const [name, setName] = useState('')
+  const [bio, setBio] = useState('')
+  const [location, setLocation] = useState('')
+  const [img, setImg] = useState('')
 
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/id/${userID}`)
@@ -15,55 +30,121 @@ const ProfilePage = (props) => {
     console.log(user)
   }
 
-  console.log(userID)
-  // -------- GET PETS FUNCTION SO PROFILE PAGE DISPLAYS THE OWNER'S PETS
-  // const getPets = async () => {
-  //   const res = await axios.get(
-  //     `${BASE_URL}/pets/petowner/${props.match.params.user_id}`
-  //   )
-  //   setPets(res.data)
-  //   const owner = await axios.get(`${BASE_URL}/${pets.owner_id}`)
-  // }
-
   useEffect(() => {
     getUser()
   }, [])
-  // -------- FOR DELETING AND UPDATING THE USER
 
-  // const handleDelete = async (id) => {
-  //   await axios.delete(`${BASE_URL}/users/${id}`)
-  //   let currentComments = [...comments].filter((comment) => comment.id !== id)
-  //   setComments(currentComments)
-  // }
+  const handleNameChange = (e) => {
+    setName(e.target.value)
+  }
 
-  // const handleChange = (e, index) => {
-  //   let currentComments = [...comments]
-  //   let target = currentComments[index]
-  //   target.post = e.target.value
-  //   setComments(currentComments)
-  // }
+  const handleBioChange = (e) => {
+    setBio(e.target.value)
+  }
+
+  const handleImgChange = (e) => {
+    setImg(e.target.value)
+  }
+
+  const handleLocationChange = (e) => {
+    const re = /^[0-9\b]+$/
+    if (e.target.value === '' || re.test(e.target.value)) {
+      setLocation(e.target.value)
+    }
+  }
+
+
+  const editProfile = () => {
+    if (editing) {
+      setEditing(false)
+    } else {
+      setEditing(true)
+    }
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.put(`${BASE_URL}/users/${userID}`, {
+        name: name,
+        location: location,
+        bio: bio,
+        image: img
+      })
+    } catch (error) {
+      console.log(error)
+    }
+    props.history.push(`/users/id/${userID}`)
+  }
+
+  const handleDelete = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.delete(`${BASE_URL}/users/${userID}`)
+      props.history.push(`/`)
+    } catch (error) {
+      throw error
+    }
+  }
+
+  if (editing) {
+    return (
+    <div>
+    <form>
+      <Input
+        label="Name"
+        rows={1}
+        value={name}
+        onChange={handleNameChange}
+        maxLength={255}
+        placeholder="Name"
+        style={containerStyles}
+      />
+      <Input
+        type="url"
+        label="Profile Picture"
+        rows={1}
+        value={img}
+        onChange={handleImgChange}
+        maxLength={255}
+        placeholder="Image Link"
+        style={containerStyles}
+      />
+        <Textarea
+          label="Bio"
+          rows={4}
+          value={bio}
+          onChange={handleBioChange}
+          maxLength={255}
+          placeholder="Tell us about yourself!"
+          style={bioStyles}
+        />
+      <Input
+        label="Zip Code"
+        maxLength={5}
+        value={location}
+        onChange={handleLocationChange}
+        placeholder="Zip Code"
+        style={containerStyles}
+      />
+      <Button label="Submit" variant="border" onClick={handleSubmit} />
+    </form>
+  </div>
+)
+  }
 
   return(
     <div style={{marginTop:'100px'}}>
-      <h1>{user.name}'s Profile</h1>
-      <div><img style={{ width: '20vw' }} src={user.image} alt={user.name} /></div>
-      <p>{user.bio}</p>
+    <h2>{user.username}'s Profile</h2>
+    <div><img style={{ width: '20vw' }} src={user.image} alt={user.name} /></div>
+    <p>Name: {user.name}</p>
+    <p>Bio: {user.bio}</p>
+    <p>Location: {user.location}</p>
 
-      {/* -------- FOR MAPPING THE OWNER'S PETS ON THE PAGE
-      MAY WANT TO HAVE CONDITIONAL RENDERING SO IT HAS A DEFAULT, PLAIN PAGE WHEN THE USER DOESN'T HAVE PETS */ }
-      {/* {pets.map((pet, index) => (
-        <div>
-          <PetCard
-            name={pet.name}
-            image={pet.image}
-            location={pet.location}
-            user_id={pet.user_id}
-            pet_id={pet.pet_id}
-            gender={pet.gender}
-          />
-        </div>
-      ))} */}
+    <button onClick={editProfile}>Edit Profile</button>
+    <button onClick={() => props.handleDelete(props.id)}>Delete Profile</button>
     </div>
+    
   ) 
 }
 export default ProfilePage
