@@ -21,7 +21,6 @@ function App() {
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const [userLocation, setUserLocation] = useState('')
-  // const [specie, setSpecie] = useState([])
   const history = useHistory()
   const [keyword, setKeyword] = useState('')
   const [petPosts, setPetPosts] = useState([])
