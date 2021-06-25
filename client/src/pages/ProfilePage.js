@@ -74,21 +74,9 @@ const ProfilePage = (props) => {
     } catch (error) {
       console.log(error)
     }
-    props.history.push(`/users/id/${userID}`)
+    setEditing(false)
+    props.history.push(`/user-profile/${userID}`)
   }
-
-//   {
-//     fetch('http://localhost:5000/api/account/')
-//         .then(res => res.json())
-//         .then(data => {
-//             this.props.history.push('/xxx');
-//             this.setState({
-//               isAdmin: data[index].role === "Admin"
-//               isLoggedIn: userName === data[index].email && passWord === data[index].password,
-//               userName: data[index].userName
-//             })
-//          })
-// }
 
   const handleDelete = async (e) => {
     e.preventDefault()
