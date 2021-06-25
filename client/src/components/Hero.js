@@ -40,10 +40,6 @@ const Hero = ({ slides, history }) => {
     setCurrent(current === 0 ? length - 1 : current - 1);
   };
 
-  if (!Array.isArray(slides) || slides.length <= 0) {
-    return null;
-  }
-
   const fadeAnimation = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.5 } },
@@ -79,7 +75,7 @@ const Hero = ({ slides, history }) => {
                         primary='true'                        
                       >
                         {slide.label}
-                        <IoMdArrowRoundForward id="heroarrow" />
+                        <IoMdArrowRoundForward id="btnarrow" />
                       </button>
                     </div>
                   </div>
@@ -89,8 +85,8 @@ const Hero = ({ slides, history }) => {
           })}
         </AnimatePresence>
         <div className="sliderbuttons">
-          <div id="prevarrow" onClick={prevSlide}><IoArrowBack/></div>
-          <div id="nextarrow" onClick={nextSlide}><IoArrowForward/></div>
+          <div className="arrowbuttons" onClick={prevSlide}><IoArrowBack/></div>
+          <div className="arrowbuttons" onClick={nextSlide}><IoArrowForward/></div>
         </div>
       </div>
     </div>
