@@ -53,6 +53,13 @@ const ProfilePage = (props) => {
     }
   }
 
+  /* new by zee */ 
+  const handleChange = (e) => {
+    setUser({ user: { ...user, [e.target.name]: e.target.value } });
+  }
+/* end new by zee  - this is brilliant and eloquent */
+
+
 
   const editProfile = () => {
     if (editing) {
@@ -79,10 +86,9 @@ const ProfilePage = (props) => {
   }
 
   const handleDelete = async (e) => {
-    e.preventDefault()
     try {
-      await axios.delete(`${BASE_URL}/users/${userID}`)
       props.history.push(`/`)
+      await axios.delete(`${BASE_URL}/users/${userID}`)
     } catch (error) {
       throw error
     }
@@ -95,6 +101,7 @@ const ProfilePage = (props) => {
       <Input
         label="Name"
         rows={1}
+        name={'name'}
         value={name}
         onChange={handleNameChange}
         maxLength={255}
@@ -105,6 +112,7 @@ const ProfilePage = (props) => {
         type="url"
         label="Profile Picture"
         rows={1}
+        name={'image'}
         value={img}
         onChange={handleImgChange}
         maxLength={255}
@@ -114,6 +122,7 @@ const ProfilePage = (props) => {
         <Textarea
           label="Bio"
           rows={4}
+          name={'bio'}
           value={bio}
           onChange={handleBioChange}
           maxLength={255}
@@ -123,12 +132,13 @@ const ProfilePage = (props) => {
       <Input
         label="Zip Code"
         maxLength={5}
+        name={'location'}
         value={location}
         onChange={handleLocationChange}
         placeholder="Zip Code"
         style={containerStyles}
       />
-      <Button label="Submit" variant="border" onClick={handleSubmit} />
+      <Button label="Submit" variant="border" onClick={handleChange} />
     </form>
   </div>
 )
@@ -143,7 +153,7 @@ const ProfilePage = (props) => {
     <p>Location: {user.location}</p>
 
     <button onClick={editProfile}>Edit Profile</button>
-    <button onClick={() => props.handleDelete(props.id)}>Delete Profile</button>
+    <button onClick={() => handleDelete(user.id)}>Delete Profile</button>
     </div>
     
   ) 
