@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import {
-  Input,
+  // Input,
   Button,
-  Textarea,
-  CheckboxToggle,
+  // Textarea,
+  // CheckboxToggle,
   Select,
-  RadioGroup,
-  Notification,
-  RenderIf
+  // RadioGroup,
+  // Notification,
+  // RenderIf
 } from 'react-rainbow-components'
 
 const options = [
@@ -95,7 +95,7 @@ const PetQuizPage = () => {
     ) {
       setSuggestedPet({
         pet: 'A Cat!',
-        text: 'Cats are cool! These cuddley guys are great for anyone looking for a companion. Check out our "Feline" section in our Browse Pets tab.'
+        text: 'Cats are cool! These cuddly guys are great for anyone looking for a companion. Check out our "Feline" section in our Browse Pets tab.'
       })
     } else if (
       answers.intelligentPet === true &&
@@ -124,210 +124,296 @@ const PetQuizPage = () => {
     }
   }
 
-  console.log(suggestedPet)
-
   return (
-    <div>
-      {/*       
-
-       */}
-      <div>
-        Do you want a pet that is easy to care for?
-        <div
+    <div className="quizpage">
+      <div
+       className="question">
+        <h3>Do you want a pet that is easy to care for?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.easyToCare ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, easyToCare: false })
-          }}
+}
+        }
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.easyToCare ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, easyToCare: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you travel often?
-        <div
+      <div
+       className="question">
+        <h3>Do you travel often?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.travels ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, travels: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.travels ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, travels: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you need to be able to cuddle your pet?
-        <div
+      <div
+       className="question">
+        <h3>Do you need to be able to cuddle your pet?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantCuddly ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantCuddly: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantCuddly ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantCuddly: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you want your pet to have free roam of your house?
-        <div
+      <div
+       className="question">
+        <h3>Do you want your pet to have free roam of your house?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantTankOrCage ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantTankOrCage: true })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantTankOrCage ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantTankOrCage: false })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
 
        */}
-      <div>
-        Want to teach your pet tricks?
-        <div
+      <div
+       className="question">
+        <h3>Want to teach your pet tricks?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.intelligentPet ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, intelligentPet: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.intelligentPet ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, intelligentPet: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you value a quiet home?
-        <div
+      <div
+       className="question">
+        <h3>Do you value a quiet home?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantQuiet ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantQuiet: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantQuiet ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantQuiet: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Does the idea of feeding a live animal upset you?
-        <div
+      <div
+       className="question">
+        <h3>Does the idea of feeding a live animal upset you?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.feedLiveAnimals ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
-            setAnswers({ ...answers, wantQuiet: false })
+            setAnswers({ ...answers, feedLiveAnimals: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.feedLiveAnimals ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
-            setAnswers({ ...answers, wantQuiet: true })
+            setAnswers({ ...answers, feedLiveAnimals: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you want an energetic pet?
-        <div
+      <div
+       className="question">
+        <h3>Do you want an energetic pet?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.highEnergy ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, highEnergy: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.highEnergy ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, highEnergy: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you have a back yard?
-        <div
+      <div
+       className="question">
+        <h3>Do you have a back yard?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.backyard ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, backyard: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.backyard ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, backyard: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
        */}
-      <div>
-        Do you want a pet that will creep out your mom?
-        <div
+      <div
+       className="question">
+        <h3>Do you want a pet that will creep out your mom?</h3>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantScary ? 'lightgray' : 'dodgerblue'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantScary: false })
           }}
         >
           no
-        </div>
-        <div
+        </button>
+        <button 
+          className="answer"
+          style={{
+            backgroundColor: `${answers.wantScary ? 'dodgerblue' : 'lightgray'}`
+          }}
           onClick={() => {
             setAnswers({ ...answers, wantScary: true })
           }}
         >
           yes
-        </div>
+        </button>
       </div>
       {/*       
 
@@ -349,9 +435,9 @@ const PetQuizPage = () => {
         orientation="horizontal"
       />
       <Button onClick={() => handleSubmit()}>submit</Button>
-      <div>
-        <div>{suggestedPet.pet}</div>
-        <div>{suggestedPet.text}</div>
+      <div className="quizresult">
+        <div className="quizresult-pet">{suggestedPet.pet}</div>
+        <div className="quizresult-text">{suggestedPet.text}</div>
       </div>
     </div>
   )
