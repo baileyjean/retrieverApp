@@ -1,4 +1,5 @@
 import './styles/App.css'
+import styles from 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { React, useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
@@ -18,13 +19,13 @@ import { useHistory } from 'react-router-dom'
 // import { BASE_URL } from './globals'
 
 function App() {
-  const [opened, setOpen] = useState(false);
+  const [opened, setOpen] = useState(false)
   const [loggedIn, setLogIn] = useState(false)
   const [userID, setUserID] = useState('')
   const [userLocation, setUserLocation] = useState('')
   // const [specie, setSpecie] = useState([])
   const history = useHistory()
-  const [keyword,setKeyword] = useState('')
+  const [keyword, setKeyword] = useState('')
 
   const handleSearch = async () => {
     /* double check that this is the correct axios call route */
@@ -59,10 +60,7 @@ function App() {
   //// FUNCTIONS
 
   const toggleMenu = () => {
-    opened === true ?
-      setOpen(()=> (false))
-      :
-      setOpen(()=> (true))
+    opened === true ? setOpen(() => false) : setOpen(() => true)
   }
 
   //// ON LOAD
@@ -75,19 +73,19 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar 
-        loggedIn={loggedIn} 
-        logOut={logOut} 
+      <NavBar
+        loggedIn={loggedIn}
+        logOut={logOut}
         userID={userID}
-        openMenu={toggleMenu} 
+        openMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
       />
-      <NavMobile 
+      <NavMobile
         logOut={logOut}
         userID={userID}
-        opened={opened} 
-        closeMenu={toggleMenu} 
+        opened={opened}
+        closeMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
       />
@@ -106,10 +104,7 @@ function App() {
         />
         <Route
           path="/sign-up"
-          component={(props) => 
-            <SignupPage 
-              {...props} 
-            />}
+          component={(props) => <SignupPage {...props} />}
         />
         <Route
           path="/home/:user_id"
@@ -127,12 +122,9 @@ function App() {
         />
         <Route
           path="/user-profile/:user_id"
-          component={(props) => 
-            <ProfilePage 
-              {...props} 
-              loggedIn={loggedIn} 
-              userID={userID}
-            />}
+          component={(props) => (
+            <ProfilePage {...props} loggedIn={loggedIn} userID={userID} />
+          )}
         />
         <Route
           path="/new-pet/:user_id"
@@ -148,43 +140,24 @@ function App() {
         <Route
           path="/pet-profile/:pet_id"
           component={(props) => (
-            <PetPage 
-              {...props} 
-              loggedIn={loggedIn} 
-              userID={userID} 
-            />
+            <PetPage {...props} loggedIn={loggedIn} userID={userID} />
           )}
         />
         <Route
           path="/results"
           component={(props) => (
-            <SearchResultsPage 
-              {...props} 
-              loggedIn={loggedIn} 
-            />
+            <SearchResultsPage {...props} loggedIn={loggedIn} />
           )}
         />
         <Route
           path="/browse"
-          component={(props) => 
-            <BrowsePage 
-              {...props} 
-            />}
+          component={(props) => <BrowsePage {...props} />}
         />
         <Route
           path="/browse-result/:specie"
-          component={(props) => 
-            <BrowseResultsPage 
-              {...props} 
-            />}
+          component={(props) => <BrowseResultsPage {...props} />}
         />
-        <Route 
-          path="/quiz" 
-          component={(props) => 
-            <PetQuizPage 
-              {...props} 
-            />} 
-        />
+        <Route path="/quiz" component={(props) => <PetQuizPage {...props} />} />
       </Switch>
     </div>
   )
