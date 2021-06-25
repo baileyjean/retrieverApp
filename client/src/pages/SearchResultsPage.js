@@ -13,6 +13,9 @@ const SearchResultsPage = (props) => {
           key={pet.id} 
           pet={pet} 
           showPost={showPost}
+          handleClick={() => {
+            props.history.push(`/pet-profile/${pet.id}`)
+          }}
         />
       ))}
     </div>
