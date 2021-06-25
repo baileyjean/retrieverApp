@@ -24,7 +24,6 @@ const CommentForm = (props) => {
   return (
     <div>
       <form>
-        {/* <textarea value={comment} onChange={handleChange} /> */}
         <Textarea
           label="Comment"
           rows={4}
