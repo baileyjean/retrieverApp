@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../globals'
-import {
-  Input,
-  Button,
-  Textarea
-} from 'react-rainbow-components'
+import { Input, Button, Textarea } from 'react-rainbow-components'
 
 const ProfilePage = (props) => {
   const { userID } = props
@@ -22,12 +18,13 @@ const ProfilePage = (props) => {
     const res = await axios.get(`${BASE_URL}/users/id/${userID}`)
     setUser(res.data)
     setEditedUser({
-      name: user.name,
-      location: user.location,
-      bio: user.bio,
-      kid_friendly: user.kid_friendly,
-      pet_friendly: user.pet_friendly,
-      image: user.image
+      name: res.data.name,
+      username: res.data.username,
+      email: res.data.email,
+      password: res.data.password,
+      location: parseInt(res.data.location),
+      bio: res.data.bio,
+      image: res.data.image
     })
   }
 
@@ -44,8 +41,7 @@ const ProfilePage = (props) => {
   }
 
   const submitEditUser = async () => {
-    setEditedUser({ ...editedUser, age: parseInt(editedUser.age) })
-    await axios.put(`${BASE_URL}/users/id/${userID}`, {
+    await axios.put(`${BASE_URL}/users/${userID}`, {
       ...editedUser
     })
     setUser({ ...editedUser })
@@ -65,7 +61,7 @@ const ProfilePage = (props) => {
   }
 
   const handleLocationChange = (e) => {
-    setEditedUser({ ...editedUser, location: e.target.value })
+    setEditedUser({ ...editedUser, location: parseInt(e.target.value) })
   }
 
   const handleDelete = async (e) => {
@@ -79,32 +75,32 @@ const ProfilePage = (props) => {
 
   if (editing) {
     return (
-    <div>
-      <h2>{user.username}'s Profile</h2>
-      <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
-      <Input
-        type="url"
-        label="Profile Picture"
-        rows={1}
-        name={'image'}
-        value={editedUser.img}
-        onChange={handleImageChange}
-        maxLength={255}
-        placeholder="Image Link"
-        style={{ marginBottom: '40px', width: '25vw' }}
-      />
-      <p>Name:</p>
-      <Input
-        label="Name"
-        rows={1}
-        name={'name'}
-        value={editedUser.name}
-        onChange={handleNameChange}
-        maxLength={255}
-        placeholder="Name"
-        style={{ marginBottom: '40px', width: '25vw' }}
-      />
-      <p>Bio:</p>
+      <div>
+        <h2>{user.username}'s Profile</h2>
+        <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
+        <Input
+          type="url"
+          label="Profile Picture"
+          rows={1}
+          name={'image'}
+          value={editedUser.img}
+          onChange={handleImageChange}
+          maxLength={255}
+          placeholder="Image Link"
+          style={{ marginBottom: '40px', width: '25vw' }}
+        />
+        <p>Name:</p>
+        <Input
+          label="Name"
+          rows={1}
+          name={'name'}
+          value={editedUser.name}
+          onChange={handleNameChange}
+          maxLength={255}
+          placeholder="Name"
+          style={{ marginBottom: '40px', width: '25vw' }}
+        />
+        <p>Bio:</p>
         <Textarea
           label="Bio"
           rows={4}
@@ -120,33 +116,34 @@ const ProfilePage = (props) => {
             overflowY: 'auto'
           }}
         />
-      <p>Location:</p>
-      <Input
-        label="Zip Code"
-        maxLength={5}
-        name={'location'}
-        value={editedUser.location}
-        onChange={handleLocationChange}
-        placeholder="Zip Code"
-        style={{ marginBottom: '40px', width: '25vw' }}
-      />
-      <Button label="Submit" variant="border" onClick={submitEditUser} />
-  </div>
-)
+        <p>Location:</p>
+        <Input
+          label="Zip Code"
+          maxLength={5}
+          name={'location'}
+          value={editedUser.location}
+          onChange={handleLocationChange}
+          placeholder="Zip Code"
+          style={{ marginBottom: '40px', width: '25vw' }}
+        />
+        <Button label="Submit" variant="border" onClick={submitEditUser} />
+      </div>
+    )
   }
 
-  return(
-    <div style={{marginTop:'100px'}}>
-    <h2>{user.username}'s Profile</h2>
-    <div><img style={{ width: '20vw' }} src={user.image} alt={user.name} /></div>
-    <p>Name: {user.name}</p>
-    <p>Bio: {user.bio}</p>
-    <p>Location: {user.location}</p>
+  return (
+    <div style={{ marginTop: '100px' }}>
+      <h2>{user.username}'s Profile</h2>
+      <div>
+        <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
+      </div>
+      <p>Name: {user.name}</p>
+      <p>Bio: {user.bio}</p>
+      <p>Location: {user.location}</p>
 
-    <button onClick={editProfile}>Edit Profile</button>
-    <button onClick={() => handleDelete(user.id)}>Delete Profile</button>
+      <button onClick={editProfile}>Edit Profile</button>
+      <button onClick={() => handleDelete(user.id)}>Delete Profile</button>
     </div>
-    
-  ) 
+  )
 }
 export default ProfilePage
