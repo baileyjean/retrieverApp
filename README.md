@@ -12,7 +12,7 @@
 ***
 
 ## Description
-**Retriever App** is an app for posting and *retrieving* rescue animals, with a specific focus on exotic pets. While current apps on the market serve a similar purpose to **Retriever**, those apps are primarily marketed towards the most common pets: cats and dogs. Our app is going to fill a void in the market by serving underappreciated pets!
+**Retriever App** is an app for posting and *retrieving* rescue animals, with a specific focus on exotic pets. While current apps on the market serve a similar purpose to **Retriever**, those apps are primarily marketed towards the most common pets: cats and dogs. Our app is going to fill a void in the market by serving underappreciated pets! Omg it is amazing, you're welcome.
 
 ***
 
