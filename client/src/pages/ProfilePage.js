@@ -75,7 +75,10 @@ const ProfilePage = (props) => {
 
   if (editing) {
     return (
-      <div>
+      <div style={{
+        padding: '4em',
+        margin: '4em' 
+      }}>
         <h2>{user.username}'s Profile</h2>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
         <Input
@@ -132,17 +135,22 @@ const ProfilePage = (props) => {
   }
 
   return (
-    <div style={{ marginTop: '100px' }}>
-      <h2>{user.username}'s Profile</h2>
+    <div style={{ 
+      padding: '4em',
+      margin: '4em' }}>
+      <h1>{user.username}</h1>
       <div>
         <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
       </div>
-      <p>Name: {user.name}</p>
-      <p>Bio: {user.bio}</p>
-      <p>Location: {user.location}</p>
-
-      <button onClick={editProfile}>Edit Profile</button>
-      <button onClick={() => handleDelete(user.id)}>Delete Profile</button>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <p className="petprofile-infobottom">Name: {user.name}</p>
+        <p className="petprofile-infobottom">Location: {user.location}</p>
+      </div>
+      <p className="petprofile-descrip">{user.bio}</p>
+      <div className="authcheck">
+        <button onClick={editProfile} style={{ backgroundColor: 'green', margin: "1em", color: "white" }}>Edit Profile</button>
+        <button onClick={() => handleDelete(user.id)} style={{ backgroundColor: 'maroon', margin: "1em", color: "white"  }}>Delete Profile</button>
+      </div>
     </div>
   )
 }
