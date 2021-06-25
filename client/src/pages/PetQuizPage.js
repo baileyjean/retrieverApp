@@ -63,7 +63,7 @@ const PetQuizPage = () => {
     ) {
       setSuggestedPet({
         pet: 'A Lizard!',
-        text: 'We recommend you looking into getting a lizard! There are many cool lizards from Bearded Dragons to Uromastyx. Lizards are typicaly easy to care for and they can even be left alone for a few days if you go out of town! They live in their own tank, but you can take them out and hold them if you want. Check out "Reptile" in our Browse pets tab'
+        text: 'We recommend you looking into getting a lizard! There are many cool lizards from Bearded Dragons to Uromastyx. Lizards are typicaly easy to care for and they can even be left alone for a few days if you go out of town! They live in their own tank, but you can take them out and hold them if you want. Check out "Reptile" in our Browse pets tab.'
       })
     } else if (
       answers.lifeSpan === '0-5 Years' &&
@@ -74,7 +74,7 @@ const PetQuizPage = () => {
     ) {
       setSuggestedPet({
         pet: 'A Rodent!',
-        text: 'We recommend you looking into getting a Rodent! Hamsters, Guinea Pigs, and Rabbits! Rodents sure are cute! With there shorter life spans and easy care, rodents make exellent starter pets for children, or anyone looking to have a cute pet in their life! Check out our "Rodent" page in our Browe Pets tab'
+        text: 'We recommend you looking into getting a Rodent! Hamsters, Guinea Pigs, and Rabbits! Rodents sure are cute! With there shorter life spans and easy care, rodents make exellent starter pets for children, or anyone looking to have a cute pet in their life! Check out our "Rodent" page in our Browe Pets tab.'
       })
     } else if (
       answers.backyard === true &&
@@ -94,13 +94,32 @@ const PetQuizPage = () => {
       answers.easyToCare === false
     ) {
       setSuggestedPet({
-        pet: 'A Dog!',
-        text: 'Everyone loves dogs! They do not call them mans best friend for nothing. There are so many cool dog breeds like our mascot the Golden Retriever. Check them out on our "Canine" page in our Browse Results tab!'
+        pet: 'A Cat!',
+        text: 'Cats are cool! These cuddley guys are great for anyone looking for a companion. Check out our "Feline" section in our Browse Pets tab.'
+      })
+    } else if (
+      answers.intelligentPet === true &&
+      answers.lifeSpan === 'Life-long' &&
+      answers.easyToCare === false
+    ) {
+      setSuggestedPet({
+        pet: 'A Bird!',
+        text: 'Birds are neat! Birds are very intelligent pets, and there long life span makes them great life long pets! Check out our "Bird" section in our Browse Pets tab.'
+      })
+    } else if (answers.wantScary === true) {
+      setSuggestedPet({
+        pet: 'A Bug!',
+        text: 'Bugs make cool pets! Has the idea of a pet Tarantula or Scorpion inticed you? Then you should look into getting a pet bug and totally scare your friends! Sheck out our "Bug" section in our Browse Pets tab.'
+      })
+    } else if (answers.wantScary === true) {
+      setSuggestedPet({
+        pet: 'A Bug!',
+        text: 'Bugs make cool pets! Has the idea of a pet Tarantula or Scorpion inticed you? Then you should look into getting a pet bug and totally scare your friends! Sheck out our "Bug" section in our Browse Pets tab.'
       })
     } else {
       setSuggestedPet({
         pet: 'A Fish!',
-        text: 'We recommend you get a fish! Fish can be pretty easy to take care of, but as you get more skilled as a fish owner you can get some really cool looking breeds. Check out our "Fish" page in our Browse Page'
+        text: 'We recommend you get a fish! Fish can be pretty easy to take care of, but as you get more skilled as a fish owner you can get some really cool looking breeds. Check out our "Fish" page in our Browse Page.'
       })
     }
   }
@@ -330,6 +349,10 @@ const PetQuizPage = () => {
         orientation="horizontal"
       />
       <Button onClick={() => handleSubmit()}>submit</Button>
+      <div>
+        <div>{suggestedPet.pet}</div>
+        <div>{suggestedPet.text}</div>
+      </div>
     </div>
   )
 }
