@@ -76,16 +76,28 @@ const PetQuizPage = () => {
         pet: 'A Rodent!',
         text: 'We recommend you looking into getting a Rodent! Hamsters, Guinea Pigs, and Rabbits! Rodents sure are cute! With there shorter life spans and easy care, rodents make exellent starter pets for children, or anyone looking to have a cute pet in their life! Check out our "Rodent" page in our Browe Pets tab'
       })
-      // } else if (
-      //   answers.backyard === true &&
-      //   answers.wantTankOrCage === false &&
-      //   answers.highEnergy === false
-      // ) {
-      //   setSuggestedPet({
-      //     pet: 'A Dog!',
-      //     text: 'Whos'
-      //   })
-      // } else {
+    } else if (
+      answers.backyard === true &&
+      answers.wantTankOrCage === false &&
+      answers.highEnergy === true &&
+      answers.lifeSpan === '5-15 Years' &&
+      answers.easyToCare === false
+    ) {
+      setSuggestedPet({
+        pet: 'A Dog!',
+        text: 'Everyone loves dogs! They do not call them mans best friend for nothing. There are so many cool dog breeds like our mascot the Golden Retriever. Check them out on our "Canine" page in our Browse Results tab!'
+      })
+    } else if (
+      answers.wantCuddly === true &&
+      answers.wantTankOrCage === false &&
+      answers.lifeSpan === '5-15 Years' &&
+      answers.easyToCare === false
+    ) {
+      setSuggestedPet({
+        pet: 'A Dog!',
+        text: 'Everyone loves dogs! They do not call them mans best friend for nothing. There are so many cool dog breeds like our mascot the Golden Retriever. Check them out on our "Canine" page in our Browse Results tab!'
+      })
+    } else {
       setSuggestedPet({
         pet: 'A Fish!',
         text: 'We recommend you get a fish! Fish can be pretty easy to take care of, but as you get more skilled as a fish owner you can get some really cool looking breeds. Check out our "Fish" page in our Browse Page'
@@ -164,14 +176,14 @@ const PetQuizPage = () => {
         Do you want your pet to have free roam of your house?
         <div
           onClick={() => {
-            setAnswers({ ...answers, wantTankOrCage: false })
+            setAnswers({ ...answers, wantTankOrCage: true })
           }}
         >
           no
         </div>
         <div
           onClick={() => {
-            setAnswers({ ...answers, wantTankOrCage: true })
+            setAnswers({ ...answers, wantTankOrCage: false })
           }}
         >
           yes
