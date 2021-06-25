@@ -13,7 +13,6 @@ const NavBar = (props) => {
           handleChange, 
           handleSearch 
         } = props
-  
 
   return (
     <header

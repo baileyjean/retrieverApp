@@ -40,24 +40,23 @@ function App() {
   }
   //// AUTHENTICATION
   const logOut = () => {
-    // setLogIn(false)
-    setAuthenticated(false)
+    setLogIn(false)
     localStorage.clear()
-    // history.push('/')
+    history.push('/')
   }
-  const getToken = () => {
-    let token = localStorage.getItem('token')
-    if (token) {
-      return setAuthenticated(true)
-    }
-  }
+  // const getToken = () => {
+  //   let token = localStorage.getItem('token')
+  //   if (token) {
+  //     return setLogIn(true)
+  //   }
+  // }
   //// FUNCTIONS
   const toggleMenu = () => {
     opened === true ? setOpen(() => false) : setOpen(() => true)
   }
   //// ON LOAD
   useEffect(() => {
-    getToken()
+    // getToken()
   }, [])
   return (
     <div className="App">
@@ -68,7 +67,6 @@ function App() {
         openMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
-        authenticated={authenticated}
       />
       <NavMobile
         logOut={logOut}
@@ -77,7 +75,6 @@ function App() {
         closeMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
-        authenticated={authenticated}
       />
       <Switch>
         <Route
@@ -89,7 +86,6 @@ function App() {
               setLogIn={setLogIn}
               history={history}
               setUserID={setUserID}
-              authenticated={authenticated}
             />
           )}
         />
@@ -108,7 +104,6 @@ function App() {
               setUserID={setUserID}
               setUserLocation={setUserLocation}
               history={history}
-              authenticated={authenticated}
             />
           )}
         />
@@ -136,7 +131,6 @@ function App() {
               {...props}
               loggedIn={loggedIn}
               userID={userID}
-              authenticated={authenticated}
             />
           )}
         />
