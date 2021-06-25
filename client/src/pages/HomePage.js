@@ -24,7 +24,6 @@ const HomePage = (props) => {
     getLocalPets()
   }, [])
 
- 
   return userID ? (
     <div className="homepage">
       <div style={{ marginTop: '15vh' }}>
