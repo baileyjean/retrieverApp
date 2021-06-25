@@ -34,7 +34,7 @@ const LoginPage = (props) => {
     history.push('/sign-up')
   }
   return (
-    <div>
+    <div className="loginpage">
       <form>
         <Input
           label="Email"

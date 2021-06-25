@@ -66,7 +66,7 @@ export const Slides = [
     title: 'Rescue an otter from Independence, MO',
     path: '/browse',
     label: 'View Pet',
-    image: 'https://cdn.fotofits.com/petzlover/gallery/img/l/otter-688705.jpg',
+    image: 'https://i.pinimg.com/originals/93/5c/05/935c056bca19b30d60dff8561eac9fa2.jpg',
     alt: 'pet'
   },
   {
