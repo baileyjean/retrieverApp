@@ -26,18 +26,7 @@ function App() {
   const [keyword, setKeyword] = useState('')
   const [petPosts, setPetPosts] = useState([])
 
-  const handleSearch = async () => {
-    const res = await axios.get(`${BASE_URL}/pets/searchby/${keyword}`)
-    setPetPosts(res.data)
-    history.push(`/results/${keyword}`)
-    setKeyword('')
-  }
-  // How do reset searchbar text to empty
-  // after submitting search??
-  const handleChangeSearch = (e) => {
-    let content = e.target.value
-    setKeyword(`${content}`)
-  }
+
   //// AUTHENTICATION
   const logOut = () => {
     setLogIn(false)
@@ -54,6 +43,17 @@ function App() {
   //// FUNCTIONS
   const toggleMenu = () => {
     opened === true ? setOpen(() => false) : setOpen(() => true)
+  }
+  const handleSearch = async () => {
+    const res = await axios.get(`${BASE_URL}/pets/searchby/${keyword}`)
+    setPetPosts(res.data)
+    history.push(`/results/${keyword}`)
+    setKeyword('')
+  }
+
+  const handleChangeSearch = (e) => {
+    let content = e.target.value
+    setKeyword(`${content}`)
   }
   //// ON LOAD
   useEffect(() => {
