@@ -11,7 +11,7 @@ const CommentForm = (props) => {
 
   const handleSubmit = async () => {
     await axios.post(`${BASE_URL}/comments`, {
-      user_id: {userID},
+      user_id: userID,
       pet_id: petID,
       post: comment
     })
@@ -20,7 +20,6 @@ const CommentForm = (props) => {
   const handleChange = (e) => {
     setComment(e.target.value)
   }
-
 
   return (
     <div>
