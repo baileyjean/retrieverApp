@@ -12,7 +12,6 @@ app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => res.json({ message: 'Server Works' }))
 app.use('/api', AppRouter)
 
 if (process.env.NODE_ENV === 'production') {
