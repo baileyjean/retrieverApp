@@ -12,16 +12,6 @@ body {
   margin: 0;
 }
 
-/* FORMS */
-
-form {
-  padding-top: 100px;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-
 
 /* ----- COMPONENTS ----- */
 .comment {
@@ -539,6 +529,36 @@ nav a.active {
 }
 .quizresult-text {
 
+}
+
+/* LOGIN PAGE */
+
+.loginpage {
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  color:antiquewhite;
+  background-image: url(https://images.freecreatives.com/wp-content/uploads/2016/03/Red-Retreiver-Dog-Fur-Texture.jpg);
+  background-size: cover;
+}
+.glorious-introduction{
+  margin-top: 1%;
+  width: 450px;
+  text-align: justify;
+  border-radius: 25px;
+  padding: 2em;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom:0;
+}
+form {
+  margin-top: 80px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 
 
