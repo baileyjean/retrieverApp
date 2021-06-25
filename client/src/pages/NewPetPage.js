@@ -20,11 +20,11 @@ const options = [
   { value: 'reptile', label: 'Reptile' },
   { value: 'amphibian', label: 'Amphibian' },
   { value: 'bird', label: 'Bird' },
-  { value: 'bug', label: 'Bug' },
+  { value: 'arachnid', label: 'Bug' },
   { value: 'rodent', label: 'Rodent' },
   { value: 'weasel', label: 'Weasel' },
-  { value: 'canine', label: 'Canine' },
-  { value: 'feline', label: 'Feline' },
+  { value: 'canine', label: 'Dog' },
+  { value: 'feline', label: 'Cat' },
   { value: 'fish', label: 'Fish' },
   { value: 'other', label: 'Other' }
 ]
