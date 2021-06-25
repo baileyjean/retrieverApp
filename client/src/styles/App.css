@@ -510,6 +510,38 @@ nav a.active {
   font-size: 3em;
 }
 
+/* PET QUIZ PAGE */
+
+.quizpage {
+  padding-top:100px;
+  margin: 1em;
+  padding-bottom: 80px;
+}
+.question {
+  margin-bottom: 1em;
+}
+.answer {
+   margin: 1em;
+   padding: 10px 15px;
+   border: none;
+   border-radius: 25px;
+   transition: ease-in-out 0.2s;
+   font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.answer:hover {
+  border-radius: 0;
+  font-weight:bold;
+}
+.quizresult {
+
+}
+.quizresult-pet {
+
+}
+.quizresult-text {
+
+}
+
 
 /* ----- MOBILE OPTIMIZATION ----- */
 
