@@ -1,4 +1,5 @@
 const { Pet } = require('../models')
+const { Op } = require('sequelize')
 
 const AddPet = async (req, res) => {
   try {
@@ -49,6 +50,35 @@ const GetPetByLocation = async (req, res) => {
   }
 }
 
+const GetAllPetsByAnything = async (req, res) => {
+  let query = req.params.query
+  let compstring = `%${query}%`
+  const results = await Pet.findAll({
+    where: {
+      name: { [Op.iLike]: compstring }
+    }
+  })
+  res.send(results)
+}
+
+// const GetAllPetsByAnything = async (req, res) => {
+//   try {
+//     const pet = await Pet.findAll({
+//       where: {
+//         name: {
+//           [Op.like]: '%j%'
+//         },
+//         owner_id: {
+//           [Op.between]: [1, 10]
+//         }
+//       }
+//     })
+//     res.send(pet)
+//   } catch (error) {
+//     throw error
+//   }
+// }
+
 const GetPetBySpecies = async (req, res) => {
   try {
     let petSpecies = req.params.species
@@ -77,7 +107,7 @@ const UpdatePets = async (req, res) => {
 const DeletePet = async (req, res) => {
   try {
     let petId = parseInt(req.params.pet_id)
-    await Pet.destroy({ 
+    await Pet.destroy({
       where: { id: petId },
       returning: true
     })
@@ -95,5 +125,6 @@ module.exports = {
   GetPetByLocation,
   GetPetBySpecies,
   UpdatePets,
-  DeletePet
+  DeletePet,
+  GetAllPetsByAnything
 }

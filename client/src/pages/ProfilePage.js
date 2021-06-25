@@ -3,6 +3,7 @@ import axios from 'axios'
 import { BASE_URL } from '../globals'
 // import UserCard from '../components/UserCard'
 
+
 const ProfilePage = (props) => {
   const { userID } = props
   // const [pets, setPets] = useState({})
@@ -15,8 +16,6 @@ const ProfilePage = (props) => {
   }
 
   console.log(userID)
-
-
   // -------- GET PETS FUNCTION SO PROFILE PAGE DISPLAYS THE OWNER'S PETS
   // const getPets = async () => {
   //   const res = await axios.get(
@@ -29,8 +28,6 @@ const ProfilePage = (props) => {
   useEffect(() => {
     getUser()
   }, [])
-
-
   // -------- FOR DELETING AND UPDATING THE USER
 
   // const handleDelete = async (id) => {
@@ -49,7 +46,8 @@ const ProfilePage = (props) => {
   return(
     <div style={{marginTop:'100px'}}>
       <h1>{user.name}'s Profile</h1>
-      
+      <div><img style={{ width: '20vw' }} src={user.image} alt={user.name} /></div>
+      <p>{user.bio}</p>
 
       {/* -------- FOR MAPPING THE OWNER'S PETS ON THE PAGE
       MAY WANT TO HAVE CONDITIONAL RENDERING SO IT HAS A DEFAULT, PLAIN PAGE WHEN THE USER DOESN'T HAVE PETS */ }
@@ -68,5 +66,4 @@ const ProfilePage = (props) => {
     </div>
   ) 
 }
-
 export default ProfilePage

@@ -71,6 +71,8 @@ function App() {
     getToken()
   }, [])
 
+  console.log(userID)
+
   return (
     <div className="App">
       <NavBar 
