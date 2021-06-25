@@ -33,9 +33,11 @@ function App() {
     localStorage.clear()
     history.push('/')
   }
-  const getToken = () => {
+  const getToken = async() => {
     let token = localStorage.getItem('token')
     if (token) {
+      const res = await axios.get(`${BASE_URL}/auth/session`)
+      setUserID(res.data.id)
       return setLogIn(true)
     }
   }
