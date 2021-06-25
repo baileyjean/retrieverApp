@@ -33,7 +33,12 @@ Looking for an exotic pet ? You have come to the right place. First you the user
 ***
 
 ## Screenshots from Retriever App
-
+![Login](./assets/images/loginPage.png)
+![Mantis](./assets/images/homepage-mantis.png)
+![Ball Python](./assets/images/homepage-BP.png)
+![Pets](./assets/images/browsePets.png)
+![Post a Pet](./assets/images/postPet.png)
+![Profile Page](./assets/images/profilePage.png)
 ***
 
 ## Frontend Requirements
@@ -66,6 +71,8 @@ Looking for an exotic pet ? You have come to the right place. First you the user
 
 ## Future Improvements & Additions
 - [x] Pet Matching Quiz for users
+- [x] React Rainbow
+- [x] React Framer Motion
 - Auto-deletion upon adoption
 - MAPBOX (to show map results of pets near the user / vets)
 - Messaging between users
