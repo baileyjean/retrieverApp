@@ -11,7 +11,8 @@ function NavMobile(props) {
           logOut, 
           userID,
           handleChange, 
-          handleSearch  
+          handleSearch, 
+          keyword  
         } = props
 
   return (

@@ -68,7 +68,6 @@ function App() {
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
         keyword={keyword}
-        setKeyword={setKeyword}
       />
       <NavMobile
         logOut={logOut}
@@ -77,6 +76,7 @@ function App() {
         closeMenu={toggleMenu}
         handleChange={handleChangeSearch}
         handleSearch={handleSearch}
+        keyword={keyword}
       />
       <Switch>
         <Route

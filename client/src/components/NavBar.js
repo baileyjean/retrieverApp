@@ -12,7 +12,6 @@ const NavBar = (props) => {
     openMenu,
     handleChange,
     handleSearch,
-    setKeyword,
     keyword
   } = props
 
