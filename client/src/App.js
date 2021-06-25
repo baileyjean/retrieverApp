@@ -44,19 +44,20 @@ function App() {
     localStorage.clear()
     history.push('/')
   }
-  // const getToken = () => {
-  //   let token = localStorage.getItem('token')
-  //   if (token) {
-  //     return setLogIn(true)
-  //   }
-  // }
+  const getToken = () => {
+    let token = localStorage.getItem('token')
+    if (token) {
+      return setLogIn(true)
+    }
+  }
+
   //// FUNCTIONS
   const toggleMenu = () => {
     opened === true ? setOpen(() => false) : setOpen(() => true)
   }
   //// ON LOAD
   useEffect(() => {
-    // getToken()
+    getToken()
   }, [])
   return (
     <div className="App">
