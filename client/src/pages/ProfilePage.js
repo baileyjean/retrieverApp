@@ -7,59 +7,33 @@ import {
   Textarea
 } from 'react-rainbow-components'
 
-const containerStyles = {
-  maxWidth: 500
-}
-
-const bioStyles = {
-  width: 500
-}
-
 const ProfilePage = (props) => {
   const { userID } = props
   const [user, setUser] = useState({})
   const [editing, setEditing] = useState(false)
-  const [name, setName] = useState('')
-  const [bio, setBio] = useState('')
-  const [location, setLocation] = useState('')
-  const [img, setImg] = useState('')
+  const [editedUser, setEditedUser] = useState({
+    name: '',
+    location: '',
+    bio: '',
+    image: ''
+  })
 
   const getUser = async () => {
     const res = await axios.get(`${BASE_URL}/users/id/${userID}`)
     setUser(res.data)
-    console.log(user)
+    setEditedUser({
+      name: user.name,
+      location: user.location,
+      bio: user.bio,
+      kid_friendly: user.kid_friendly,
+      pet_friendly: user.pet_friendly,
+      image: user.image
+    })
   }
 
   useEffect(() => {
     getUser()
   }, [])
-
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
-
-  const handleBioChange = (e) => {
-    setBio(e.target.value)
-  }
-
-  const handleImgChange = (e) => {
-    setImg(e.target.value)
-  }
-
-  const handleLocationChange = (e) => {
-    const re = /^[0-9\b]+$/
-    if (e.target.value === '' || re.test(e.target.value)) {
-      setLocation(e.target.value)
-    }
-  }
-
-  /* new by zee */ 
-  const handleChange = (e) => {
-    setUser({ user: { ...user, [e.target.name]: e.target.value } });
-  }
-/* end new by zee  - this is brilliant and eloquent */
-
-
 
   const editProfile = () => {
     if (editing) {
@@ -69,20 +43,29 @@ const ProfilePage = (props) => {
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    try {
-      await axios.put(`${BASE_URL}/users/${userID}`, {
-        name: name,
-        location: location,
-        bio: bio,
-        image: img
-      })
-    } catch (error) {
-      console.log(error)
-    }
-    setEditing(false)
-    props.history.push(`/user-profile/${userID}`)
+  const submitEditUser = async () => {
+    setEditedUser({ ...editedUser, age: parseInt(editedUser.age) })
+    await axios.put(`${BASE_URL}/users/id/${userID}`, {
+      ...editedUser
+    })
+    setUser({ ...editedUser })
+    editProfile()
+  }
+
+  const handleNameChange = (e) => {
+    setEditedUser({ ...editedUser, name: e.target.value })
+  }
+
+  const handleBioChange = (e) => {
+    setEditedUser({ ...editedUser, bio: e.target.value })
+  }
+
+  const handleImageChange = (e) => {
+    setEditedUser({ ...editedUser, image: e.target.value })
+  }
+
+  const handleLocationChange = (e) => {
+    setEditedUser({ ...editedUser, location: e.target.value })
   }
 
   const handleDelete = async (e) => {
@@ -97,49 +80,57 @@ const ProfilePage = (props) => {
   if (editing) {
     return (
     <div>
-    <form>
-      <Input
-        label="Name"
-        rows={1}
-        name={'name'}
-        value={name}
-        onChange={handleNameChange}
-        maxLength={255}
-        placeholder="Name"
-        style={containerStyles}
-      />
+      <h2>{user.username}'s Profile</h2>
+      <img style={{ width: '20vw' }} src={user.image} alt={user.name} />
       <Input
         type="url"
         label="Profile Picture"
         rows={1}
         name={'image'}
-        value={img}
-        onChange={handleImgChange}
+        value={editedUser.img}
+        onChange={handleImageChange}
         maxLength={255}
         placeholder="Image Link"
-        style={containerStyles}
+        style={{ marginBottom: '40px', width: '25vw' }}
       />
+      <p>Name:</p>
+      <Input
+        label="Name"
+        rows={1}
+        name={'name'}
+        value={editedUser.name}
+        onChange={handleNameChange}
+        maxLength={255}
+        placeholder="Name"
+        style={{ marginBottom: '40px', width: '25vw' }}
+      />
+      <p>Bio:</p>
         <Textarea
           label="Bio"
           rows={4}
           name={'bio'}
-          value={bio}
+          value={editedUser.bio}
           onChange={handleBioChange}
           maxLength={255}
           placeholder="Tell us about yourself!"
-          style={bioStyles}
+          style={{
+            padding: '0.4em',
+            width: '50vw',
+            marginBottom: '1em',
+            overflowY: 'auto'
+          }}
         />
+      <p>Location:</p>
       <Input
         label="Zip Code"
         maxLength={5}
         name={'location'}
-        value={location}
+        value={editedUser.location}
         onChange={handleLocationChange}
         placeholder="Zip Code"
-        style={containerStyles}
+        style={{ marginBottom: '40px', width: '25vw' }}
       />
-      <Button label="Submit" variant="border" onClick={handleChange} />
-    </form>
+      <Button label="Submit" variant="border" onClick={submitEditUser} />
   </div>
 )
   }
