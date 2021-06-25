@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../globals'
 import Hero from '../components/Hero'
-import {Slides} from '../styles/images/Slides'
+import { Slides } from '../styles/images/Slides'
 
 const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
@@ -27,9 +27,19 @@ const HomePage = (props) => {
   }, [])
 
   return userID ? (
-    <div style={{backgroundColor:'antiquewhite'}}>
-    <Hero slides={Slides} history={history}/>
-    <footer>None of these quite right? <a href="/quiz">Take our quiz.</a></footer>
+    <div style={{ backgroundColor: 'antiquewhite' }}>
+      <Hero slides={Slides} history={history} />
+      <footer>
+        None of these quite right?{' '}
+        <div
+          onClick={() => {
+            history.push('/quiz')
+          }}
+          style={{ cursor: 'pointer' }}
+        >
+          Take our quiz.
+        </div>
+      </footer>
     </div>
   ) : (
     <div className="loading">
