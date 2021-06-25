@@ -9,7 +9,8 @@ import {
   Select,
   RadioGroup,
   Notification,
-  RenderIf
+  RenderIf,
+  CounterInput
 } from 'react-rainbow-components'
 
 const containerStyles = {
@@ -144,6 +145,7 @@ const NewPetPage = (props) => {
         <Input
           label="How old are they?"
           type="number"
+          min={0}
           value={age}
           onChange={handleAgeChange}
           maxLength={255}
@@ -172,6 +174,7 @@ const NewPetPage = (props) => {
           type="number"
           label="Adoption Fee"
           value={fee}
+          min={0}
           onChange={handleFeeChange}
           maxLength={255}
           placeholder="$0.00"
