@@ -14,8 +14,8 @@ import BrowsePage from './pages/BrowsePage'
 import BrowseResultsPage from './pages/BrowseResultsPage'
 import PetQuizPage from './pages/PetQuizPage'
 import { useHistory } from 'react-router-dom'
-// import axios from 'axios'
-// import { BASE_URL } from './globals'
+import axios from 'axios'
+import { BASE_URL } from './globals'
 
 function App() {
   const [opened, setOpen] = useState(false);
@@ -24,11 +24,12 @@ function App() {
   const [userLocation, setUserLocation] = useState('')
   // const [specie, setSpecie] = useState([])
   const history = useHistory()
-  const [keyword,setKeyword] = useState('')
+  const [keyword, setKeyword] = useState('')
+  const [petPosts, setPetPosts] = useState([]) 
 
   const handleSearch = async () => {
-    /* double check that this is the correct axios call route */
-    // const res = await axios.get(`${BASE_URL}/pets/${keyword}`)
+    const res = await axios.get(`${BASE_URL}/pets/searchby/${keyword}`)
+    setPetPosts(res.data)
     history.push(`/results/${keyword}`)
     setKeyword('')
   }
@@ -70,8 +71,6 @@ function App() {
   useEffect(() => {
     getToken()
   }, [])
-
-  console.log(userID)
 
   return (
     <div className="App">
@@ -161,6 +160,7 @@ function App() {
             <SearchResultsPage 
               {...props} 
               loggedIn={loggedIn} 
+              petPosts={petPosts}
             />
           )}
         />

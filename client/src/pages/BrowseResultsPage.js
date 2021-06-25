@@ -14,8 +14,7 @@ const BrowseResultsPage = (props) => {
     getPets()
   }, [])
   return (
-    <div>
-      <div>
+      <div className='browse-results'>
         {pets.map((pet, index) => (
           <PetCard
             key={index}
@@ -26,7 +25,6 @@ const BrowseResultsPage = (props) => {
           />
         ))}
       </div>
-    </div>
   )
 }
 export default BrowseResultsPage
