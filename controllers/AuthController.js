@@ -35,7 +35,17 @@ const Login = async (req, res) => {
   }
 }
 
+const CheckLogin = async (req,res) => {
+  try {
+    const { payload } = res.locals
+    res.send(payload)
+  } catch (error) {
+    throw error
+  }
+}
+
 module.exports = {
   Register,
-  Login
+  Login,
+  CheckLogin
 }
