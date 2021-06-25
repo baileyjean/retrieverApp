@@ -38,6 +38,8 @@ const genderOptions = [
 const NewPetPage = (props) => {
   const { userID, userLocation } = props
   const [name, setName] = useState('')
+  const [userId, setUserID] = useState(userID)
+  const [location, setLocation] = useState(userLocation)
   const [species, setSpecies] = useState('reptile')
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
@@ -51,18 +53,24 @@ const NewPetPage = (props) => {
   const handleNameChange = (e) => {
     setName(e.target.value)
   }
+  console.log(name)
+
+  console.log(props)
 
   const handleSpeciesChange = (e) => {
     setSpecies(e.target.value)
   }
+  console.log(species)
 
   const handleAgeChange = (e) => {
     setAge(e.target.value)
   }
+  console.log(age)
 
   const handleGenderChange = (e) => {
     setGender(e.target.value)
   }
+  console.log(gender)
 
   const togglePetFriendly = () => {
     if (petFriendly === false) {
@@ -71,6 +79,7 @@ const NewPetPage = (props) => {
       setPetFriendly(false)
     }
   }
+  console.log(petFriendly)
 
   const toggleKidFriendly = () => {
     if (kidFriendly === false) {
@@ -79,10 +88,14 @@ const NewPetPage = (props) => {
       setKidFriendly(false)
     }
   }
+  console.log(kidFriendly)
+
+  console.log(fee)
 
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value)
   }
+  console.log(description)
 
   const handleFeeChange = (e) => {
     setFee(e.target.value)
@@ -91,12 +104,13 @@ const NewPetPage = (props) => {
   const handleImgChange = (e) => {
     setImg(e.target.value)
   }
+  console.log(img)
 
   const handleSubmit = async () => {
-    await axios.post(`${BASE_URL}/pets`, {
+    const res = await axios.post(`${BASE_URL}/pets`, {
       name: name,
-      owner_id: {userID},
-      location: {userLocation},
+      owner_id: userID,
+      location: userLocation,
       species: species,
       age: age,
       gender: gender,
@@ -186,7 +200,7 @@ const NewPetPage = (props) => {
           <div>
             <Notification
               title="Pet succesfully posted!"
-              description="Click here to return to the home screen."
+              description="Close this notification to return to the home screen."
               // hideCloseButton={true}
               onRequestClose={() => {
                 props.history.push(`/home/${userID}`)

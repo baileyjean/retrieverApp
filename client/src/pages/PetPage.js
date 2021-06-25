@@ -24,6 +24,10 @@ const PetPage = (props) => {
     setPet(res.data)
   }
 
+  // edit pet
+  
+  // delete pet
+
   useEffect(() => {
     getComments()
     getPet()
@@ -43,32 +47,41 @@ const PetPage = (props) => {
   }
 
   return (
-    <div className="comment-section">
-      <img src={pet.image} style={{ width: '50vw' }} alt={pet.name}/>
-      {/* <div>listed by: {owner}</div> */}
-      <div>
-        {pet.name} | {pet.age} years old
+    <div className="pet-profile">
+      <div className="petprofile-imgbox">
+        <img src={pet.image} alt={pet.name}/>
       </div>
-      <div className="capitalize">{pet.species}</div>
-      <div
-        style={{
-          justifyContent: 'center',
-          display: `${pet.kid_friendly ? 'flex' : 'none'}`
-        }}
-      >
-        Kid Friendly
-      </div>
-      <div
-        style={{
-          justifyContent: 'center',
-          display: `${pet.pet_friendly ? 'flex' : 'none'}`
-        }}
-      >
-        Pet Friendly
-      </div>
-      <div>{pet.description}</div>
-      <div>Adoption Fee: ${pet.adopt_fee}</div>
-
+      <div className="petprofile-infobox">
+      <h1>{pet.name}</h1>
+      <h2>{pet.age} years old</h2>
+        <div className="flagbox">
+          <div 
+            className="show-species" 
+            style={{backgroundColor:'dodgerblue'}}>
+              {pet.species}
+          </div>
+          <div
+            className="show-friendly"
+            style={{
+              display: `${pet.kid_friendly ? 'block' : 'none'}`,
+              backgroundColor:'orangered'
+            }}>
+            Kid Friendly
+          </div>
+          <div
+            className="show-friendly"
+            style={{
+              display: `${pet.pet_friendly ? 'block' : 'none'}`,
+              backgroundColor:'limegreen'
+            }}>
+            Pet Friendly
+          </div>
+        </div>
+      <div className="petprofile-descrip">{pet.description}</div>
+      <h4>Adoption Fee:</h4><span className="profilefee">${pet.adopt_fee}</span>
+      
+    </div>
+    <button className="backtoresultsbtn" onClick={()=>{window.history.back()}}>Back to Results</button>
       {comments.map((comment, index) => (
         <div className="comment-center">
           <CommentCard

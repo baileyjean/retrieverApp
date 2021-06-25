@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '../globals'
+
 const HomePage = (props) => {
   const { userID, userLocation, setUserLocation, history } = props
   const [localPets, setLocalPets] = useState([])
+
   const getUserLocation = async () => {
     const res = await axios.get(
       `${BASE_URL}/users/id/${props.match.params.user_id}`
@@ -17,20 +19,23 @@ const HomePage = (props) => {
   const redirect = () => {
     userID ? history.push(`/home/${userID}`) : history.push(`/`)
   }
-  useEffect( () => {
+  useEffect(() => {
     getUserLocation()
     getLocalPets()
   }, [])
+
+ 
   return userID ? (
     <div className="homepage">
       <div style={{ marginTop: '15vh' }}>
         rad little welcome/intro message, info about the app above carousel
       </div>
-    {localPets.map((pet) => {
-      <div>
-        <h1>pet.name</h1>
-      </div>
-    })}
+
+      {localPets.map((pet) => (
+        <div>
+          <h1>{pet.name}</h1>
+        </div>
+      ))}
     </div>
   ) : (
     <div className="loading">
