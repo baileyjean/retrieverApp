@@ -55,29 +55,16 @@ const GetAllPetsByAnything = async (req, res) => {
   let compstring = `%${query}%`
   const results = await Pet.findAll({
     where: {
-      name: { [Op.iLike]: compstring }
+      [Op.or]: [
+        { name: { [Op.iLike]: compstring } },
+        { description: { [Op.iLike]: compstring } }
+      ]
     }
   })
   res.send(results)
 }
 
-// const GetAllPetsByAnything = async (req, res) => {
-//   try {
-//     const pet = await Pet.findAll({
-//       where: {
-//         name: {
-//           [Op.like]: '%j%'
-//         },
-//         owner_id: {
-//           [Op.between]: [1, 10]
-//         }
-//       }
-//     })
-//     res.send(pet)
-//   } catch (error) {
-//     throw error
-//   }
-// }
+
 
 const GetPetBySpecies = async (req, res) => {
   try {
